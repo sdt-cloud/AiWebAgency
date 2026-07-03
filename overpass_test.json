@@ -1,0 +1,4 @@
+[out:json];
+area["name"="Bornova"]->.searchArea;
+nwr(area.searchArea)["amenity"~"cafe|restaurant"];
+out center 5;
