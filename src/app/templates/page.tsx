@@ -136,6 +136,7 @@ export default function TemplatesPage() {
               // Kategorisine göre ikon ve renk stili seçelim
               const catMeta = CATEGORY_META.find(c => c.id === preset.category) || CATEGORY_META[0];
               const Icon = catMeta.icon;
+              const imageUrl = preset.defaultContent.images?.hero_bg || preset.defaultContent.images?.about_img || '';
               
               return (
                 <div 
@@ -143,10 +144,22 @@ export default function TemplatesPage() {
                   className="group bg-slate-900/40 border border-slate-800/80 rounded-2xl overflow-hidden flex flex-col hover:border-indigo-500/40 hover:shadow-xl hover:shadow-indigo-950/10 transition-all duration-300 backdrop-blur-sm"
                 >
                   
-                  {/* Kart Görsel/Placeholder Alanı */}
+                  {/* Kart Görsel Alanı */}
                   <div className="aspect-video relative bg-slate-950 flex flex-col justify-between p-5 overflow-hidden">
-                    {/* Kart Arka Plan Efekti */}
-                    <div className="absolute -inset-10 bg-radial-gradient from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    {/* Şablon Görsel Önizlemesi */}
+                    {imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img 
+                        src={imageUrl} 
+                        alt={preset.displayName} 
+                        className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700 pointer-events-none" 
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-slate-900" />
+                    )}
+
+                    {/* Karartma Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/20" />
                     
                     {/* Kategori Etiketi */}
                     <div className="flex justify-between items-start z-10">
@@ -159,15 +172,10 @@ export default function TemplatesPage() {
                       </div>
                     </div>
 
-                    {/* Geometrik Taslak Logosu */}
-                    <div className="my-auto self-center flex items-center justify-center w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 text-indigo-400 group-hover:scale-110 group-hover:border-indigo-500/30 transition-all duration-500 shadow-inner z-10">
-                      <Layout size={26} />
-                    </div>
-
                     {/* Şablon Teknik İsmi */}
                     <div className="z-10 mt-auto flex justify-between items-end">
-                      <span className="text-[10px] font-mono text-slate-500">ID: {preset.template_name}</span>
-                      <span className="text-[10px] font-mono text-slate-400" style={{ color: preset.defaultTheme.primary }}>
+                      <span className="text-[10px] font-mono text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded">ID: {preset.template_name}</span>
+                      <span className="text-[10px] font-mono text-slate-200 bg-slate-950/80 px-2 py-0.5 rounded" style={{ color: preset.defaultTheme.primary }}>
                         {preset.defaultTheme.fontFamily.split(',')[0]}
                       </span>
                     </div>
