@@ -30,6 +30,35 @@ const CATEGORY_META = [
   { id: 'Oto & Hizmet', label: 'Oto & Ev Hizmetleri', icon: Car, color: 'text-emerald-400 bg-emerald-500/10' }
 ];
 
+// İnce kategorileri ana filtre gruplarına eşleyen yardımcı fonksiyon
+export function mapPresetToDashboardCategory(presetCategory: string): string {
+  switch (presetCategory) {
+    case 'Kafe & Restoran':
+    case 'Pastane & Fırın':
+      return 'Kafe & Restoran';
+    case 'Berber & Kuaför':
+    case 'Güzellik Salonu & SPA':
+    case 'Fotoğrafçı':
+      return 'Berber & Güzellik';
+    case 'Diş Kliniği':
+    case 'Eczane':
+    case 'Veteriner':
+      return 'Diş & Sağlık';
+    case 'Avukat & Hukuk':
+    case 'Emlak & Gayrimenkul':
+      return 'Hukuk & Kurumsal';
+    case 'Çilingir':
+    case 'Tesisatçı & Tadilat':
+    case 'Elektrikçi':
+      return 'Acil Servis';
+    case 'Oto Yıkama':
+    case 'Oto Tamir & Servis':
+      return 'Oto & Hizmet';
+    default:
+      return 'Oto & Hizmet';
+  }
+}
+
 export default function TemplatesPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,7 +71,8 @@ export default function TemplatesPage() {
   // Arama sorgusuna ve seçilen kategoriye göre şablonları filtreleyelim
   const filteredPresets = useMemo(() => {
     return allPresets.filter(preset => {
-      const matchesCategory = selectedCategory === 'all' || preset.category === selectedCategory;
+      const dbCategory = mapPresetToDashboardCategory(preset.category);
+      const matchesCategory = selectedCategory === 'all' || dbCategory === selectedCategory;
       
       const searchLower = searchQuery.toLowerCase();
       const matchesSearch = 
@@ -134,7 +164,8 @@ export default function TemplatesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredPresets.map((preset) => {
               // Kategorisine göre ikon ve renk stili seçelim
-              const catMeta = CATEGORY_META.find(c => c.id === preset.category) || CATEGORY_META[0];
+              const dashboardCategory = mapPresetToDashboardCategory(preset.category);
+              const catMeta = CATEGORY_META.find(c => c.id === dashboardCategory) || CATEGORY_META[0];
               const Icon = catMeta.icon;
               const imageUrl = preset.defaultContent.images?.hero_bg || preset.defaultContent.images?.about_img || '';
               
