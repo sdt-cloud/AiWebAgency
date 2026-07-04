@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Search, Sparkles, Database, ShieldAlert, BarChart3, Users, CheckCircle, FileText, Trash2, MessageSquare, AlertCircle, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Search, Sparkles, Database, ShieldAlert, BarChart3, Layout, Users, CheckCircle, FileText, Trash2, MessageSquare, AlertCircle, ThumbsUp, ThumbsDown } from 'lucide-react';
+import Link from 'next/link';
 import LeadTable from './LeadTable';
 import PreviewFrame from './PreviewFrame';
 import { turkeyData, turkeyCategories } from '@/lib/turkey-data';
@@ -271,6 +272,14 @@ export default function Dashboard() {
               Harita: {apiStatus.search_providers.join(' → ')}
             </span>
           </div>
+
+          <Link
+            href="/templates"
+            className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg border bg-slate-800 hover:bg-slate-700 text-slate-350 border-slate-700/80 transition-colors cursor-pointer"
+          >
+            <Layout size={12} />
+            <span className="font-semibold">Şablon Havuzu</span>
+          </Link>
 
           <button
             onClick={handleResetDatabase}

@@ -28,6 +28,10 @@ export async function POST(request: Request) {
     
     const preset = getPresetForCategory(lead.category || '');
     
+    // Varsa kullanıcının özelleştirdiği şablon içeriğini temel al, yoksa orijinali kullan
+    const customPresetContent = await db.getCustomPreset(preset.template_name);
+    const baseContent = customPresetContent || preset.defaultContent;
+    
     // Türkçe karakterleri temizleyip boşlukları silerek kurumsal e-posta türetelim
     const normalizedDomain = lead.name
       .toLowerCase()
@@ -43,18 +47,18 @@ export async function POST(request: Request) {
     const dynamicEmail = `info@${normalizedDomain || 'isletme'}.com`;
 
     // Yalnızca şirket adı, telefon, adres gibi spesifik verileri lead'den al,
-    // gerisini template'in varsayılan, kaliteli hazır içeriğinden (mock_data) kullan.
+    // gerisini template'in varsayılan (veya kullanıcının özelleştirdiği) kaliteli hazır içeriğinden kullan.
     const customContent = {
-      ...preset.defaultContent,
+      ...baseContent,
       hero: {
-        ...preset.defaultContent.hero,
-        title: `${lead.name} - ${preset.defaultContent.hero.title}`
+        ...baseContent.hero,
+        title: `${lead.name} - ${baseContent.hero.title}`
       },
       contact: {
-        ...preset.defaultContent.contact,
+        ...baseContent.contact,
         company_name: lead.name,
-        phone: lead.phone || preset.defaultContent.contact.phone,
-        address: lead.address || preset.defaultContent.contact.address,
+        phone: lead.phone || baseContent.contact.phone,
+        address: lead.address || baseContent.contact.address,
         email: dynamicEmail, // Dinamik üretilen kurumsal mail
       }
     };

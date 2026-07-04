@@ -110,6 +110,7 @@ const LOCAL_DB_PATH = path.join(process.cwd(), 'local_db.json');
 interface LocalStore {
   leads: Lead[];
   generated_sites: GeneratedSite[];
+  custom_presets?: Record<string, any>;
 }
 
 function getLocalStore(): LocalStore {
@@ -367,7 +368,33 @@ export const db = {
         .neq('id', '00000000-0000-0000-0000-000000000000');
       if (leadsErr) throw leadsErr;
     } else {
-      saveLocalStore({ leads: [], generated_sites: [] });
+      // Sıfırlama yaparken kullanıcının özelleştirdiği şablonları koru
+      const store = getLocalStore();
+      saveLocalStore({ 
+        leads: [], 
+        generated_sites: [],
+        custom_presets: store.custom_presets || {} 
+      });
     }
+  },
+
+  async getCustomPresets(): Promise<Record<string, any>> {
+    const store = getLocalStore();
+    return store.custom_presets || {};
+  },
+
+  async saveCustomPreset(name: string, content: any): Promise<void> {
+    const store = getLocalStore();
+    if (!store.custom_presets) {
+      store.custom_presets = {};
+    }
+    store.custom_presets[name] = content;
+    saveLocalStore(store);
+  },
+
+  async getCustomPreset(name: string): Promise<any | null> {
+    const store = getLocalStore();
+    if (!store.custom_presets) return null;
+    return store.custom_presets[name] || null;
   }
 };

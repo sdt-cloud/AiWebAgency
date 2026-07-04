@@ -1,267 +1,73 @@
 {
   "leads": [
     {
-      "name": "Deneme Aras Cilingir Hizmetleri",
-      "category": "Çilingir",
-      "address": "Osmanağa, Söğütlüçeşme Cad. No:92, Kadıköy/İstanbul",
-      "phone": "0535 999 88 77",
-      "rating": 4.5,
-      "reviews_count": 12,
-      "reviews_summary": "Test amaclı olusturulmus isletme.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "mock_place_12345",
-      "id": "test-aras-cilingir-id",
-      "status": "ready",
-      "created_at": "2026-07-04T17:59:41.264Z"
-    },
-    {
-      "name": "Aras Çilingir 7/24 Acil Çilingir",
-      "category": "Çilingir",
-      "address": "Osmanağa, Söğütlüçeşme Cad. Abdullah Uzlar İş Merkezi no 92-94 İç kapı No 47, 34714 Kadıköy/İstanbul, Türkiye",
-      "phone": "0535 642 85 00",
-      "rating": 4.6,
-      "reviews_count": 54,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJv2AVo265yhQRPYX6yKGDp9M",
-      "id": "76268cfe-f38e-4eda-b79b-897566e95703",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:32.025Z"
-    },
-    {
-      "name": "Dağdelen Çilingir",
-      "category": "Çilingir",
-      "address": "Akasya Ap, Fenerbahçe, Alageyik Sk. No:21, 34726 Kadıköy/İstanbul, Türkiye",
-      "phone": "0536 789 66 52",
-      "rating": 5,
-      "reviews_count": 122,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJI1mX9I3HyhQREeN1v50KRxI",
-      "id": "35173be4-4963-413c-a25f-6bb5f4112868",
-      "status": "ready",
-      "created_at": "2026-07-04T18:02:32.363Z"
-    },
-    {
-      "name": "Kadıköy Altıyol Anahtarci Cilingir",
-      "category": "Çilingir",
-      "address": "Altıyol Vişne Sokak No: 5 Kadıköy/ Hasırcıbaşı İstanbul, Osmanağa, 34714 Kadıköy/İstanbul, Türkiye",
-      "phone": "0542 243 92 71",
-      "rating": 4.3,
-      "reviews_count": 23,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJKz0zB2-4yhQRKLT4Rfx6q_U",
-      "id": "30944c53-411c-45b3-bc59-649961f92313",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:32.709Z"
-    },
-    {
-      "name": "Suadiye Çilingir - Caddebostan Kozyatağı Bostancı 7/24",
-      "category": "Çilingir",
-      "address": "Suadiye, Kurudere Sk. No:11/B, 34740 Kadıköy/İstanbul, Türkiye",
-      "phone": "0540 558 07 24",
-      "rating": 5,
-      "reviews_count": 7,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJIdifDfLHyhQRRxC7gH6EyjE",
-      "id": "0449bb2e-5b2e-4d1e-b5cd-70361fec68bf",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:33.102Z"
-    },
-    {
-      "name": "Feneryolu Anahtar Çilingir",
-      "category": "Çilingir",
-      "address": "Feneryolu, Bağdat Cad. No: 131, 34724 Kadıköy/İstanbul, Türkiye",
-      "phone": "0531 327 90 28",
+      "name": "Özgün Gurme Kahvecisi",
+      "category": "Kafe",
+      "address": "Osmanağa Mah. Kadıköy, İstanbul",
+      "phone": "0216 111 22 33",
       "rating": 4.8,
-      "reviews_count": 131,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "reviews_count": 55,
+      "reviews_summary": "Mükemmel aromalı kahveler.",
       "has_website": false,
       "website_url": "",
-      "place_id": "ChIJCzbh9YDHyhQReapWQNSlfls",
-      "id": "f81f9e7d-9fbf-4e9d-9aca-a03d598d921f",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:33.406Z"
-    },
-    {
-      "name": "Cem Anahtar",
-      "category": "Çilingir",
-      "address": "Osmanağa Mahallesi General Asım Gündüz Caddesi, Osmanağa, Halil Ethem Sk. 32/40, 34710 Kadıköy/İstanbul, Türkiye",
-      "phone": "0535 205 75 13",
-      "rating": 4.7,
-      "reviews_count": 20,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJZbkyEsl3iEARXr4wBFhjzd8",
-      "id": "1bda4a1d-d1ab-4179-a12c-0ba03182d45d",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:33.670Z"
-    },
-    {
-      "name": "Teknikel Anahtar Evi",
-      "category": "Çilingir",
-      "address": "Merdivenköy, Merdivenköy Cd 4 /A, 34732 Kadıköy/İstanbul, Türkiye",
-      "phone": "0532 717 89 05",
-      "rating": 4.7,
-      "reviews_count": 14,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJAX6qP5PHyhQR7zM579D_IfM",
-      "id": "fdea2d26-cc63-4233-b30b-428c4470ce2c",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:33.986Z"
-    },
-    {
-      "name": "Mega Anahtar Evi ve Cilingirlik Hizmetleri",
-      "category": "Çilingir",
-      "address": "Göksel Sitesi, Osmanağa, Söğütlüçeşme Cad. No:67 D:4, 34714 Kadıköy/İstanbul, Türkiye",
-      "phone": "0532 494 44 14",
-      "rating": 5,
-      "reviews_count": 17,
-      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJn3ttQl24yhQRyxI888mSJ8k",
-      "id": "a93c2650-d4c1-476b-874d-efce57d09db6",
-      "status": "new",
-      "created_at": "2026-07-04T18:02:34.391Z"
+      "place_id": "mock_cafe_place_999",
+      "id": "test-custom-cafe-lead-id",
+      "status": "ready",
+      "created_at": "2026-07-04T18:10:26.055Z"
     }
   ],
   "generated_sites": [
     {
-      "lead_id": "test-aras-cilingir-id",
-      "template_name": "locksmith_urgent",
+      "lead_id": "test-custom-cafe-lead-id",
+      "template_name": "cafe_warm",
       "theme_config": {
-        "primary": "#dc2626",
-        "secondary": "#1e40af",
-        "fontFamily": "Inter, sans-serif"
+        "primary": "#8B4513",
+        "secondary": "#D2691E",
+        "fontFamily": "Playfair Display, serif",
+        "fontFamilyHeading": "Playfair Display, serif"
       },
       "content": {
         "hero": {
-          "title": "Deneme Aras Cilingir Hizmetleri - Kapıda Mı Kaldınız?",
-          "subtitle": "15 dakika içinde adresinizdeyiz. Hasarsız kapı açma garantisi.",
-          "cta_text": "Hemen Ara",
-          "badge_text": "7/24 Acil Servis"
+          "title": "Özgün Gurme Kahvecisi - Özelleştirilmiş Test Kafe Başlığı 2026",
+          "subtitle": "Güne güzel bir başlangıç için en taze kahveler ve ev yapımı atıştırmalıklar.",
+          "cta_text": "Menüyü İncele",
+          "badge_text": "Yeni Hasat Kahveler"
         },
-        "about": "Yılların güveniyle kapı açma ve kilit değişimi hizmetleri sunuyoruz.",
-        "services": [
-          {
-            "title": "Ev Kapısı Açma",
-            "description": "Hasarsız açım",
-            "icon": "Home"
-          },
-          {
-            "title": "Oto Çilingir",
-            "description": "Tüm araç markaları",
-            "icon": "Car"
-          },
-          {
-            "title": "Kasa Çilingir",
-            "description": "Güvenli açım",
-            "icon": "Lock"
-          }
-        ],
-        "testimonials": [
-          {
-            "name": "Ahmet Y.",
-            "text": "Hizmet kalitesi ve profesyonellik gerçekten üst düzeydi. Çok memnun kaldım.",
-            "rating": 5
-          },
-          {
-            "name": "Ayşe K.",
-            "text": "Güler yüzlü ekip ve harika bir deneyim. Herkese tavsiye ederim.",
-            "rating": 5
-          }
-        ],
+        "about": "Şehrin kalbinde, gürültüden uzak küçük bir mola noktası.",
+        "services": [],
+        "testimonials": [],
         "contact": {
-          "company_name": "Deneme Aras Cilingir Hizmetleri",
-          "phone": "0535 999 88 77",
-          "email": "info@denemearascilingirhizmetleri.com",
-          "address": "Osmanağa, Söğütlüçeşme Cad. No:92, Kadıköy/İstanbul",
-          "hours": "Pzt-Cmt: 09:00 - 20:00",
-          "whatsapp_message": "Merhaba, acil çilingir hizmetine ihtiyacım var. Adresim: "
-        },
-        "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80",
-          "about_img": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80"
+          "company_name": "Özgün Gurme Kahvecisi",
+          "phone": "0216 111 22 33",
+          "email": "info@ozgungurmekahvecisi.com",
+          "address": "Osmanağa Mah. Kadıköy, İstanbul",
+          "hours": "Pzt-Cmt: 09:00 - 20:00"
         }
       },
-      "id": "b5bd0733-1e5b-40bd-85b6-8a1c4ca7647a",
-      "edit_token": "f5876cec-b826-48c6-8efb-c5d635afe5be",
-      "created_at": "2026-07-04T17:59:41.274Z",
-      "updated_at": "2026-07-04T18:01:58.607Z"
-    },
-    {
-      "lead_id": "35173be4-4963-413c-a25f-6bb5f4112868",
-      "template_name": "locksmith_urgent",
-      "theme_config": {
-        "primary": "#dc2626",
-        "secondary": "#1e40af",
-        "fontFamily": "Inter, sans-serif"
-      },
-      "content": {
-        "hero": {
-          "title": "Dağdelen Çilingir - Kapıda Mı Kaldınız?",
-          "subtitle": "15 dakika içinde adresinizdeyiz. Hasarsız kapı açma garantisi.",
-          "cta_text": "Hemen Ara",
-          "badge_text": "7/24 Acil Servis"
-        },
-        "about": "Yılların güveniyle kapı açma ve kilit değişimi hizmetleri sunuyoruz.",
-        "services": [
-          {
-            "title": "Ev Kapısı Açma",
-            "description": "Hasarsız açım",
-            "icon": "Home"
-          },
-          {
-            "title": "Oto Çilingir",
-            "description": "Tüm araç markaları",
-            "icon": "Car"
-          },
-          {
-            "title": "Kasa Çilingir",
-            "description": "Güvenli açım",
-            "icon": "Lock"
-          }
-        ],
-        "testimonials": [
-          {
-            "name": "Ahmet Y.",
-            "text": "Hizmet kalitesi ve profesyonellik gerçekten üst düzeydi. Çok memnun kaldım.",
-            "rating": 5
-          },
-          {
-            "name": "Ayşe K.",
-            "text": "Güler yüzlü ekip ve harika bir deneyim. Herkese tavsiye ederim.",
-            "rating": 5
-          }
-        ],
-        "contact": {
-          "company_name": "Dağdelen Çilingir",
-          "phone": "0536 789 66 52",
-          "email": "info@dagdelencilingir.com",
-          "address": "Akasya Ap, Fenerbahçe, Alageyik Sk. No:21, 34726 Kadıköy/İstanbul, Türkiye",
-          "hours": "Pzt-Cmt: 09:00 - 20:00",
-          "whatsapp_message": "Merhaba, acil çilingir hizmetine ihtiyacım var. Adresim: "
-        },
-        "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80",
-          "about_img": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80"
-        }
-      },
-      "id": "3792bdda-25b6-4b79-bf2a-86c5213c915d",
-      "edit_token": "87f97e2a-1e12-4ecd-ad19-2d255a3cc326",
-      "created_at": "2026-07-04T18:02:38.677Z",
-      "updated_at": "2026-07-04T18:02:38.677Z"
+      "id": "a8f49204-c44c-474b-a614-7fa94d6c7f31",
+      "edit_token": "b42c2739-d58b-4a37-85de-5c6fa9c1b31c",
+      "created_at": "2026-07-04T18:10:26.063Z",
+      "updated_at": "2026-07-04T18:10:26.063Z"
     }
-  ]
+  ],
+  "custom_presets": {
+    "cafe_warm": {
+      "hero": {
+        "title": "Özelleştirilmiş Test Kafe Başlığı 2026",
+        "subtitle": "Güne güzel bir başlangıç için en taze kahveler ve ev yapımı atıştırmalıklar.",
+        "cta_text": "Menüyü İncele",
+        "badge_text": "Yeni Hasat Kahveler"
+      },
+      "about": "Şehrin kalbinde, gürültüden uzak küçük bir mola noktası.",
+      "services": [],
+      "testimonials": [],
+      "contact": {
+        "company_name": "Kahve & Sohbet",
+        "phone": "0555 123 45 67",
+        "email": "merhaba@isletme.com",
+        "address": "Bağdat Caddesi No:123 Kadıköy, İstanbul",
+        "hours": "Pzt-Cmt: 09:00 - 20:00"
+      }
+    }
+  }
 }
