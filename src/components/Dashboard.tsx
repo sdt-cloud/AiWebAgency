@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Search, Sparkles, Database, ShieldAlert, BarChart3, Users, CheckCircle, FileText } from 'lucide-react';
+import { Search, Sparkles, Database, ShieldAlert, BarChart3, Users, CheckCircle, FileText, Trash2, MessageSquare, AlertCircle, ThumbsUp, ThumbsDown } from 'lucide-react';
 import LeadTable from './LeadTable';
 import PreviewFrame from './PreviewFrame';
 import { turkeyData, turkeyCategories } from '@/lib/turkey-data';
@@ -162,41 +162,71 @@ export default function Dashboard() {
     }
   };
 
-  // 4. Mark contacted
-  const handleMarkContacted = async (leadId: string) => {
+  // 4. Update status of lead
+  const handleUpdateStatus = async (leadId: string, newStatus: string) => {
     try {
       const res = await fetch('/api/leads', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lead_id: leadId, status: 'contacted' }),
+        body: JSON.stringify({ lead_id: leadId, status: newStatus }),
       });
 
       if (res.ok) {
         // Update local state
         setLeads(prev =>
-          prev.map(l => (l.id === leadId ? { ...l, status: 'contacted' } : l))
+          prev.map(l => (l.id === leadId ? { ...l, status: newStatus } : l))
         );
         
         // Update search results state if active
         if (searchResults) {
           setSearchResults(prev =>
-            prev ? prev.map(l => (l.id === leadId ? { ...l, status: 'contacted' } : l)) : null
+            prev ? prev.map(l => (l.id === leadId ? { ...l, status: newStatus } : l)) : null
           );
         }
 
         if (selectedLead && selectedLead.id === leadId) {
-          setSelectedLead((prev: any) => prev ? { ...prev, status: 'contacted' } : null);
+          setSelectedLead((prev: any) => prev ? { ...prev, status: newStatus } : null);
         }
       }
     } catch (err) {
-      console.error('Error marking lead as contacted:', err);
+      console.error('Error updating status:', err);
+    }
+  };
+
+  // 5. Reset Database
+  const [isResetting, setIsResetting] = useState(false);
+  const handleResetDatabase = async () => {
+    if (!window.confirm('DİKKAT: Veritabanındaki tüm taranan adaylar ve üretilen web siteleri KALICI OLARAK silinecektir. Bu işlem geri alınamaz. Emin misiniz?')) {
+      return;
+    }
+
+    setIsResetting(true);
+    try {
+      const res = await fetch('/api/db/reset', { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        alert(data.message || 'Veritabanı sıfırlandı.');
+        setLeads([]);
+        setSearchResults(null);
+        setSelectedLead(null);
+      } else {
+        alert(data.error || 'Sıfırlama başarısız.');
+      }
+    } catch (err) {
+      console.error('Error resetting database:', err);
+      alert('Sıfırlama sırasında bağlantı hatası oluştu.');
+    } finally {
+      setIsResetting(false);
     }
   };
 
   // Count stats
   const totalLeads = leads.length;
-  const readySites = leads.filter(l => l.status === 'ready' || l.status === 'contacted').length;
+  const readySites = leads.filter(l => l.status === 'ready' || l.status === 'contacted' || l.status === 'change_requested' || l.status === 'accepted' || l.status === 'rejected').length;
   const contactedLeads = leads.filter(l => l.status === 'contacted').length;
+  const changeRequestedLeads = leads.filter(l => l.status === 'change_requested').length;
+  const acceptedLeads = leads.filter(l => l.status === 'accepted').length;
+  const rejectedLeads = leads.filter(l => l.status === 'rejected').length;
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col text-slate-800 font-sans">
@@ -241,6 +271,15 @@ export default function Dashboard() {
               Harita: {apiStatus.search_providers.join(' → ')}
             </span>
           </div>
+
+          <button
+            onClick={handleResetDatabase}
+            disabled={isResetting}
+            className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg border bg-rose-950 hover:bg-rose-900 text-rose-300 border-rose-800/50 transition-colors cursor-pointer disabled:opacity-50"
+          >
+            <Trash2 size={12} />
+            <span className="font-semibold">{isResetting ? 'Sıfırlanıyor...' : 'Verileri Sıfırla'}</span>
+          </button>
         </div>
       </header>
 
@@ -261,35 +300,71 @@ export default function Dashboard() {
             </div>
           )}
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-500 flex items-center justify-center">
-                <Users size={20} />
+          {/* Stats Funnel */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {/* Taranan Adaylar */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-slate-50 text-slate-500 flex items-center justify-center shrink-0">
+                <Users size={16} />
               </div>
               <div>
-                <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Taranan Adaylar</h4>
-                <div className="text-2xl font-black text-slate-800 leading-none mt-1">{totalLeads}</div>
+                <h4 className="text-slate-400 text-[9px] font-bold uppercase tracking-wider">Taranan Adaylar</h4>
+                <div className="text-lg font-black text-slate-800 leading-none mt-0.5">{totalLeads}</div>
               </div>
             </div>
             
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
-                <FileText size={20} />
+            {/* Tasarlanan Siteler */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                <FileText size={16} />
               </div>
               <div>
-                <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Tasarlanan Siteler</h4>
-                <div className="text-2xl font-black text-indigo-700 leading-none mt-1">{readySites}</div>
+                <h4 className="text-slate-400 text-[9px] font-bold uppercase tracking-wider">Tasarım Hazır</h4>
+                <div className="text-lg font-black text-indigo-700 leading-none mt-0.5">{readySites}</div>
               </div>
             </div>
 
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                <CheckCircle size={20} />
+            {/* Teklif İletilenler */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <MessageSquare size={16} />
               </div>
               <div>
-                <h4 className="text-slate-400 text-[10px] font-bold uppercase tracking-wider">Teklif İletilenler</h4>
-                <div className="text-2xl font-black text-emerald-700 leading-none mt-1">{contactedLeads}</div>
+                <h4 className="text-slate-400 text-[9px] font-bold uppercase tracking-wider">Teklif İletildi</h4>
+                <div className="text-lg font-black text-blue-700 leading-none mt-0.5">{contactedLeads}</div>
+              </div>
+            </div>
+
+            {/* Revize İstendi */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                <AlertCircle size={16} />
+              </div>
+              <div>
+                <h4 className="text-slate-400 text-[9px] font-bold uppercase tracking-wider">Revize İstendi</h4>
+                <div className="text-lg font-black text-amber-700 leading-none mt-0.5">{changeRequestedLeads}</div>
+              </div>
+            </div>
+
+            {/* Satış Yapıldı */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <ThumbsUp size={16} />
+              </div>
+              <div>
+                <h4 className="text-slate-400 text-[9px] font-bold uppercase tracking-wider">Satış Yapıldı</h4>
+                <div className="text-lg font-black text-emerald-700 leading-none mt-0.5">{acceptedLeads}</div>
+              </div>
+            </div>
+
+            {/* Reddedildi */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+                <ThumbsDown size={16} />
+              </div>
+              <div>
+                <h4 className="text-slate-400 text-[9px] font-bold uppercase tracking-wider">Reddedildi</h4>
+                <div className="text-lg font-black text-rose-700 leading-none mt-0.5">{rejectedLeads}</div>
               </div>
             </div>
           </div>
@@ -409,7 +484,7 @@ export default function Dashboard() {
           <PreviewFrame
             lead={selectedLead}
             onClose={() => setSelectedLead(null)}
-            onMarkContacted={handleMarkContacted}
+            onUpdateStatus={handleUpdateStatus}
           />
         )}
       </div>

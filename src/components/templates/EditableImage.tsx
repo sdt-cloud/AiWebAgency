@@ -1,23 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Camera, Image as ImageIcon } from 'lucide-react';
 
+// Dot notation ile nesne içinden veri okuma
+function getValueByPath(obj: any, path: string): any {
+  if (!obj || !path) return undefined;
+  return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+}
+
+// Dot notation ile nesne içine veri yazma
+function setValueByPath(obj: any, path: string, value: any): any {
+  if (!obj || !path) return obj;
+  const newObj = { ...obj };
+  const parts = path.split('.');
+  let current = newObj;
+  
+  for (let i = 0; i < parts.length - 1; i++) {
+    const part = parts[i];
+    const nextPartIsNumber = !isNaN(Number(parts[i + 1]));
+    
+    if (nextPartIsNumber) {
+      current[part] = Array.isArray(current[part]) ? [...current[part]] : [];
+    } else {
+      current[part] = current[part] && typeof current[part] === 'object' ? { ...current[part] } : {};
+    }
+    current = current[part];
+  }
+  
+  current[parts[parts.length - 1]] = value;
+  return newObj;
+}
+
 interface EditableImageProps {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
+  fallback?: string;
+  content?: any;
+  contentKey?: string;
   isEditMode: boolean;
-  onChange: (newSrc: string) => void;
+  onChange?: any;
+  onUpdate?: any;
+  onSave?: any;
   className?: string;
+  [key: string]: any;
 }
 
 export default function EditableImage({
   src,
   alt,
+  fallback,
+  content,
+  contentKey,
   isEditMode,
   onChange,
+  onUpdate,
+  onSave,
   className = '',
 }: EditableImageProps) {
   const [showModal, setShowModal] = useState(false);
-  const [urlInput, setUrlInput] = useState(src);
+
+  // Veritabanından resmi dinamik oku veya standart prop'a düş
+  const resolvedSrc = (content && contentKey)
+    ? getValueByPath(content, contentKey)
+    : src;
+  
+  const actualSrc = resolvedSrc || fallback || "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600";
+
+  const [urlInput, setUrlInput] = useState(actualSrc);
+
+  // Aday değiştiğinde veya yeniden tasarlama yapıldığında arayüzdeki resmi senkronize et
+  useEffect(() => {
+    setUrlInput(actualSrc);
+  }, [actualSrc]);
 
   // Ready-made modern unsplash images for quick switching
   const quickStockImages = [
@@ -32,20 +85,32 @@ export default function EditableImage({
   ];
 
   const handleSave = () => {
-    onChange(urlInput);
+    if (content && contentKey && onUpdate) {
+      if (onUpdate.length === 2) {
+        // updateContent(key, value) imzası
+        onUpdate(contentKey, urlInput);
+      } else {
+        // onUpdateContent(newContent) imzası
+        const updatedContent = setValueByPath(content, contentKey, urlInput);
+        onUpdate(updatedContent);
+      }
+    } else {
+      if (onSave) onSave(urlInput);
+      if (onChange) onChange(urlInput);
+    }
     setShowModal(false);
   };
 
   return (
     <div className="relative group">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src || "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600"} alt={alt} className={className} />
+      <img src={actualSrc} alt={alt} className={className} />
       
       {isEditMode && (
         <button
           type="button"
           onClick={() => {
-            setUrlInput(src);
+            setUrlInput(actualSrc);
             setShowModal(true);
           }}
           className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white gap-2 font-medium rounded-lg cursor-pointer"

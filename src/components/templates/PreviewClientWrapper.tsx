@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react';
 import { Save, Check, AlertCircle, Eye, LogOut } from 'lucide-react';
-import ServiceTemplate from './ServiceTemplate';
-import RestaurantTemplate from './RestaurantTemplate';
-import BusinessTemplate from './BusinessTemplate';
+import IndexRenderer from './IndexRenderer';
 
 interface PreviewClientWrapperProps {
   site: any;
@@ -67,24 +65,17 @@ export default function PreviewClientWrapper({
     }
   };
 
-  // Render correct template based on template_name
+  // Render using the new IndexRenderer system
   const renderTemplate = () => {
-    const props = {
-      content,
-      themeConfig: site.theme_config,
-      isEditMode,
-      onUpdateContent: handleUpdateContent,
-    };
-
-    switch (site.template_name) {
-      case 'restaurant':
-        return <RestaurantTemplate {...props} />;
-      case 'service':
-        return <ServiceTemplate {...props} />;
-      case 'business':
-      default:
-        return <BusinessTemplate {...props} />;
-    }
+    return (
+      <IndexRenderer
+        templateName={site.template_name || 'cafe_warm'}
+        content={content}
+        themeConfig={site.theme_config || { primary: '#4f46e5', fontFamily: 'Inter' }}
+        isEditMode={isEditMode}
+        onUpdateContent={handleUpdateContent}
+      />
+    );
   };
 
   return (

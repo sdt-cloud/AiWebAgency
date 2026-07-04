@@ -1,27 +1,34 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Send, Phone, Mail, ExternalLink, Edit3, X, CheckCircle } from 'lucide-react';
+import { Send, Phone, Mail, ExternalLink, Edit3, X, CheckCircle, MessageSquare, AlertCircle, ThumbsUp, ThumbsDown } from 'lucide-react';
 
 interface PreviewFrameProps {
   lead: any;
   onClose: () => void;
-  onMarkContacted: (leadId: string) => void;
+  onUpdateStatus: (leadId: string, status: string) => void;
 }
 
 export default function PreviewFrame({
   lead,
   onClose,
-  onMarkContacted,
+  onUpdateStatus,
 }: PreviewFrameProps) {
   // SSR-safe: window.location.origin sadece client-side'da erişilebilir
   const [origin, setOrigin] = useState('');
+  const [cacheBuster, setCacheBuster] = useState(Date.now());
+
   useEffect(() => {
     setOrigin(window.location.origin);
   }, []);
 
+  useEffect(() => {
+    setCacheBuster(Date.now());
+  }, [lead]);
+
   const previewUrl = `${origin}/preview/${lead.site_id}`;
   const editUrl = `${previewUrl}?token=${lead.edit_token}`;
+  const iframeUrl = `${previewUrl}?cb=${cacheBuster}`;
 
   // Türkçe karakterleri domain-friendly hale getir
   const safeDomainName = (lead.name || '')
@@ -127,16 +134,63 @@ export default function PreviewFrame({
           </div>
         </div>
 
-        {/* Mark contacted */}
-        {lead.status !== 'contacted' && (
-          <button
-            onClick={() => onMarkContacted(lead.id)}
-            className="w-full py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer"
-          >
-            <CheckCircle size={14} />
-            <span>Teklif İletildi Olarak İşaretle</span>
-          </button>
-        )}
+        {/* Status management funnel */}
+        <div className="space-y-2 pt-1.5 border-t border-slate-100">
+          <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Aday & Satış Süreci Yönetimi</h4>
+          <div className="grid grid-cols-2 gap-1.5">
+            {/* Teklif İletildi Button */}
+            <button
+              onClick={() => onUpdateStatus(lead.id, 'contacted')}
+              className={`py-1.5 px-2 rounded-lg text-[10px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+                lead.status === 'contacted'
+                  ? 'bg-blue-600 text-white shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              }`}
+            >
+              <MessageSquare size={12} />
+              <span>Teklif İletildi</span>
+            </button>
+
+            {/* Revize İstendi Button */}
+            <button
+              onClick={() => onUpdateStatus(lead.id, 'change_requested')}
+              className={`py-1.5 px-2 rounded-lg text-[10px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+                lead.status === 'change_requested'
+                  ? 'bg-amber-600 text-white shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              }`}
+            >
+              <AlertCircle size={12} />
+              <span>Revize İstendi</span>
+            </button>
+
+            {/* Satış Yapıldı Button */}
+            <button
+              onClick={() => onUpdateStatus(lead.id, 'accepted')}
+              className={`py-1.5 px-2 rounded-lg text-[10px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+                lead.status === 'accepted'
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              }`}
+            >
+              <ThumbsUp size={12} />
+              <span>Satış Yapıldı</span>
+            </button>
+
+            {/* Reddedildi Button */}
+            <button
+              onClick={() => onUpdateStatus(lead.id, 'rejected')}
+              className={`py-1.5 px-2 rounded-lg text-[10px] font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+                lead.status === 'rejected'
+                  ? 'bg-rose-600 text-white shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              }`}
+            >
+              <ThumbsDown size={12} />
+              <span>Reddedildi</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Google Review & AI Analysis Summary */}
@@ -160,7 +214,7 @@ export default function PreviewFrame({
       {/* Iframe preview */}
       <div className="flex-1 bg-slate-100 relative overflow-hidden">
         <iframe
-          src={previewUrl}
+          src={iframeUrl}
           title="Website Preview"
           className="border-none pointer-events-none scale-[0.8] origin-top-left h-[125%] w-[125%]"
           sandbox="allow-scripts allow-same-origin"

@@ -180,10 +180,6 @@ async function searchGooglePlaces(location: string, keyword: string): Promise<Pl
         const reviews: string[] = (r.reviews || []).map((rv: any) => rv.text).filter(Boolean);
 
         let category = keyword;
-        if (r.types && r.types.length > 0) {
-          category = r.types[0].replace(/_/g, ' ');
-          category = category.charAt(0).toUpperCase() + category.slice(1);
-        }
 
         results.push({
           name: r.name,

@@ -22,32 +22,75 @@ export interface Lead {
 export interface GeneratedSite {
   id: string;
   lead_id: string;
-  template_name: 'service' | 'restaurant' | 'business';
+  /**
+   * Şablon adı — eski 3 şablon + yeni 28 şablon desteklenir.
+   * Eski uyumluluk: 'business' | 'restaurant' | 'service'
+   * Yeni şablonlar: 'cafe_warm' | 'barber_dark' | 'locksmith_urgent' | ... vb.
+   * Tam liste: src/components/templates/template-types.ts → TemplateName
+   */
+  template_name: string;
   theme_config: {
     primary: string;
     secondary: string;
     fontFamily: string;
+    fontFamilyHeading?: string;
+    accent?: string;
   };
   content: {
     hero: {
       title: string;
       subtitle: string;
       cta_text: string;
+      badge_text?: string;
     };
     about: string;
-    services: Array<{ title: string; description: string }>;
-    testimonials: Array<{ name: string; text: string }>;
+    services: Array<{ title: string; description: string; icon?: string }>;
+    testimonials: Array<{ name: string; text: string; rating?: number }>;
     contact: {
+      company_name?: string;
       phone: string;
       email: string;
       address: string;
       hours: string;
+      whatsapp_message?: string;
     };
     images?: {
       hero_bg?: string;
       about_img?: string;
       services_img?: string;
+      gallery?: string[];
+      logo?: string;
     };
+    /* Kategoriye özel alanlar (opsiyonel) */
+    menu_items?: Array<{
+      category: string;
+      items: Array<{ name: string; description?: string; price: string }>;
+    }>;
+    price_list?: Array<{
+      title: string;
+      price: string;
+      duration?: string;
+      description?: string;
+      is_popular?: boolean;
+    }>;
+    team_members?: Array<{
+      name: string;
+      role: string;
+      image?: string;
+      description?: string;
+    }>;
+    gallery_images?: Array<{
+      src: string;
+      alt: string;
+      category?: string;
+    }>;
+    listings?: Array<{
+      title: string;
+      location: string;
+      price: string;
+      features: string;
+      image?: string;
+    }>;
   };
   edit_token: string;
   created_at: string;
@@ -306,6 +349,25 @@ export const db = {
       store.generated_sites[siteIdx] = updated;
       saveLocalStore(store);
       return updated;
+    }
+  },
+
+  async resetDatabase(): Promise<void> {
+    if (useSupabase && supabase) {
+      // Supabase deletes require a filter. Using neq with a mock UUID deletes everything.
+      const { error: sitesErr } = await supabase
+        .from('generated_sites')
+        .delete()
+        .neq('id', '00000000-0000-0000-0000-000000000000');
+      if (sitesErr) throw sitesErr;
+
+      const { error: leadsErr } = await supabase
+        .from('leads')
+        .delete()
+        .neq('id', '00000000-0000-0000-0000-000000000000');
+      if (leadsErr) throw leadsErr;
+    } else {
+      saveLocalStore({ leads: [], generated_sites: [] });
     }
   }
 };

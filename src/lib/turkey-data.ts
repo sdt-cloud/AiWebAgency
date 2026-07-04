@@ -330,17 +330,39 @@ export const turkeyData: City[] = [
   }
 ];
 
+/**
+ * Türkiye'deki tüm iş kategorileri.
+ * Her kategori, template-registry.ts'deki şablon preset'leriyle eşleşir.
+ * Sıralama, Türkiye pazarındaki yaygınlık ve talep önceliğine göre yapılmıştır.
+ */
 export const turkeyCategories = [
-  "Çilingir",
-  "Fırın & Ekmek",
-  "Oto Tamir & Elektrik",
-  "Çiçekçi",
-  "Terzi",
+  // Yeme-İçme & Gıda
   "Restoran",
   "Kafe",
+  "Pastane & Fırın",
+
+  // Kişisel Bakım
   "Berber & Kuaför",
-  "Diş Hekimi",
-  "Kuru Temizleme",
-  "Tesisatçı",
-  "Güzellik Salonu"
+  "Güzellik Salonu & SPA",
+
+  // Acil & Teknik Hizmetler
+  "Çilingir",
+  "Tesisatçı & Tadilat",
+  "Elektrikçi",
+
+  // Otomotiv
+  "Oto Tamir & Servis",
+  "Oto Yıkama",
+
+  // Sağlık
+  "Diş Kliniği",
+  "Veteriner",
+  "Eczane",
+
+  // Profesyonel Hizmetler
+  "Avukat & Hukuk",
+  "Emlak & Gayrimenkul",
+
+  // Sanat & Yaratıcı
+  "Fotoğrafçı",
 ];

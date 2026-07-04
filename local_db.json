@@ -1,1426 +1,267 @@
 {
   "leads": [
     {
-      "name": "Alsancak Unlu Mamulleri",
-      "category": "Fırın & Kafe",
-      "address": "Alsancak Mahallesi, Kıbrıs Şehitleri Cd. No:45, Konak/İzmir",
-      "phone": "+90 232 464 1234",
-      "rating": 4.3,
-      "reviews_count": 120,
-      "reviews_summary": "Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor.",
+      "name": "Deneme Aras Cilingir Hizmetleri",
+      "category": "Çilingir",
+      "address": "Osmanağa, Söğütlüçeşme Cad. No:92, Kadıköy/İstanbul",
+      "phone": "0535 999 88 77",
+      "rating": 4.5,
+      "reviews_count": 12,
+      "reviews_summary": "Test amaclı olusturulmus isletme.",
       "has_website": false,
       "website_url": "",
-      "place_id": "mock_place_alsancak_bakery",
-      "id": "4f6cc4a7-36ab-4d93-985f-a4075c57a17f",
-      "status": "new",
-      "created_at": "2026-06-28T18:21:43.422Z"
-    },
-    {
-      "name": "Kardeşler Oto Elektrik",
-      "category": "Oto Servis & Tamir",
-      "address": "Sanayi Sitesi 2. Blok No:12, Bornova/İzmir",
-      "phone": "+90 532 111 2233",
-      "rating": 4.7,
-      "reviews_count": 85,
-      "reviews_summary": "Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "mock_place_kardesler_auto",
-      "id": "e28d5020-cadc-4b44-a7c2-2869f719b2f2",
+      "place_id": "mock_place_12345",
+      "id": "test-aras-cilingir-id",
       "status": "ready",
-      "created_at": "2026-06-28T18:21:43.424Z"
+      "created_at": "2026-07-04T17:59:41.264Z"
     },
     {
-      "name": "Ege Çilingir & Anahtar Jeneratör",
-      "category": "Çilingir & Güvenlik",
-      "address": "Mithatpaşa Caddesi No:280, Karşıyaka/İzmir",
-      "phone": "+90 535 777 8899",
+      "name": "Aras Çilingir 7/24 Acil Çilingir",
+      "category": "Çilingir",
+      "address": "Osmanağa, Söğütlüçeşme Cad. Abdullah Uzlar İş Merkezi no 92-94 İç kapı No 47, 34714 Kadıköy/İstanbul, Türkiye",
+      "phone": "0535 642 85 00",
+      "rating": 4.6,
+      "reviews_count": 54,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJv2AVo265yhQRPYX6yKGDp9M",
+      "id": "76268cfe-f38e-4eda-b79b-897566e95703",
+      "status": "new",
+      "created_at": "2026-07-04T18:02:32.025Z"
+    },
+    {
+      "name": "Dağdelen Çilingir",
+      "category": "Çilingir",
+      "address": "Akasya Ap, Fenerbahçe, Alageyik Sk. No:21, 34726 Kadıköy/İstanbul, Türkiye",
+      "phone": "0536 789 66 52",
+      "rating": 5,
+      "reviews_count": 122,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJI1mX9I3HyhQREeN1v50KRxI",
+      "id": "35173be4-4963-413c-a25f-6bb5f4112868",
+      "status": "ready",
+      "created_at": "2026-07-04T18:02:32.363Z"
+    },
+    {
+      "name": "Kadıköy Altıyol Anahtarci Cilingir",
+      "category": "Çilingir",
+      "address": "Altıyol Vişne Sokak No: 5 Kadıköy/ Hasırcıbaşı İstanbul, Osmanağa, 34714 Kadıköy/İstanbul, Türkiye",
+      "phone": "0542 243 92 71",
+      "rating": 4.3,
+      "reviews_count": 23,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJKz0zB2-4yhQRKLT4Rfx6q_U",
+      "id": "30944c53-411c-45b3-bc59-649961f92313",
+      "status": "new",
+      "created_at": "2026-07-04T18:02:32.709Z"
+    },
+    {
+      "name": "Suadiye Çilingir - Caddebostan Kozyatağı Bostancı 7/24",
+      "category": "Çilingir",
+      "address": "Suadiye, Kurudere Sk. No:11/B, 34740 Kadıköy/İstanbul, Türkiye",
+      "phone": "0540 558 07 24",
+      "rating": 5,
+      "reviews_count": 7,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJIdifDfLHyhQRRxC7gH6EyjE",
+      "id": "0449bb2e-5b2e-4d1e-b5cd-70361fec68bf",
+      "status": "new",
+      "created_at": "2026-07-04T18:02:33.102Z"
+    },
+    {
+      "name": "Feneryolu Anahtar Çilingir",
+      "category": "Çilingir",
+      "address": "Feneryolu, Bağdat Cad. No: 131, 34724 Kadıköy/İstanbul, Türkiye",
+      "phone": "0531 327 90 28",
       "rating": 4.8,
-      "reviews_count": 64,
-      "reviews_summary": "Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor.",
+      "reviews_count": 131,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
       "has_website": false,
       "website_url": "",
-      "place_id": "mock_place_ege_locksmith",
-      "id": "63dde5de-07be-4eb2-bb11-3dae49b7f4df",
+      "place_id": "ChIJCzbh9YDHyhQReapWQNSlfls",
+      "id": "f81f9e7d-9fbf-4e9d-9aca-a03d598d921f",
       "status": "new",
-      "created_at": "2026-06-28T18:21:43.425Z"
+      "created_at": "2026-07-04T18:02:33.406Z"
     },
     {
-      "name": "Kordon Butik Çiçekçilik",
-      "category": "Çiçekçi & Organizasyon",
-      "address": "Atatürk Caddesi No:110, Konak/İzmir",
-      "phone": "+90 232 444 5566",
-      "rating": 4.5,
-      "reviews_count": 42,
-      "reviews_summary": "Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "mock_place_kordon_florist",
-      "id": "9cdcd411-83d3-4cd0-b707-14fb63fb9f62",
-      "status": "ready",
-      "created_at": "2026-06-28T18:21:43.426Z"
-    },
-    {
-      "name": "Moda Terzi Ali",
-      "category": "Terzi & Giyim Tadilat",
-      "address": "Şair Eşref Bulvarı No:62, Alsancak/İzmir",
-      "phone": "+90 505 333 4455",
-      "rating": 4.2,
-      "reviews_count": 28,
-      "reviews_summary": "Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "mock_place_moda_tailor",
-      "id": "6ece4773-0d3a-42d5-a838-a8306c74a947",
-      "status": "ready",
-      "created_at": "2026-06-28T18:21:43.427Z"
-    },
-    {
-      "name": "Kale Kilit - Kale Alarm ve Çilingir Servisi",
+      "name": "Cem Anahtar",
       "category": "Çilingir",
-      "address": "Prof. Dr. Ali Nihat Tarlan Caddesi, Bostancı Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59715213",
-      "id": "cf115db7-5033-4488-8013-aea2f46c38c9",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.925Z"
-    },
-    {
-      "name": "Meltem Çilingir",
-      "category": "Çilingir",
-      "address": "Bağdat Caddesi, Fenerbahçe Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59899315",
-      "id": "e465a616-7808-49f4-9104-d10fe1cee056",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.926Z"
-    },
-    {
-      "name": "Çilingir Sofrası",
-      "category": "Çilingir",
-      "address": "Bağdat Caddesi, Caddebostan Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59852943",
-      "id": "bd8889f6-4385-446d-967b-db37ab81ac49",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.927Z"
-    },
-    {
-      "name": "Anahtar Dünyası",
-      "category": "Çilingir",
-      "address": "Kitapçı Mehmet Süleyman Sokağı, Bostancı Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59712813",
-      "id": "0ee37e8d-dcfd-4366-bfe2-b50c59303c23",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.928Z"
-    },
-    {
-      "name": "Geçit Anahtar",
-      "category": "Çilingir",
-      "address": "Suadiye Camii Sokağı, Suadiye Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59814910",
-      "id": "d6ab7440-c528-439e-853a-8251012dafa3",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.929Z"
-    },
-    {
-      "name": "Cadde Elektrik Nalbur Hırdavat Tesisat Anahtar",
-      "category": "Çilingir",
-      "address": "Hamam Sokağı, Erenköy Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59937253",
-      "id": "f25cf966-9260-43e9-8345-ab6b37fda4ae",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.929Z"
-    },
-    {
-      "name": "Özgün Anahtar",
-      "category": "Çilingir",
-      "address": "Şemsettin Günaltay Caddesi, Bostancı Mahallesi, Kadıköy",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_59947808",
-      "id": "2941235b-67e0-4aaa-94b6-5b31e9667177",
-      "status": "new",
-      "created_at": "2026-06-28T18:47:01.930Z"
-    },
-    {
-      "name": "Özgün Anahtar",
-      "category": "Çilingir",
-      "address": "Bostancı Mahallesi, Kadıköy, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5272473071",
-      "id": "c0af8a0c-4d09-429e-8212-3802d98444d4",
-      "status": "new",
-      "created_at": "2026-06-28T18:57:52.521Z"
-    },
-    {
-      "name": "Anahtar Dünyası",
-      "category": "Çilingir",
-      "address": "Kitapçı Mehmet Süleyman Sokak, Bostancı Mahallesi, Kadıköy, Istanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5280587225",
-      "id": "5babe733-55c8-4f10-aaa5-a05fdd8afc5c",
-      "status": "new",
-      "created_at": "2026-06-28T18:57:52.522Z"
-    },
-    {
-      "name": "Kale Kilit",
-      "category": "Çilingir",
-      "address": "Emin Ali Paşa Caddesi, Suadiye Mahallesi, Kadıköy, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5297414296",
-      "id": "1db214ff-f802-40c4-8d48-9bf69aa6de3c",
-      "status": "new",
-      "created_at": "2026-06-28T18:57:52.523Z"
-    },
-    {
-      "name": "Poğaçacı",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_772686807",
-      "id": "c2225ebd-5641-4691-8641-c3b9fe39577b",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.200Z"
-    },
-    {
-      "name": "Taskin Kofte",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_1484074147",
-      "id": "53e1b150-8110-4d97-8fcc-a84c24c96109",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.200Z"
-    },
-    {
-      "name": "Loving Hut",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_1697174881",
-      "id": "9dc85cdd-7a2b-46ec-9684-c4d1e68ea8ad",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.202Z"
-    },
-    {
-      "name": "Captain",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2766607503",
-      "id": "6028f9ba-583f-4cee-bc06-5ae825d83c30",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.202Z"
-    },
-    {
-      "name": "Cafe Levent",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2766607505",
-      "id": "3d6054d2-9482-488c-a0c8-1f69c71005f5",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.203Z"
-    },
-    {
-      "name": "1972 Çevre Pasta Cafe Restaurant",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2766607506",
-      "id": "29de9fb3-9b59-4428-92a5-aa5df5ac392a",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.204Z"
-    },
-    {
-      "name": "on1 Bistro",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2766607509",
-      "id": "bf3734ca-51f0-4d9b-af34-c148d873f927",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.204Z"
-    },
-    {
-      "name": "Sefik",
-      "category": "Restoran",
-      "address": "Beşiktaş, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2766607511",
-      "id": "267ab10f-828d-4967-bcb0-d90da4427361",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:12.206Z"
-    },
-    {
-      "name": "Sır Erkek Kuaförü",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_62674132",
-      "id": "97935aa5-96eb-4f89-aea1-f0b00bea3a7e",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.403Z"
-    },
-    {
-      "name": "Kuafor",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_62674226",
-      "id": "f42e9336-2235-4b9f-b261-7019ab591af4",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.404Z"
-    },
-    {
-      "name": "FJX Kuaför",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_112601415",
-      "id": "43a67fa6-7a01-41da-8ace-3f381e882a8a",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.405Z"
-    },
-    {
-      "name": "Kuaför",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_164637968",
-      "id": "efd33df8-cf02-4ef2-9af0-2c20a161c8d4",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.407Z"
-    },
-    {
-      "name": "Hairport",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_310402957",
-      "id": "6c1e7f0e-d0ac-4558-a5fa-ac0fd2b8e3fd",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.407Z"
-    },
-    {
-      "name": "Erkek Kuaförü",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2052155867",
-      "id": "3e00193d-c32e-4e91-9275-da0ee32996a4",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.408Z"
-    },
-    {
-      "name": "Kadın Kuaförü",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2052155958",
-      "id": "a8cdc714-7a1e-456f-9d78-772ca340ae8c",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.408Z"
-    },
-    {
-      "name": "Hairdresser",
-      "category": "Berber & Kuaför",
-      "address": "Çankaya, Ankara",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_2228406609",
-      "id": "57446802-3079-4f8d-8168-907446ee6bbd",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:22.409Z"
-    },
-    {
-      "name": "Asansör fırını",
-      "category": "Fırın & Ekmek",
-      "address": "Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_1721931435",
-      "id": "dd352583-bd82-40ee-a24e-17122948593f",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.056Z"
-    },
-    {
-      "name": "Baks",
-      "category": "Fırın & Ekmek",
-      "address": "Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5287436735",
-      "id": "8aba7839-68e0-446f-be77-bdc0dbce8e93",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.057Z"
-    },
-    {
-      "name": "Aklan Unlu Mamülleri",
-      "category": "Fırın & Ekmek",
-      "address": "Liman Caddesi, Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5287460067",
-      "id": "282ad68b-8bf0-499f-be0c-18817df66d7a",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.058Z"
-    },
-    {
-      "name": "İzmir Unlu Mamüller",
-      "category": "Fırın & Ekmek",
-      "address": "1469 Sk, Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5287461168",
-      "id": "b2452d19-20ce-4436-9c31-e49e0c595f5a",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.058Z"
-    },
-    {
-      "name": "Aksa",
-      "category": "Fırın & Ekmek",
-      "address": "Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5538672279",
-      "id": "560c57fa-1ea1-49d9-aeda-ab5e36b555d7",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.059Z"
-    },
-    {
-      "name": "Çelebi Bomba",
-      "category": "Fırın & Ekmek",
-      "address": "Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5758631822",
-      "id": "06d6e5e8-960d-4d07-9d1a-79ffe463dd18",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.060Z"
-    },
-    {
-      "name": "Karafırın",
-      "category": "Fırın & Ekmek",
-      "address": "Konak, İzmir",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_9838517043",
-      "id": "201a27c4-a31f-4268-85ea-bcbf8d59fa83",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.060Z"
-    },
-    {
-      "name": "Angelique Desserts",
-      "category": "Fırın & Ekmek",
-      "address": "Konak, İzmir",
-      "phone": "+90 232 416 16 06",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_10101120200",
-      "id": "f8b91501-3962-43fb-ac8e-b6e8343b408e",
-      "status": "new",
-      "created_at": "2026-06-28T18:58:33.061Z"
-    },
-    {
-      "name": "İskender 85 Et Lokantası",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5002966624",
-      "id": "29a9ff93-343d-4709-9a12-94be6465969e",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.225Z"
-    },
-    {
-      "name": "Kahta Ocakbaşı",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5003735229",
-      "id": "055d4cf3-9f12-4fcf-b724-b9b43d2f3424",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.226Z"
-    },
-    {
-      "name": "Sofra Restaurant",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5003738428",
-      "id": "2f32be1e-4883-4a0b-a8b2-58fc68dab71d",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.256Z"
-    },
-    {
-      "name": "Kent Lokantası",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5003745523",
-      "id": "de8da60a-081b-4835-98c7-91deb0c0c55b",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.257Z"
-    },
-    {
-      "name": "Kervansaray Lokantası",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5017881726",
-      "id": "37c9ea2b-ef97-47c0-94ba-822e27f9c322",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.258Z"
-    },
-    {
-      "name": "Koyuncular Lokanta",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5017881727",
-      "id": "89ce6d8a-d595-4582-9953-88fc0c05aac5",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.258Z"
-    },
-    {
-      "name": "Seyir Tepesi Restoran",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5991639187",
-      "id": "ad4ffd39-7413-4abb-97ee-0200e65fbd69",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.259Z"
-    },
-    {
-      "name": "Beko Kebap",
-      "category": "Restoran",
-      "address": "Besni, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_7167440885",
-      "id": "e5ac287b-02a6-4120-b9a9-8b5ed6e41f8c",
-      "status": "new",
-      "created_at": "2026-06-28T19:02:13.260Z"
-    },
-    {
-      "name": "Fırın",
-      "category": "Fırın & Ekmek",
-      "address": "Kahta, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_4761200907",
-      "id": "436a0fdd-02ee-4720-b4b3-3994fabeade2",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.375Z"
-    },
-    {
-      "name": "Hizmet - Pide & Lahmacun Firini",
-      "category": "Fırın & Ekmek",
-      "address": "Kahta, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5251570223",
-      "id": "237210dc-09da-4645-ba54-ecb5bd32a068",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.376Z"
-    },
-    {
-      "name": "Burak Pide Fırını",
-      "category": "Fırın & Ekmek",
-      "address": "Kahta, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5991578985",
-      "id": "1bf824d4-67e8-44f0-bbe2-091e25eb024a",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.377Z"
-    },
-    {
-      "name": "Beyoğlu Unlu Mamulleri ve Ekmek Fırını",
-      "category": "Fırın & Ekmek",
-      "address": "Kahta, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5991579085",
-      "id": "883858d8-2e10-4eea-8f30-501fadb95a75",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.378Z"
-    },
-    {
-      "name": "Hamur Adam Unlu Mamülleri Ekmek Fırını",
-      "category": "Fırın & Ekmek",
-      "address": "Kahta, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5991586785",
-      "id": "a10b0c16-514b-4402-b13f-990e6c6b1355",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.379Z"
-    },
-    {
-      "name": "Birtat Pide Fırını",
-      "category": "Fırın & Ekmek",
-      "address": "Kahta, Adıyaman",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5995961986",
-      "id": "edcee358-1455-4c95-85ac-f0f048b01ca0",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.379Z"
-    },
-    {
-      "name": "Dinçerler Odun Ekmeği",
-      "category": "Fırın & Ekmek",
-      "address": "Adıyaman, Adıyaman",
-      "phone": "+904162135965",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_10691488252",
-      "id": "4ffb155d-dbf3-4ab3-9d63-4e7b871f2021",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.380Z"
-    },
-    {
-      "name": "Has Unlu Mamulleri",
-      "category": "Fırın & Ekmek",
-      "address": "Adıyaman, Adıyaman",
-      "phone": "+904162136457",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_10694831340",
-      "id": "042db2c1-33af-45a8-8b18-3dda0b65a554",
-      "status": "new",
-      "created_at": "2026-07-03T11:08:35.381Z"
-    },
-    {
-      "name": "Kayadibi Cafe kahvaltı pansiyon",
-      "category": "Kafe",
-      "address": "Kayadibi - Nemrut Yolu, Kâhta",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "nom_210242147",
-      "id": "2dff44ad-00e7-4ed5-841a-0a6fd85be6d0",
-      "status": "new",
-      "created_at": "2026-07-03T11:09:04.971Z"
-    },
-    {
-      "name": "Semih anahtar",
-      "category": "Çilingir",
-      "address": "Prof. naci şensoy caddesi, Fatih, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5113495921",
-      "id": "124de843-a70e-446a-b0eb-2b521d300718",
-      "status": "new",
-      "created_at": "2026-07-03T11:11:41.856Z"
-    },
-    {
-      "name": "Engin Anahtar Elektrik Elektronik Çilingir",
-      "category": "Çilingir",
-      "address": "Kadıköy, İstanbul",
-      "phone": "+902165199592",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5255840781",
-      "id": "5c29f478-4531-4572-b72e-7ccd8842b6a5",
-      "status": "new",
-      "created_at": "2026-07-03T11:11:41.857Z"
-    },
-    {
-      "name": "Lider",
-      "category": "Çilingir",
-      "address": "Kadıköy, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5291970802",
-      "id": "8c9c9d5f-8efe-4b77-b859-cc22c2ab4607",
-      "status": "new",
-      "created_at": "2026-07-03T11:11:41.858Z"
-    },
-    {
-      "name": "Anahtarcı",
-      "category": "Çilingir",
-      "address": "Zeytinburnu, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5667640111",
-      "id": "e9653b37-1840-42da-ba9a-9bd44af26574",
-      "status": "new",
-      "created_at": "2026-07-03T11:11:41.859Z"
-    },
-    {
-      "name": "Anahtarci",
-      "category": "Çilingir",
-      "address": "58/2 Sokak, Zeytinburnu, İstanbul",
-      "phone": "",
-      "rating": 0,
-      "reviews_count": 0,
-      "reviews_summary": "Müşteri odaklı kaliteli hizmet.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "osm_node_5667657076",
-      "id": "f7417ee8-6475-4865-b5cc-64c7b0b35648",
-      "status": "new",
-      "created_at": "2026-07-03T11:11:41.861Z"
-    },
-    {
-      "name": "Tarihi Basmane Fırını",
-      "category": "Bakery",
-      "address": "Faik Paşa, Anafartalar Cd. No:850, 35240 Konak/İzmir, Türkiye",
-      "phone": "(0232) 483 04 52",
-      "rating": 4.5,
-      "reviews_count": 107,
-      "reviews_summary": "İşletmenin müşteriler tarafından en çok beğenilen 2-3 güçlü yönünü özetleyen tek bir kısa Türkçe cümle:\n\n\"Her gün odun ateşinde tazecik pişirilen, damaklarda unutulmaz izler bırakan geleneksel lezzetlerimizle sizleri ağırlıyoruz.\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJKwiji_HYuxQRB3HUMsB_ohI",
-      "id": "a7a3feaa-860c-4fcf-8589-4d5b08ee0cc8",
-      "status": "new",
-      "created_at": "2026-07-03T11:18:38.737Z"
-    },
-    {
-      "name": "Karataş Fırın & Cafe",
-      "category": "Bakery",
-      "address": "Turgut Reis, Mithatpaşa Cd. No:165/A, 35280 Konak/İzmir, Türkiye",
-      "phone": "(0232) 446 76 89",
-      "rating": 4.4,
-      "reviews_count": 118,
-      "reviews_summary": "İşletmenin müşteriler tarafından en çok beğenilen güçlü yönlerini özetleyen cümle:\n\n**\"Güler yüzlü ve samimi hizmet anlayışımızla birlikte, fırından yeni çıkmış taptaze ve zengin çeşitli ürünlerimizle bölgenin vazgeçilmez lezzet durağıyız.\"**",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJz3XJGSTZuxQRt2JAR8qPX9Y",
-      "id": "6133181b-00d7-4959-8469-a6474f04a116",
-      "status": "new",
-      "created_at": "2026-07-03T11:18:50.358Z"
-    },
-    {
-      "name": "Göztepe Ekmek",
-      "category": "Bakery",
-      "address": "Güzelyalı, Mithatpaşa Cd. No:1011/A, 35290 Konak/İzmir, Türkiye",
-      "phone": "(0232) 285 93 35",
-      "rating": 4.6,
-      "reviews_count": 77,
-      "reviews_summary": "İşletmenin güçlü yönleri şunlardır:\n\n*   **Lezzet (Taste):** Müşteriler ürünlerin \"enfes,\" \"çok lezzetli\" olduğunu belirtiyor ve hatta hayatlarında yedikleri \"en iyi simit\" olarak tanımlıyorlar. Bir müşteri için \"favori fırın\" olması da lezzetin bir göstergesi.\n*   **Çeşitlilik (Variety):** Cevizli, zeytinyağlı, tam buğday, sandviç ekmekleri gibi farklı ürünler ve \"şaşırtıcı derecede iyi çeşitlilik\" vurgulanmış.\n*   **Tazelik (Freshness):** \"Her zaman taze ekmek bulabileceğiniz bir yer\" olarak bahsediliyor.\n*   **Güven ve Hizmet (Trust and Service):** Yorumlardan birinde \"güven, hijyen, lezzet ve güler yüzlü hizmet\"in fiyat farkını önemsiz kıldığı belirtilmiş. (Ancak bir yorumda hijyenle ilgili olumsuz bir deneyim de mevcut, bu nedenle bu noktayı özet cümlede dengelemek önemli.)\n*   **Müşteri Sadakati:** Yıllardır alışveriş yapılması ve her geçildiğinde uğranılması, işletmenin müşterileri için vazgeçilmez olduğunu gösteriyor.\n\n---\n\n**İşletmenin Web Sitesi İçin \"Biz Kimiz\" Bölümü Cümlesi:**\n\n\"Her gün taptaze, zengin ürün çeşitliliğimiz ve benzersiz lezzetlerimizle müşterilerimizin güvenini ve beğenisini kazanmaya devam ediyoruz.\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJt9P9A6neuxQR0FZ-e4SoY9Y",
-      "id": "74c72809-4102-45ed-9379-44501cda66a7",
-      "status": "new",
-      "created_at": "2026-07-03T11:19:03.746Z"
-    },
-    {
-      "name": "İstanbul Ekmek",
-      "category": "Bakery",
-      "address": "Murat Reis, Şht. Ceysu Ceylan Sk. No:69 B, 35280 Konak/İzmir, Türkiye",
-      "phone": "(0232) 232 90 13",
+      "address": "Osmanağa Mahallesi General Asım Gündüz Caddesi, Osmanağa, Halil Ethem Sk. 32/40, 34710 Kadıköy/İstanbul, Türkiye",
+      "phone": "0535 205 75 13",
       "rating": 4.7,
-      "reviews_count": 141,
-      "reviews_summary": "Müşteri yorumlarını analiz ettiğimizde, işletmenin öne çıkan güçlü yönleri şunlardır:\n\n1.  **Ürün Lezzeti ve Tazeliği:** Yorumlarda \"really good bread\", \"amazing\", \"very good bread\", \"best pastries and bread\", \"always fresh and delicious\", \"delicious products\" ifadeleri sıklıkla geçmektedir. Bu, ürünlerin (özellikle ekmek ve hamur işleri) kalitesinin, lezzetinin ve tazeliğinin müşteriler tarafından çok beğenildiğini göstermektedir.\n2.  **Güler Yüzlü ve Samimi Hizmet/Atmosfer:** \"Friendly staff\", \"friendly owners\", \"friendly service\", \"friendly and welcoming atmosphere\" gibi ifadeler, işletmenin müşteri ilişkilerinde sıcak, samimi ve misafirperver bir yaklaşım sergilediğini belirtmektedir.\n\nBu iki güçlü yönü özetleyen ve \"Biz Kimiz\" bölümünde kullanılabilecek profesyonel ve etkileyici tek bir cümle:\n\n**\"Her gün taptaze ve enfes lezzetlerimizi, samimi ve güler yüzlü hizmet anlayışımızla harmanlayarak, müşterilerimize eşsiz bir fırın deneyimi sunuyoruz.\"**",
+      "reviews_count": 20,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
       "has_website": false,
       "website_url": "",
-      "place_id": "ChIJ8TPEzjXZuxQRnS5lpA15pyE",
-      "id": "17fd8219-919d-42a3-a985-6eb77dc6c4a0",
+      "place_id": "ChIJZbkyEsl3iEARXr4wBFhjzd8",
+      "id": "1bda4a1d-d1ab-4179-a12c-0ba03182d45d",
       "status": "new",
-      "created_at": "2026-07-03T11:19:15.730Z"
+      "created_at": "2026-07-04T18:02:33.670Z"
     },
     {
-      "name": "ATA FIRIN",
-      "category": "Bakery",
-      "address": "Yenigün, Fevzi Paşa Blv no: 54, 35000 Konak/İzmir, Türkiye",
-      "phone": "0532 223 25 95",
-      "rating": 3.9,
-      "reviews_count": 81,
-      "reviews_summary": "İşletmenin müşteriler tarafından en çok beğenilen 2-3 güçlü yönünü özetleyen ve web sitesinin \"Biz Kimiz\" kısmında kullanılabilecek profesyonel ve etkileyici cümle:\n\n\"**Hızlı servisimiz, özenle hazırladığımız taze fırın ürünlerimiz ve her yudumda keyif veren demli çayımızla misafirlerimizi ağırlıyoruz.**\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJ3WXXyhvZuxQRoZEMDjnRyto",
-      "id": "a49fd351-6e27-46ef-b56a-eac2fbe992d9",
-      "status": "new",
-      "created_at": "2026-07-03T11:19:29.477Z"
-    },
-    {
-      "name": "Bulut Fırın",
-      "category": "Bakery",
-      "address": "Çankaya, 137. Sk. no:36, 35280 Konak/İzmir, Türkiye",
-      "phone": "(0232) 243 18 10",
-      "rating": 4.5,
-      "reviews_count": 255,
-      "reviews_summary": "İşletmenin müşteriler tarafından en çok beğenilen 2-3 güçlü yönünü özetleyen profesyonel ve etkileyici cümle:\n\n\"**Bölgemizin en çok tercih edilen fırını olarak, özenle hazırladığımız eşsiz ekmek ve unlu mamullerimizle damaklarda iz bırakan lezzet farkı yaratıyoruz.**\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJQ5RqhgnZuxQRCFo5xsN-ajk",
-      "id": "5a59b6c1-5374-47bc-b930-e3395367883a",
-      "status": "new",
-      "created_at": "2026-07-03T11:19:40.788Z"
-    },
-    {
-      "name": "Ali Paşa Ekmek & Un Ürünleri",
-      "category": "Bakery",
-      "address": "Selçuk, Rakım Erkutlu Cd. No:122, 35240 Konak/İzmir, Türkiye",
-      "phone": "(0232) 261 82 37",
-      "rating": 4.4,
-      "reviews_count": 110,
-      "reviews_summary": "İşletmenin müşteriler tarafından en çok beğenilen 2-3 güçlü yönünü özetleyen profesyonel ve etkileyici cümle:\n\n\"Doğu usulü fırınımızda özenle hazırladığımız geleneksel lezzetlerimiz ve misafirperver hizmet anlayışımızla müşterilerimizin kalbini kazanıyoruz.\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJxTOr2t3YuxQRDmt4A77XENM",
-      "id": "97ec540b-175e-43ba-a9e6-390863d63042",
-      "status": "new",
-      "created_at": "2026-07-03T11:21:05.463Z"
-    },
-    {
-      "name": "Hacı Baba Fırını",
-      "category": "Bakery",
-      "address": "Çimentepe, 682. Sk. No:30/A, 35270 Konak/İzmir, Türkiye",
-      "phone": "0535 241 42 36",
-      "rating": 4.5,
-      "reviews_count": 187,
-      "reviews_summary": "Hacı Baba Fırını olarak, yenilenen keyifli ortamımızda, benzersiz lezzetlerimizi en uygun fiyatlarla sunarak damaklarda iz bırakıyoruz.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJFfkwONrYuxQRIW0IbUiAVUQ",
-      "id": "fde3a1cd-1a1a-4af4-a05a-93cf37677c84",
-      "status": "new",
-      "created_at": "2026-07-03T11:21:16.544Z"
-    },
-    {
-      "name": "Hatay Unlu Mamülleri & Ekmek",
-      "category": "Bakery",
-      "address": "Murat Reis, 156. Sk. 10 A, 35280 Konak/İzmir, Türkiye",
-      "phone": "(0232) 243 95 47",
-      "rating": 4.3,
-      "reviews_count": 179,
-      "reviews_summary": "İşletmenin güçlü yönlerini özetleyen cümle:\n\n\"Sevgiyle hazırlanan taze ve lezzetli ürünlerimiz, zengin çeşitliliğimiz ve bütçe dostu fiyatlarımız ile misafirlerimizin beğenisini topluyoruz.\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJSaIBBjXZuxQRNJ4VlkSYV3Y",
-      "id": "a9f8c1a3-6b9c-4f16-a973-3209ebd3bcc9",
-      "status": "new",
-      "created_at": "2026-07-03T11:21:23.736Z"
-    },
-    {
-      "name": "ETİKA ET RESTORAN",
-      "category": "Establishment",
-      "address": "Yavuz Selim, 5017 sokak no 8, 02400 Kâhta/Adıyaman, Türkiye",
-      "phone": "0536 843 34 02",
-      "rating": 4.6,
-      "reviews_count": 80,
-      "reviews_summary": "ETİKA ET RESTORAN olarak, eşsiz lezzetlerimiz, sıcak misafirperverliğimiz ve tertemiz aile ortamımızla misafirlerimizin beğenisini topluyoruz.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJGWf0GV9ZMxURhH6-KkJX0NE",
-      "id": "c61ff1c0-3a91-4627-8bb5-3f10e6e4eb5e",
-      "status": "ready",
-      "created_at": "2026-07-03T11:22:37.328Z"
-    },
-    {
-      "name": "Ciğerci Aslan Kahta",
-      "category": "Establishment",
-      "address": "Yavuz Selim, 5049. Sk. No:3, 02400 Kâhta/Adıyaman, Türkiye",
-      "phone": "0538 343 62 02",
-      "rating": 4.6,
-      "reviews_count": 32,
-      "reviews_summary": "Ciğerci Aslan Kahta olarak, her lokmada hissedilen eşsiz lezzetimiz, titizlikle önemsediğimiz hijyen ve kalitemiz, güler yüzlü ve özenli hizmet anlayışımızla Kahta'da vazgeçilmez bir lezzet durağıyız.",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJY8LZIqFZMxURO2uMQp-G_MI",
-      "id": "97b23776-c144-46fd-bf6d-2e74abed02b7",
-      "status": "ready",
-      "created_at": "2026-07-03T11:22:48.798Z"
-    },
-    {
-      "name": "Kâhta Ustam Çiğköfte",
-      "category": "Establishment",
-      "address": "Fırat, Mustafa Kemal Cd. No:138, 02400 Kâhta/Adıyaman, Türkiye",
-      "phone": "0533 763 95 02",
-      "rating": 4.9,
-      "reviews_count": 197,
-      "reviews_summary": "İşletmenin müşteriler tarafından en çok beğenilen güçlü yönleri şunlardır:\n\n1.  **Lezzet ve Kalite Dengesi:** Çiğköftenin tadının eşsiz, dengeli (baharat ve acı oranı tam yerinde) ve sürekli yüksek kalitede olması.\n2.  **Üstün Hizmet Anlayışı:** Müşterilerin daha önce görmediği kadar iyi ve \"muhteşem\" olarak nitelendirilen bir hizmet sunulması.\n3.  **Özenli İşçilik ve Sunum:** Özellikle paketlemenin çok dikkatli yapılması, ürünlerin taze ve sağlam ulaşması, genel anlamda gösterilen özen.\n\nBu güçlü yönleri özetleyen tek bir kısa Türkçe cümle:\n\n\"Eşsiz lezzet dengesi, üstün hizmet anlayışı ve titiz işçiliğimiz ile müşterilerimizin vazgeçilmezi olmaya devam ediyoruz.\"",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJp94F9U5ZMxURXjdT06-cniA",
-      "id": "417824da-59c3-42cd-9f9f-4aed37829747",
-      "status": "new",
-      "created_at": "2026-07-03T11:22:57.603Z"
-    },
-    {
-      "name": "Kasabım ömer",
-      "category": "Establishment",
-      "address": "Kahta devlet hastanesi kavşağı seç market karşısı, hastane kavşağı, Yavuz Selim, Filistin Cd, 02400 Kâhta/Adıyaman, Türkiye",
-      "phone": "0531 653 84 03",
+      "name": "Teknikel Anahtar Evi",
+      "category": "Çilingir",
+      "address": "Merdivenköy, Merdivenköy Cd 4 /A, 34732 Kadıköy/İstanbul, Türkiye",
+      "phone": "0532 717 89 05",
       "rating": 4.7,
-      "reviews_count": 552,
-      "reviews_summary": "İşletmenin Google incelemelerindeki en güçlü yönleri; **taze ve lezzetli yemekleri**, **uygun (cazip) fiyatları** ve **hızlı, ilgili hizmet anlayışıdır.**\n\nBu güçlü yönleri özetleyen ve web sitesinin \"Biz Kimiz\" kısmında kullanılabilecek tek cümle:\n\n**\"Taze ve enfes lezzetlerimizi cazip fiyatlarla ve hızlı, ilgili hizmet anlayışımızla buluşturarak müşterilerimizin beğenisini topluyoruz.\"**",
+      "reviews_count": 14,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
       "has_website": false,
       "website_url": "",
-      "place_id": "ChIJSzqebQhZMxURjlOUALB7ezo",
-      "id": "6e21d078-6fee-4635-b98a-20d130529a4c",
+      "place_id": "ChIJAX6qP5PHyhQR7zM579D_IfM",
+      "id": "fdea2d26-cc63-4233-b30b-428c4470ce2c",
       "status": "new",
-      "created_at": "2026-07-03T11:23:07.332Z"
+      "created_at": "2026-07-04T18:02:33.986Z"
     },
     {
-      "name": "Boğaziçi Restoran",
-      "category": "Establishment",
-      "address": "Fırat, 2. Sk. No:26, 02400 Kâhta/Adıyaman, Türkiye",
-      "phone": "(0416) 725 57 57",
-      "rating": 3.9,
-      "reviews_count": 112,
-      "reviews_summary": "**Geleneksel esnaf lokantası kültürünü yansıtan sıcak atmosferimiz, usta işi lezzetlerimiz ve samimi hizmet anlayışımızla misafirlerimizin beğenisini topluyoruz.**",
+      "name": "Mega Anahtar Evi ve Cilingirlik Hizmetleri",
+      "category": "Çilingir",
+      "address": "Göksel Sitesi, Osmanağa, Söğütlüçeşme Cad. No:67 D:4, 34714 Kadıköy/İstanbul, Türkiye",
+      "phone": "0532 494 44 14",
+      "rating": 5,
+      "reviews_count": 17,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
       "has_website": false,
       "website_url": "",
-      "place_id": "ChIJR4yi681YMxURyl6xPF3nIW8",
-      "id": "e19138d8-2034-4e6d-8935-dd7c99f5f93b",
+      "place_id": "ChIJn3ttQl24yhQRyxI888mSJ8k",
+      "id": "a93c2650-d4c1-476b-874d-efce57d09db6",
       "status": "new",
-      "created_at": "2026-07-03T11:23:19.211Z"
-    },
-    {
-      "name": "Han Restaurant Kahta",
-      "category": "Establishment",
-      "address": "Karşıyaka, Mustafa Kemal Cd. NO:72/35, 02400 Kâhta/Adıyaman, Türkiye",
-      "phone": "0545 281 02 02",
-      "rating": 3.3,
-      "reviews_count": 57,
-      "reviews_summary": "Han Restaurant Kahta'nın Google incelemelerini analiz ettikten sonra öne çıkan güçlü yönleri şunlardır:\n\n1.  **Lezzetli ve Nitelikli Yemekler:** Birden fazla yorumda \"very delicious food,\" \"yemek gerçekten mükemmel,\" \"güzel tad\" ve \"legendary food\" gibi ifadelerle yemeklerin lezzeti ve kalitesi sıkça vurgulanmıştır.\n2.  **Merkezi ve Ulaşılabilir Konum:** \"Mekanın konumu ulaşımı çok güzel,\" \"It was in a nice location,\" \"The place is nice and the location is nice,\" ve \"The place is both centrally located\" yorumlarıyla konumun elverişliliği ve kolay ulaşılabilirliği belirtilmiştir.\n3.  **Bölgenin Tercih Edilen İşletmelerinden Biri Olma:** Bir yorumda doğrudan \"one of the best restaurants in the area\" denilmesi, işletmenin bölgedeki genel algısının olumlu olduğunu göstermektedir.\n\nBu güçlü yönleri özetleyen ve \"Biz Kimiz\" kısmında kullanılabilecek profesyonel ve etkileyici cümle:\n\n**\"Bölgenin en beğenilen mekanlarından biri olarak, merkezi konumumuz ve efsanevi lezzetlerimizle misafirlerimize unutulmaz bir deneyim sunuyoruz.\"**",
-      "has_website": false,
-      "website_url": "",
-      "place_id": "ChIJwZ82f_5ZMxURImiYsGoQ708",
-      "id": "006e4987-5359-4152-916e-de1eb76ad096",
-      "status": "new",
-      "created_at": "2026-07-03T11:23:27.813Z"
+      "created_at": "2026-07-04T18:02:34.391Z"
     }
   ],
   "generated_sites": [
     {
-      "lead_id": "9cdcd411-83d3-4cd0-b707-14fb63fb9f62",
-      "template_name": "business",
+      "lead_id": "test-aras-cilingir-id",
+      "template_name": "locksmith_urgent",
       "theme_config": {
-        "primary": "#4f46e5",
-        "secondary": "#818cf8",
-        "fontFamily": "Inter"
+        "primary": "#dc2626",
+        "secondary": "#1e40af",
+        "fontFamily": "Inter, sans-serif"
       },
       "content": {
         "hero": {
-          "title": "Kordon Butik Çiçekçilik ile Geleceğe Yatırım Yapın",
-          "subtitle": "İhtiyaçlarınıza özel profesyonel çözümler ve kaliteli hizmet.",
-          "cta_text": "Bize Ulaşın"
+          "title": "Deneme Aras Cilingir Hizmetleri - Kapıda Mı Kaldınız?",
+          "subtitle": "15 dakika içinde adresinizdeyiz. Hasarsız kapı açma garantisi.",
+          "cta_text": "Hemen Ara",
+          "badge_text": "7/24 Acil Servis"
         },
-        "about": "Kordon Butik Çiçekçilik, sektördeki deneyimi ve yenilikçi yaklaşımları ile müşterilerine en üst düzeyde değer sağlamayı amaç edinmiştir. Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor..",
+        "about": "Yılların güveniyle kapı açma ve kilit değişimi hizmetleri sunuyoruz.",
         "services": [
           {
-            "title": "Danışmanlık",
-            "description": "Hedeflerinize ulaşmanız için stratejik rehberlik."
+            "title": "Ev Kapısı Açma",
+            "description": "Hasarsız açım",
+            "icon": "Home"
           },
           {
-            "title": "Özel Çözümler",
-            "description": "İşletmenizin yapısına özel tasarlanmış hizmetler."
+            "title": "Oto Çilingir",
+            "description": "Tüm araç markaları",
+            "icon": "Car"
           },
           {
-            "title": "Sürekli Destek",
-            "description": "İhtiyaç duyduğunuz her an teknik ve operasyonel destek."
+            "title": "Kasa Çilingir",
+            "description": "Güvenli açım",
+            "icon": "Lock"
           }
         ],
         "testimonials": [
           {
-            "name": "Kadir T.",
-            "text": "İlk andan itibaren çok ilgiliydiler. Çözümleri işimizi çok kolaylaştırdı."
+            "name": "Ahmet Y.",
+            "text": "Hizmet kalitesi ve profesyonellik gerçekten üst düzeydi. Çok memnun kaldım.",
+            "rating": 5
           },
           {
-            "name": "Merve D.",
-            "text": "Güler yüzlü ekibi ve yüksek kaliteli hizmet standartları ile vazgeçilmez bir partner."
+            "name": "Ayşe K.",
+            "text": "Güler yüzlü ekip ve harika bir deneyim. Herkese tavsiye ederim.",
+            "rating": 5
           }
         ],
         "contact": {
-          "phone": "+90 850 333 4455",
-          "email": "info@kordonbutikiekilik.com",
-          "address": "Şişli, İstanbul",
-          "hours": "Hafta içi: 09:00 - 18:00"
+          "company_name": "Deneme Aras Cilingir Hizmetleri",
+          "phone": "0535 999 88 77",
+          "email": "info@denemearascilingirhizmetleri.com",
+          "address": "Osmanağa, Söğütlüçeşme Cad. No:92, Kadıköy/İstanbul",
+          "hours": "Pzt-Cmt: 09:00 - 20:00",
+          "whatsapp_message": "Merhaba, acil çilingir hizmetine ihtiyacım var. Adresim: "
         },
         "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-          "about_img": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=600",
-          "services_img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
+          "hero_bg": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80"
         }
       },
-      "id": "cf247e85-835a-4a16-b2d6-9912805ad971",
-      "edit_token": "00ef9530-fd73-4fda-b75b-8d0bcdb2ec70",
-      "created_at": "2026-06-28T18:21:52.421Z",
-      "updated_at": "2026-06-28T18:21:52.421Z"
+      "id": "b5bd0733-1e5b-40bd-85b6-8a1c4ca7647a",
+      "edit_token": "f5876cec-b826-48c6-8efb-c5d635afe5be",
+      "created_at": "2026-07-04T17:59:41.274Z",
+      "updated_at": "2026-07-04T18:01:58.607Z"
     },
     {
-      "lead_id": "6ece4773-0d3a-42d5-a838-a8306c74a947",
-      "template_name": "business",
+      "lead_id": "35173be4-4963-413c-a25f-6bb5f4112868",
+      "template_name": "locksmith_urgent",
       "theme_config": {
-        "primary": "#4f46e5",
-        "secondary": "#818cf8",
-        "fontFamily": "Inter"
+        "primary": "#dc2626",
+        "secondary": "#1e40af",
+        "fontFamily": "Inter, sans-serif"
       },
       "content": {
         "hero": {
-          "title": "Moda Terzi Ali ile Geleceğe Yatırım Yapın",
-          "subtitle": "İhtiyaçlarınıza özel profesyonel çözümler ve kaliteli hizmet.",
-          "cta_text": "Bize Ulaşın"
+          "title": "Dağdelen Çilingir - Kapıda Mı Kaldınız?",
+          "subtitle": "15 dakika içinde adresinizdeyiz. Hasarsız kapı açma garantisi.",
+          "cta_text": "Hemen Ara",
+          "badge_text": "7/24 Acil Servis"
         },
-        "about": "Moda Terzi Ali, sektördeki deneyimi ve yenilikçi yaklaşımları ile müşterilerine en üst düzeyde değer sağlamayı amaç edinmiştir. Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor..",
+        "about": "Yılların güveniyle kapı açma ve kilit değişimi hizmetleri sunuyoruz.",
         "services": [
           {
-            "title": "Danışmanlık",
-            "description": "Hedeflerinize ulaşmanız için stratejik rehberlik."
+            "title": "Ev Kapısı Açma",
+            "description": "Hasarsız açım",
+            "icon": "Home"
           },
           {
-            "title": "Özel Çözümler",
-            "description": "İşletmenizin yapısına özel tasarlanmış hizmetler."
+            "title": "Oto Çilingir",
+            "description": "Tüm araç markaları",
+            "icon": "Car"
           },
           {
-            "title": "Sürekli Destek",
-            "description": "İhtiyaç duyduğunuz her an teknik ve operasyonel destek."
+            "title": "Kasa Çilingir",
+            "description": "Güvenli açım",
+            "icon": "Lock"
           }
         ],
         "testimonials": [
           {
-            "name": "Kadir T.",
-            "text": "İlk andan itibaren çok ilgiliydiler. Çözümleri işimizi çok kolaylaştırdı."
+            "name": "Ahmet Y.",
+            "text": "Hizmet kalitesi ve profesyonellik gerçekten üst düzeydi. Çok memnun kaldım.",
+            "rating": 5
           },
           {
-            "name": "Merve D.",
-            "text": "Güler yüzlü ekibi ve yüksek kaliteli hizmet standartları ile vazgeçilmez bir partner."
+            "name": "Ayşe K.",
+            "text": "Güler yüzlü ekip ve harika bir deneyim. Herkese tavsiye ederim.",
+            "rating": 5
           }
         ],
         "contact": {
-          "phone": "+90 850 333 4455",
-          "email": "info@modaterziali.com",
-          "address": "Şişli, İstanbul",
-          "hours": "Hafta içi: 09:00 - 18:00"
+          "company_name": "Dağdelen Çilingir",
+          "phone": "0536 789 66 52",
+          "email": "info@dagdelencilingir.com",
+          "address": "Akasya Ap, Fenerbahçe, Alageyik Sk. No:21, 34726 Kadıköy/İstanbul, Türkiye",
+          "hours": "Pzt-Cmt: 09:00 - 20:00",
+          "whatsapp_message": "Merhaba, acil çilingir hizmetine ihtiyacım var. Adresim: "
         },
         "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-          "about_img": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=600",
-          "services_img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
+          "hero_bg": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1563223771-5fe4038fbfc9?auto=format&fit=crop&q=80"
         }
       },
-      "id": "98ec1f4c-d94d-4d47-bc45-5493b640c03e",
-      "edit_token": "413842be-0d17-44b4-a04e-8486d7222968",
-      "created_at": "2026-06-28T18:22:51.396Z",
-      "updated_at": "2026-06-28T18:22:51.396Z"
-    },
-    {
-      "lead_id": "e28d5020-cadc-4b44-a7c2-2869f719b2f2",
-      "template_name": "business",
-      "theme_config": {
-        "primary": "#4f46e5",
-        "secondary": "#818cf8",
-        "fontFamily": "Inter"
-      },
-      "content": {
-        "hero": {
-          "title": "Kardeşler Oto Elektrik ile Geleceğe Yatırım Yapın",
-          "subtitle": "İhtiyaçlarınıza özel profesyonel çözümler ve kaliteli hizmet.",
-          "cta_text": "Bize Ulaşın"
-        },
-        "about": "Kardeşler Oto Elektrik, sektördeki deneyimi ve yenilikçi yaklaşımları ile müşterilerine en üst düzeyde değer sağlamayı amaç edinmiştir. Hızlı teslimat, taze ürünler ve güler yüzlü personel öne çıkıyor..",
-        "services": [
-          {
-            "title": "Danışmanlık",
-            "description": "Hedeflerinize ulaşmanız için stratejik rehberlik."
-          },
-          {
-            "title": "Özel Çözümler",
-            "description": "İşletmenizin yapısına özel tasarlanmış hizmetler."
-          },
-          {
-            "title": "Sürekli Destek",
-            "description": "İhtiyaç duyduğunuz her an teknik ve operasyonel destek."
-          }
-        ],
-        "testimonials": [
-          {
-            "name": "Kadir T.",
-            "text": "İlk andan itibaren çok ilgiliydiler. Çözümleri işimizi çok kolaylaştırdı."
-          },
-          {
-            "name": "Merve D.",
-            "text": "Güler yüzlü ekibi ve yüksek kaliteli hizmet standartları ile vazgeçilmez bir partner."
-          }
-        ],
-        "contact": {
-          "phone": "+90 850 333 4455",
-          "email": "info@kardelerotoelektrik.com",
-          "address": "Şişli, İstanbul",
-          "hours": "Hafta içi: 09:00 - 18:00"
-        },
-        "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-          "about_img": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=600",
-          "services_img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
-        }
-      },
-      "id": "332288d6-4cc9-4bed-8638-038233c12dab",
-      "edit_token": "07edef0b-e0db-47e8-bb6c-1b20a962c453",
-      "created_at": "2026-06-28T18:22:59.418Z",
-      "updated_at": "2026-06-28T18:22:59.418Z"
-    },
-    {
-      "lead_id": "c61ff1c0-3a91-4627-8bb5-3f10e6e4eb5e",
-      "template_name": "business",
-      "theme_config": {
-        "primary": "#4f46e5",
-        "secondary": "#818cf8",
-        "fontFamily": "Inter"
-      },
-      "content": {
-        "hero": {
-          "title": "ETİKA ET RESTORAN ile Geleceğe Yatırım Yapın",
-          "subtitle": "İhtiyaçlarınıza özel profesyonel çözümler ve kaliteli hizmet.",
-          "cta_text": "Bize Ulaşın"
-        },
-        "about": "ETİKA ET RESTORAN, sektördeki deneyimi ve yenilikçi yaklaşımları ile müşterilerine en üst düzeyde değer sağlamayı amaç edinmiştir. ETİKA ET RESTORAN olarak, eşsiz lezzetlerimiz, sıcak misafirperverliğimiz ve tertemiz aile ortamımızla misafirlerimizin beğenisini topluyoruz..",
-        "services": [
-          {
-            "title": "Danışmanlık",
-            "description": "Hedeflerinize ulaşmanız için stratejik rehberlik."
-          },
-          {
-            "title": "Özel Çözümler",
-            "description": "İşletmenizin yapısına özel tasarlanmış hizmetler."
-          },
-          {
-            "title": "Sürekli Destek",
-            "description": "İhtiyaç duyduğunuz her an teknik ve operasyonel destek."
-          }
-        ],
-        "testimonials": [
-          {
-            "name": "Kadir T.",
-            "text": "İlk andan itibaren çok ilgiliydiler. Çözümleri işimizi çok kolaylaştırdı."
-          },
-          {
-            "name": "Merve D.",
-            "text": "Güler yüzlü ekibi ve yüksek kaliteli hizmet standartları ile vazgeçilmez bir partner."
-          }
-        ],
-        "contact": {
-          "phone": "+90 850 333 4455",
-          "email": "info@etikaetrestoran.com",
-          "address": "Şişli, İstanbul",
-          "hours": "Hafta içi: 09:00 - 18:00"
-        },
-        "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-          "about_img": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=600",
-          "services_img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
-        }
-      },
-      "id": "ca4cca41-a5e1-496a-a7cc-b321004a0538",
-      "edit_token": "d5c5a2db-f96f-4495-81d0-86c2c2e84557",
-      "created_at": "2026-07-03T11:27:28.069Z",
-      "updated_at": "2026-07-03T11:27:28.069Z"
-    },
-    {
-      "lead_id": "97b23776-c144-46fd-bf6d-2e74abed02b7",
-      "template_name": "business",
-      "theme_config": {
-        "primary": "#4f46e5",
-        "secondary": "#818cf8",
-        "fontFamily": "Inter"
-      },
-      "content": {
-        "hero": {
-          "title": "Ciğerci Aslan Kahta ile Geleceğe Yatırım Yapın",
-          "subtitle": "İhtiyaçlarınıza özel profesyonel çözümler ve kaliteli hizmet.",
-          "cta_text": "Bize Ulaşın"
-        },
-        "about": "Ciğerci Aslan Kahta, sektördeki deneyimi ve yenilikçi yaklaşımları ile müşterilerine en üst düzeyde değer sağlamayı amaç edinmiştir. Ciğerci Aslan Kahta olarak, her lokmada hissedilen eşsiz lezzetimiz, titizlikle önemsediğimiz hijyen ve kalitemiz, güler yüzlü ve özenli hizmet anlayışımızla Kahta'da vazgeçilmez bir lezzet durağıyız..",
-        "services": [
-          {
-            "title": "Danışmanlık",
-            "description": "Hedeflerinize ulaşmanız için stratejik rehberlik."
-          },
-          {
-            "title": "Özel Çözümler",
-            "description": "İşletmenizin yapısına özel tasarlanmış hizmetler."
-          },
-          {
-            "title": "Sürekli Destek",
-            "description": "İhtiyaç duyduğunuz her an teknik ve operasyonel destek."
-          }
-        ],
-        "testimonials": [
-          {
-            "name": "Kadir T.",
-            "text": "İlk andan itibaren çok ilgiliydiler. Çözümleri işimizi çok kolaylaştırdı."
-          },
-          {
-            "name": "Merve D.",
-            "text": "Güler yüzlü ekibi ve yüksek kaliteli hizmet standartları ile vazgeçilmez bir partner."
-          }
-        ],
-        "contact": {
-          "phone": "+90 850 333 4455",
-          "email": "info@cierciaslankahta.com",
-          "address": "Şişli, İstanbul",
-          "hours": "Hafta içi: 09:00 - 18:00"
-        },
-        "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-          "about_img": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=600",
-          "services_img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600"
-        }
-      },
-      "id": "e0a2a1b4-f6b8-4ed9-ab32-3dee4b260989",
-      "edit_token": "23f9afc3-1681-438f-986b-54bc8ff5e682",
-      "created_at": "2026-07-03T11:28:23.047Z",
-      "updated_at": "2026-07-03T11:28:23.047Z"
+      "id": "3792bdda-25b6-4b79-bf2a-86c5213c915d",
+      "edit_token": "87f97e2a-1e12-4ecd-ad19-2d255a3cc326",
+      "created_at": "2026-07-04T18:02:38.677Z",
+      "updated_at": "2026-07-04T18:02:38.677Z"
     }
   ]
 }
