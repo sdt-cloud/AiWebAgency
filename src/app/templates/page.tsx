@@ -14,7 +14,9 @@ import {
   Scissors, 
   Stethoscope, 
   Briefcase, 
-  AlertTriangle, 
+  Key,
+  Zap,
+  Wrench,
   Car 
 } from 'lucide-react';
 import { getAllPresets } from '@/components/templates/template-registry';
@@ -26,7 +28,9 @@ const CATEGORY_META = [
   { id: 'Berber & Güzellik', label: 'Berber & Güzellik', icon: Scissors, color: 'text-pink-400 bg-pink-500/10' },
   { id: 'Diş & Sağlık', label: 'Sağlık & Medikal', icon: Stethoscope, color: 'text-cyan-400 bg-cyan-500/10' },
   { id: 'Hukuk & Kurumsal', label: 'Kurumsal & Hukuk', icon: Briefcase, color: 'text-blue-400 bg-blue-500/10' },
-  { id: 'Acil Servis', label: 'Acil & Saha Hizmetleri', icon: AlertTriangle, color: 'text-red-400 bg-red-500/10' },
+  { id: 'Çilingir', label: 'Çilingir', icon: Key, color: 'text-red-400 bg-red-500/10' },
+  { id: 'Elektrikçi', label: 'Elektrikçi', icon: Zap, color: 'text-yellow-400 bg-yellow-500/10' },
+  { id: 'Tesisatçı & Tadilat', label: 'Tesisat & Tadilat', icon: Wrench, color: 'text-orange-400 bg-orange-500/10' },
   { id: 'Oto & Hizmet', label: 'Oto & Ev Hizmetleri', icon: Car, color: 'text-emerald-400 bg-emerald-500/10' }
 ];
 
@@ -48,9 +52,11 @@ export function mapPresetToDashboardCategory(presetCategory: string): string {
     case 'Emlak & Gayrimenkul':
       return 'Hukuk & Kurumsal';
     case 'Çilingir':
-    case 'Tesisatçı & Tadilat':
+      return 'Çilingir';
     case 'Elektrikçi':
-      return 'Acil Servis';
+      return 'Elektrikçi';
+    case 'Tesisatçı & Tadilat':
+      return 'Tesisatçı & Tadilat';
     case 'Oto Yıkama':
     case 'Oto Tamir & Servis':
       return 'Oto & Hizmet';
