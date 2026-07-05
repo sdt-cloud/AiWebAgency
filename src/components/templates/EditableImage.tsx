@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Camera, Image as ImageIcon } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Camera, Image as ImageIcon, Upload } from 'lucide-react';
 
 // Dot notation ile nesne içinden veri okuma
 function getValueByPath(obj: any, path: string): any {
@@ -66,11 +66,61 @@ export default function EditableImage({
   const actualSrc = resolvedSrc || fallback || "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600";
 
   const [urlInput, setUrlInput] = useState(actualSrc);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Aday değiştiğinde veya yeniden tasarlama yapıldığında arayüzdeki resmi senkronize et
   useEffect(() => {
     setUrlInput(actualSrc);
   }, [actualSrc]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Lütfen geçerli bir görsel dosyası seçin.');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        // Canvas ile resmi optimize et (maksimum genişlik/yükseklik 1000px)
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 1000;
+        const MAX_HEIGHT = 1000;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, width, height);
+          // 0.7 kalitesinde JPEG formatına sıkıştırarak base64 üret
+          const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+          setUrlInput(compressedBase64);
+        } else {
+          setUrlInput(event.target?.result as string);
+        }
+      };
+      img.src = event.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  };
 
   // Ready-made modern unsplash images for quick switching
   const quickStockImages = [
@@ -138,6 +188,32 @@ export default function EditableImage({
                   className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                   placeholder="https://images.unsplash.com/..."
                 />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="block text-sm font-medium text-slate-600">Yerel Cihazdan Görsel Yükle</label>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="flex items-center gap-2 px-3 py-2 bg-slate-100 border border-slate-300 hover:bg-slate-200 text-slate-700 rounded-lg text-sm cursor-pointer transition-colors"
+                  >
+                    <Upload size={16} />
+                    Dosya Seçin
+                  </button>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    accept="image/*"
+                    className="hidden"
+                  />
+                  {urlInput && urlInput.startsWith('data:image') && (
+                    <span className="text-[10px] text-green-600 bg-green-50 px-2 py-1.5 rounded-md self-center font-medium border border-green-200">
+                      Görsel başarıyla seçildi
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div>
