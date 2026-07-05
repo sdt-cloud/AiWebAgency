@@ -281,21 +281,21 @@
     },
     {
       "lead_id": "08e9ebbd-9c21-4502-be1b-2b5bc1c3723d",
-      "template_name": "ginger_white",
+      "template_name": "pastis",
       "theme_config": {
-        "primary": "#c4a265",
-        "secondary": "#212121",
+        "primary": "#c10230",
+        "secondary": "#0a0101",
         "fontFamily": "Playfair Display, serif",
         "fontFamilyHeading": "Playfair Display, serif"
       },
       "content": {
         "hero": {
-          "title": "Fahriye Cafe - Nitelikli Kahve & Taze Lezzetler",
-          "subtitle": "Mahallemizin kalbinde, en kaliteli yerel malzemelerle hazırlanan el yapımı lezzetler ve nitelikli artisan kahveler.",
-          "cta_text": "Menümüzü Keşfedin",
-          "badge_text": "Sıcak Mahalle Kafesi"
+          "title": "Fahriye Cafe - Meatpacking Klasik Fransız Bistrosu",
+          "subtitle": "New York Meatpacking District’in ikonik lezzet durağı Pastis, çinko barı, kırmızı deri koltukları ve sıcak atmosferiyle Paris şıklığını evinize getiriyor.",
+          "cta_text": "Menümüzü İnceleyin",
+          "badge_text": "Paris & New York Esintisi"
         },
-        "about": "Londra sokaklarının samimi havasını ve nitelikli kahve kültürünü mahallenize taşıyoruz. Ortak masalarımız, güler yüzlü ekibimiz ve taze pişen günlük keklerimizle sıcak bir mola noktası sunuyoruz.",
+        "about": "Keith McNally ve Stephen Starr imzalı Pastis, nostaljik bir bistro deneyimi sunuyor. Altın varaklı aynalara yazılmış günlük spesiyallerimiz, geleneksel Fransız mutfağının başyapıtları ve Paris kafelerinin o sıcak, bitmeyen hareketliliği artık mahallenizde.",
         "services": [
           {
             "title": "Profesyonel Hizmet",
@@ -333,67 +333,62 @@
           "hours": "Pzt-Cmt: 09:00 - 20:00"
         },
         "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80",
-          "about_img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80"
+          "hero_bg": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80"
         },
         "menu_items": [
           {
-            "category": "Sıcak & Soğuk Kahveler",
+            "category": "Bistro Klasikleri",
             "items": [
               {
-                "name": "Flat White",
-                "description": "Tek köken çekirdeklerden, kadifemsi süt kreması ile",
-                "price": "₺120"
+                "name": "Escargots à la Bourguignonne",
+                "description": "Sarımsaklı ve maydanozlu tereyağında pişmiş salyangoz",
+                "price": "₺310"
               },
               {
-                "name": "V60 / Filtre Kahve",
-                "description": "Mevsimlik hasat nitelikli çekirdekler",
-                "price": "₺110"
+                "name": "Soupe à l’Oignon Gratinée",
+                "description": "Geleneksel Fransız soğan çorbası, eritilmiş gravyer peynirli kruton ile",
+                "price": "₺240"
               },
               {
-                "name": "El Yapımı Sıcak Çikolata",
-                "description": "Organik kakao ve sütle",
-                "price": "₺130"
+                "name": "Steak Tartare Klasik",
+                "description": "Satır kıyması dana eti, hardal, kapari ve taze otlar ile",
+                "price": "₺460"
               }
             ]
           },
           {
-            "category": "Kahvaltı & Yemek",
+            "category": "Ana Yemekler",
             "items": [
               {
-                "name": "Rafadan Yumurta & Ekşi Mayalı Ekmek",
-                "description": "Sourdough soldiers ile meşhur dippy eggs lezzeti",
-                "price": "₺180"
+                "name": "Moules Frites",
+                "description": "Beyaz şarap, sarımsak ve krema soslu midyeler, çıtır patates kızartması ile",
+                "price": "₺520"
               },
               {
-                "name": "Avokadolu Tost",
-                "description": "Ekşi mayalı ekmek üzerinde avokado ezmesi ve keçi peyniri",
-                "price": "₺220"
+                "name": "Steak Frites",
+                "description": "Izgara antrikot, bearnaz sos ve ev yapımı frites ile",
+                "price": "₺890"
               },
               {
-                "name": "Ev Yapımı Günlük Sebze Çorbası",
-                "description": "Taze sebzeler ve kruton ekmekle",
-                "price": "₺140"
+                "name": "Trout Amandine",
+                "description": "Tavada pişmiş alabalık, tereyağlı badem ve taze limon sosuyla",
+                "price": "₺490"
               }
             ]
           },
           {
-            "category": "Fırınımız & Kekler",
+            "category": "Kahvaltı & Yumurtalar",
             "items": [
               {
-                "name": "Frostingli Havuçlu Kek",
-                "description": "Kendi mutfağımızda günlük taze pişen meşhur kekimiz",
-                "price": "₺150"
+                "name": "Croque Monsieur / Madame",
+                "description": "Fırınlanmış jambon ve gravyer peynirli tost (Madame versiyonu göz yumurtalıdır)",
+                "price": "₺260"
               },
               {
-                "name": "Yoğun Çikolatalı Brownie",
-                "description": "Glutensiz, zengin çikolatalı",
-                "price": "₺165"
-              },
-              {
-                "name": "Parçacıklı Fıstık Ezmeli Kurabiye",
-                "description": "Kendi imalatımız yer fıstığı ezmesiyle",
-                "price": "₺95"
+                "name": "Avokado & Poşe Yumurta",
+                "description": "Ekşi mayalı ekmek üzerinde avokado ezmesi, poşe yumurta ve çeri domatesler",
+                "price": "₺280"
               }
             ]
           }
@@ -402,7 +397,7 @@
       "id": "5b5dcfba-9cde-430a-8de6-7e5af1ff58af",
       "edit_token": "68dda19f-aec0-476d-9a25-95f2dba3bd19",
       "created_at": "2026-07-05T18:39:32.718Z",
-      "updated_at": "2026-07-05T18:40:04.331Z"
+      "updated_at": "2026-07-05T18:48:07.635Z"
     }
   ],
   "custom_presets": {

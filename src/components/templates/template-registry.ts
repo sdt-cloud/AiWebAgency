@@ -110,6 +110,26 @@ export const templateRegistry: Record<string, TemplatePreset> = {
       ]
     }
   },
+  pastis: {
+    template_name: 'pastis',
+    displayName: 'Pastis NYC Esintili Kafe',
+    category: 'Kafe & Restoran',
+    categoryKeywords: ['bistro', 'bistrosu', 'fransız', 'balthazar', 'pastis', 'et', 'balık', 'şarap'],
+    layoutStyle: 'editorial-retro',
+    layoutComponent: 'PastisTemplate',
+    defaultTheme: { primary: '#c10230', secondary: '#0a0101', fontFamily: 'Playfair Display, serif', fontFamilyHeading: 'Playfair Display, serif' },
+    defaultContent: {
+      hero: { title: 'Meatpacking Klasik Fransız Bistrosu', subtitle: 'New York Meatpacking District’in ikonik lezzet durağı Pastis, çinko barı, kırmızı deri koltukları ve sıcak atmosferiyle Paris şıklığını evinize getiriyor.', cta_text: 'Menümüzü İnceleyin', badge_text: 'Paris & New York Esintisi' },
+      about: 'Keith McNally ve Stephen Starr imzalı Pastis, nostaljik bir bistro deneyimi sunuyor. Altın varaklı aynalara yazılmış günlük spesiyallerimiz, geleneksel Fransız mutfağının başyapıtları ve Paris kafelerinin o sıcak, bitmeyen hareketliliği artık mahallenizde.',
+      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Pastis Bistro' },
+      images: { hero_bg: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80' },
+      menu_items: [
+        { category: 'Bistro Klasikleri', items: [{ name: 'Escargots à la Bourguignonne', description: 'Sarımsaklı ve maydanozlu tereyağında pişmiş salyangoz', price: '₺310' }, { name: 'Soupe à l’Oignon Gratinée', description: 'Geleneksel Fransız soğan çorbası, eritilmiş gravyer peynirli kruton ile', price: '₺240' }, { name: 'Steak Tartare Klasik', description: 'Satır kıyması dana eti, hardal, kapari ve taze otlar ile', price: '₺460' }] },
+        { category: 'Ana Yemekler', items: [{ name: 'Moules Frites', description: 'Beyaz şarap, sarımsak ve krema soslu midyeler, çıtır patates kızartması ile', price: '₺520' }, { name: 'Steak Frites', description: 'Izgara antrikot, bearnaz sos ve ev yapımı frites ile', price: '₺890' }, { name: 'Trout Amandine', description: 'Tavada pişmiş alabalık, tereyağlı badem ve taze limon sosuyla', price: '₺490' }] },
+        { category: 'Kahvaltı & Yumurtalar', items: [{ name: 'Croque Monsieur / Madame', description: 'Fırınlanmış jambon ve gravyer peynirli tost (Madame versiyonu göz yumurtalıdır)', price: '₺260' }, { name: 'Avokado & Poşe Yumurta', description: 'Ekşi mayalı ekmek üzerinde avokado ezmesi, poşe yumurta ve çeri domatesler', price: '₺280' }] }
+      ]
+    }
+  },
 
 
   /* ══════════ BERBER & KUAFÖR ══════════ */
@@ -567,17 +587,17 @@ export function getPresetForCategory(categoryStr: string): TemplatePreset {
     {
       name: "Restoran",
       keys: ["restoran", "restaurant", "lokanta", "bistro", "pub", "bar", "food", "yemek"],
-      templates: ["cafe_warm", "ginger_white", "house_cafe"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis"]
     },
     {
       name: "Kafe",
       keys: ["kafe", "cafe", "kahve", "coffee", "tea", "çay"],
-      templates: ["cafe_warm", "ginger_white", "house_cafe"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis"]
     },
     {
       name: "Pastane & Fırın",
-      keys: ["pastane", "pastanesi", "fırın", "fırını", "bakery", "patisserie", "unlu mamul", "tatlı", "cake", "bread"],
-      templates: ["cafe_warm", "ginger_white", "house_cafe"]
+      keys: ["pastane", "pastanesi", "fırın", "fırını", "bakery", "pastisserie", "unlu mamul", "tatlı", "cake", "bread"],
+      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis"]
     },
     {
       name: "Berber & Kuaför",
