@@ -142,7 +142,18 @@ export const templateRegistry: Record<string, TemplatePreset> = {
       hero: { title: 'Kahveci, Fırın & Tex-Mex Kantini', subtitle: 'Savannah Starland District’in sıcacık Victorian evinde yer alan Foxy Loxy, taze demlenmiş kahveleri, el yapımı taco ve fırın lezzetleriyle samimi arka bahçemizde sizi bekliyor.', cta_text: 'Mutfağımızı İnceleyin', badge_text: 'Bohem & Sanatçı Dostu Kafe' },
       about: 'Foxy Loxy Cafe, bir kahve dükkanından fazlasıdır. Eklektik ahşap dekorumuz, yerel sanatçıların duvarlarımızı süsleyen eserleri, her Salı canlı akustik müzik konserlerimiz ve Cumartesi günleri bahçede yaktığımız ateş çukurlarımızla mahallenin ortak yaşam odasıyız.',
       services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Foxy Loxy' },
-      images: { hero_bg: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80' },
+      images: { 
+        hero_bg: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80', 
+        about_img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80',
+        services_img: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800',
+        gallery: [
+          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80',
+          'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400',
+          'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=400',
+          'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=400',
+          'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=400'
+        ]
+      },
       menu_items: [
         { category: 'Tex-Mex Cantina Tacos', items: [{ name: 'Chorizo & Yumurtalı Taco', description: 'Baharatlı Meksika sucuğu, çırpılmış yumurta ve taze salsa', price: '₺165' }, { name: 'Ağır Ateşte Pişmiş Etli Taco', description: 'Közlenmiş biber sosu, kişniş, misket limonu ve baharatlı dana eti', price: '₺195' }, { name: 'Vegan Tex-Mex Kasesi', description: 'Kinoa, siyah fasulye, tatlı mısır ve taze avokado dilimleri', price: '₺220' }] },
         { category: 'Taze Fırın & Çörekler', items: [{ name: 'Cheddar & Jalapeño Kolache', description: 'Teksas usulü içi eritilmiş çedar ve acı jalapeño biber dolgulu çörek', price: '₺130' }, { name: 'Yaban Mersinli Gluten-Free Muffin', description: 'Mevsimlik yaban mersinleri ile kendi fırınımızda pişmiş glutensiz çörek', price: '₺115' }, { name: 'Krem Peynirli Tarçınlı Rulo', description: 'Sıcak servis edilen tereyağlı tarçınlı çörek', price: '₺140' }] },

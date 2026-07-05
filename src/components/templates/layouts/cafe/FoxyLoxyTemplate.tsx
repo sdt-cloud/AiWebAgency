@@ -263,9 +263,12 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
       <section id="courtyard" className="relative min-h-[60vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
         {/* Arka Plan Resmi */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800" 
-            className="w-full h-full object-cover opacity-60" 
+          <EditableImage
+            content={content}
+            contentKey="images.services_img"
+            onUpdate={onUpdateContent}
+            isEditMode={isEditMode}
+            className="w-full h-full object-cover opacity-60"
             alt="Courtyard Background"
           />
         </div>
@@ -380,9 +383,12 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
 
           {/* Sağ Kolon: Resim */}
           <div className="md:col-span-5 bg-white border border-black/5 p-3 shadow-md">
-            <img 
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" 
-              className="w-full h-[320px] object-cover" 
+            <EditableImage
+              content={content}
+              contentKey="images.gallery.0"
+              onUpdate={onUpdateContent}
+              isEditMode={isEditMode}
+              className="w-full h-[320px] object-cover"
               alt="Live acoustic performance in courtyard"
             />
           </div>
@@ -396,37 +402,49 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             
             {/* Foto 1 */}
-            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
-              <img 
-                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5 relative group">
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.1"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 alt="Kahve Kupası"
               />
             </div>
 
             {/* Foto 2 */}
-            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
-              <img 
-                src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5 relative group">
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.2"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 alt="Fırından Kurabiyeler"
               />
             </div>
 
             {/* Foto 3 */}
-            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
-              <img 
-                src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5 relative group">
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.3"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 alt="Taze Kahve Çekirdekleri"
               />
             </div>
 
             {/* Foto 4 */}
-            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
-              <img 
-                src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5 relative group">
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.4"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 alt="Taco Tabağı"
               />
             </div>
