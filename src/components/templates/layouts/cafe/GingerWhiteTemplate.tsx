@@ -168,15 +168,6 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
             )}
           </nav>
 
-          {/* CTA Buton */}
-          <div className="hidden md:block">
-            <a 
-              href="#iletisim" 
-              className="px-6 py-2.5 bg-[#212121] hover:bg-[#c4a265] text-white text-xs tracking-wider uppercase font-quicksand font-bold rounded-full transition-all hover:shadow-lg shadow-[#c4a265]/20 cursor-pointer"
-            >
-              Tıkla Gel Al
-            </a>
-          </div>
 
           {/* Mobil Menü Butonu */}
           <button 
@@ -202,13 +193,7 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
                 </a>
               ))}
             </nav>
-            <a 
-              href="#iletisim" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full py-3 bg-[#212121] text-white text-center rounded-xl text-sm font-quicksand font-bold"
-            >
-              Tıkla Gel Al
-            </a>
+
           </div>
         )}
       </header>
