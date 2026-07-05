@@ -70,40 +70,7 @@ export const templateRegistry: Record<string, TemplatePreset> = {
       ]
     }
   },
-  restaurant_elegant: {
-    template_name: 'restaurant_elegant',
-    displayName: 'Modern Fine Dining',
-    category: 'Kafe & Restoran',
-    categoryKeywords: ['restoran', 'restaurant', 'lokanta', 'yemek'],
-    layoutStyle: 'neo-minimalist',
-    layoutComponent: 'RestaurantElegantTemplate',
-    defaultTheme: { primary: '#1a1a2e', secondary: '#e94560', fontFamily: 'Inter, sans-serif' },
-    defaultContent: {
-      hero: { title: 'Unutulmaz Bir Lezzet Deneyimi', subtitle: 'Şefimizin özel dokunuşlarıyla hazırlanan modern Türk mutfağı seçkileri.', cta_text: 'Rezervasyon Yap', badge_text: 'Michelin Tavsiyesi' },
-      about: 'Geleneksel lezzetleri modern tekniklerle harmanlıyor, misafirlerimize unutulmaz bir gastronomi deneyimi sunuyoruz.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Elegant Restoran' },
-      images: { hero_bg: unsplashImages.restaurant_elegant, about_img: unsplashImages.restaurant_elegant },
-      menu_items: [
-        { category: 'Başlangıçlar', items: [{ name: 'Köz Patlıcan Salatası', description: 'Tahin ve ceviz ile', price: '₺220' }] },
-        { category: 'Ana Yemekler', items: [{ name: 'Ağır Ateşte Dana Kaburga', description: 'Kök sebzeler eşliğinde', price: '₺750' }] }
-      ]
-    }
-  },
-  restaurant_dark: {
-    template_name: 'restaurant_dark',
-    displayName: 'Gece & Eğlence Mekanı',
-    category: 'Kafe & Restoran',
-    categoryKeywords: ['pub', 'bar', 'meyhane', 'bistro'],
-    layoutStyle: 'dark-futuristic',
-    layoutComponent: 'RestaurantDarkTemplate',
-    defaultTheme: { primary: '#e94560', secondary: '#0f3460', fontFamily: 'Outfit, sans-serif' },
-    defaultContent: {
-      hero: { title: 'Gecenin Ritmini Yakala', subtitle: 'Özel kokteyller ve canlı müzik eşliğinde eşsiz bir atmosfer.', cta_text: 'Bize Katıl' },
-      about: 'Şehrin en dinamik mekanı. Gecenizi unutulmaz kılmak için buradayız.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Neon Lounge' },
-      images: { hero_bg: unsplashImages.restaurant_dark, about_img: unsplashImages.restaurant_dark }
-    }
-  },
+
 
   /* ══════════ BERBER & KUAFÖR ══════════ */
   barber_dark: {
@@ -543,44 +510,7 @@ export const templateRegistry: Record<string, TemplatePreset> = {
     }
   },
 
-  /* ══════════ PASTANE & FIRIN ══════════ */
-  bakery_warm: {
-    template_name: 'bakery_warm',
-    displayName: 'Sıcak Mahalle Fırını',
-    category: 'Pastane & Fırın',
-    categoryKeywords: ['fırın', 'pastane', 'ekmek', 'pasta', 'börek'],
-    layoutStyle: 'editorial-retro',
-    layoutComponent: 'BakeryWarmTemplate',
-    defaultTheme: { primary: '#92400e', secondary: '#fbbf24', fontFamily: 'Playfair Display, serif' },
-    defaultContent: {
-      hero: { title: 'Fırından Yeni Çıktı', subtitle: 'Ekşi mayalı ekmekler, çıtır börekler ve günlük taze pastalar.', cta_text: 'Ürünlerimiz', badge_text: 'Katkısız Üretim' },
-      about: 'Odun ateşinde pişen, anne eli değmiş gibi lezzetler.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Tarihi Odun Fırını' },
-      images: { hero_bg: unsplashImages.bakery, about_img: unsplashImages.bakery },
-      menu_items: [
-        { category: 'Ekmekler', items: [{ name: 'Ekşi Mayalı Köy Ekmeği', price: '₺40' }, { name: 'Tam Buğday', price: '₺35' }] },
-        { category: 'Tuzlular', items: [{ name: 'Su Böreği (Porsiyon)', price: '₺80' }, { name: 'Sıcak Simit', price: '₺15' }] }
-      ]
-    }
-  },
-  patisserie_elegant: {
-    template_name: 'patisserie_elegant',
-    displayName: 'Elegant Fransız Pastanesi',
-    category: 'Pastane & Fırın',
-    categoryKeywords: ['patisserie', 'makaron', 'çikolata'],
-    layoutStyle: 'neo-minimalist',
-    layoutComponent: 'PatisserieElegantTemplate',
-    defaultTheme: { primary: '#be185d', secondary: '#fda4af', fontFamily: 'Cormorant Garamond, serif' },
-    defaultContent: {
-      hero: { title: 'Tatlı Bir Kaçamak', subtitle: 'El yapımı çikolatalar ve Fransız usulü tatlılar.', cta_text: 'Menü' },
-      about: 'Şefimizin özel tarifleriyle hazırlanan premium tatlılar.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Luxe Patisserie' },
-      images: { hero_bg: unsplashImages.bakery, about_img: unsplashImages.bakery },
-      menu_items: [
-        { category: 'Tatlılar', items: [{ name: 'Macaron Çeşitleri (6 lı)', price: '₺250' }] }
-      ]
-    }
-  }
+
 
 };
 
@@ -597,7 +527,7 @@ export function getPresetForCategory(categoryStr: string): TemplatePreset {
     {
       name: "Restoran",
       keys: ["restoran", "restaurant", "lokanta", "bistro", "pub", "bar", "food", "yemek"],
-      templates: ["restaurant_elegant", "restaurant_dark"]
+      templates: ["cafe_warm"]
     },
     {
       name: "Kafe",
@@ -607,7 +537,7 @@ export function getPresetForCategory(categoryStr: string): TemplatePreset {
     {
       name: "Pastane & Fırın",
       keys: ["pastane", "pastanesi", "fırın", "fırını", "bakery", "patisserie", "unlu mamul", "tatlı", "cake", "bread"],
-      templates: ["bakery_warm", "patisserie_elegant"]
+      templates: ["cafe_warm"]
     },
     {
       name: "Berber & Kuaför",

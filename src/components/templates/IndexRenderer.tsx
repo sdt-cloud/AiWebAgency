@@ -19,8 +19,6 @@ interface IndexRendererProps {
 const LAYOUT_COMPONENTS: Record<string, React.ComponentType<any>> = {
   // Kafe & Restoran
   CafeWarmTemplate: dynamic(() => import('./layouts/cafe/CafeWarmTemplate')),
-  RestaurantElegantTemplate: dynamic(() => import('./layouts/cafe/RestaurantElegantTemplate')),
-  RestaurantDarkTemplate: dynamic(() => import('./layouts/cafe/RestaurantDarkTemplate')),
   
   // Berber & Kuaför
   BarberDarkTemplate: dynamic(() => import('./layouts/barber/BarberDarkTemplate')),
@@ -74,9 +72,6 @@ const LAYOUT_COMPONENTS: Record<string, React.ComponentType<any>> = {
   AutorepairDarkTemplate: dynamic(() => import('./layouts/service/AutorepairDarkTemplate')),
   AutoserviceProTemplate: dynamic(() => import('./layouts/service/AutoserviceProTemplate')),
   
-  // Pastane / Fırın
-  BakeryWarmTemplate: dynamic(() => import('./layouts/cafe/BakeryWarmTemplate')),
-  PatisserieElegantTemplate: dynamic(() => import('./layouts/cafe/PatisserieElegantTemplate')),
 };
 
 // Yüklenmemiş veya henüz kodlanmamış şablonlar için Placeholder
