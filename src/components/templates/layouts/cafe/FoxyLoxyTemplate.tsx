@@ -50,7 +50,12 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
 
       {/* Squarespace Duyuru Barı */}
       <div className="bg-[#222222] text-white py-3 px-6 text-center text-xs tracking-[0.15em] font-inter font-semibold uppercase z-50 relative">
-        Pazartesi-Cumartesi 08:00 - 21:00 &bull; Pazar 08:00 - 18:00
+        <EditableText
+          content={content}
+          contentKey="contact.hours"
+          onUpdate={onUpdateContent}
+          isEditMode={isEditMode}
+        />
       </div>
 
       {/* Squarespace Temiz Header (Centered Logo) */}
@@ -64,7 +69,12 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
               </span>
             </a>
             <span className="text-[10px] tracking-[0.4em] font-inter uppercase text-[#666666] font-bold block mt-1">
-              KAHVECİ &bull; FIRIN &bull; TEX-MEX KANTİNİ
+              <EditableText
+                content={content}
+                contentKey="hero.badge_text"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
             </span>
           </div>
 
@@ -175,8 +185,22 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
 
           {/* Sağ: Merhaba Açıklama */}
           <div className="md:col-span-7 space-y-6 text-left">
-            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">NASILIZ?</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-lora text-[#222]">Merhaba!</h2>
+            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">
+              <EditableText
+                content={content}
+                contentKey="about_badge"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
+            </span>
+            <h2 className="text-3xl md:text-5xl font-normal font-lora text-[#222]">
+              <EditableText
+                content={content}
+                contentKey="about_title"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
+            </h2>
             <div className="w-16 h-[2px] bg-black/80" />
             
             <EditableText
@@ -189,12 +213,15 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
 
             <div className="pt-4">
               <a 
-                href="https://ordering.chownow.com/order/9839/locations" 
-                target="_blank"
-                rel="noreferrer"
+                href="#menumuz" 
                 className="inline-block px-8 py-3.5 bg-transparent hover:bg-black text-[#222] hover:text-white font-inter font-bold text-xs tracking-widest uppercase border border-black transition-all rounded-none cursor-pointer"
               >
-                Çevrimiçi Sipariş Ver
+                <EditableText
+                  content={content}
+                  contentKey="about_cta_text"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
+                />
               </a>
             </div>
           </div>
@@ -265,12 +292,32 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
 
         {/* Squarespace Translucent Bilgi Paneli */}
         <div className="relative z-10 mx-6 bg-white/95 max-w-xl p-8 md:p-12 text-center border border-black/5 shadow-2xl flex flex-col items-center space-y-4">
-          <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">ARKA BAHÇEMİZ</span>
-          <h2 className="text-2xl md:text-3xl font-normal font-lora text-[#222] uppercase tracking-wide">Ateş Çukuru Geceleri</h2>
+          <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">
+            <EditableText
+              content={content}
+              contentKey="courtyard_badge"
+              onUpdate={onUpdateContent}
+              isEditMode={isEditMode}
+            />
+          </span>
+          <h2 className="text-2xl md:text-3xl font-normal font-lora text-[#222] uppercase tracking-wide">
+            <EditableText
+              content={content}
+              contentKey="courtyard_title"
+              onUpdate={onUpdateContent}
+              isEditMode={isEditMode}
+            />
+          </h2>
           <div className="w-12 h-[1px] bg-black/20" />
-          <p className="text-xs md:text-sm font-inter text-[#555] leading-relaxed tracking-wide">
-            Geniş ve konforlu arka bahçemizde, Cumartesi akşamları ateş çukurlarımızı yakıyoruz. Sevdiklerinizle şarabınızı yudumlarken, samimi ve ısıtan bir açık hava sohbetinin tadını çıkarın.
-          </p>
+          <div className="text-xs md:text-sm font-inter text-[#555] leading-relaxed tracking-wide">
+            <EditableText
+              content={content}
+              contentKey="courtyard_description"
+              onUpdate={onUpdateContent}
+              isEditMode={isEditMode}
+              multiline
+            />
+          </div>
         </div>
       </section>
 
@@ -279,8 +326,22 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
         <div className="container mx-auto px-6 md:px-12 max-w-5xl space-y-12">
           
           <div className="text-center space-y-3">
-            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">FUSION MUTFAK</span>
-            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase">{companyName} Menümüz</h2>
+            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">
+              <EditableText
+                content={content}
+                contentKey="menu_badge"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
+            </span>
+            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase">
+              <EditableText
+                content={content}
+                contentKey="menu_title"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
+            </h2>
             <div className="w-12 h-[1px] bg-black/20 mx-auto" />
           </div>
 
@@ -356,17 +417,35 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
             <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
               <Calendar size={18} />
             </div>
-            <h2 className="text-3xl md:text-5xl font-normal font-lora text-[#222]">Konser & Sergiler</h2>
+            <h2 className="text-3xl md:text-5xl font-normal font-lora text-[#222]">
+              <EditableText
+                content={content}
+                contentKey="events_title"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
+            </h2>
             <div className="w-16 h-[2px] bg-black/80" />
-            <p className="font-inter text-sm md:text-base text-[#555] leading-relaxed">
-              Mahallemizin yetenekli yerel ve bölgesel müzisyenlerini sahneye çıkarıyoruz. Akustik ve samimi gecelerimizde müzik eşliğinde şarabınızı yudumlayabilirsiniz. Güncel etkinlik takvimimizi görüntülemek için lütfen takipte kalın.
-            </p>
+            <div className="font-inter text-sm md:text-base text-[#555] leading-relaxed">
+              <EditableText
+                content={content}
+                contentKey="events_description"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                multiline
+              />
+            </div>
             <div className="pt-4">
               <a 
                 href="#iletisim"
                 className="inline-block px-8 py-3.5 bg-black hover:bg-black/85 text-white font-inter font-bold text-xs tracking-[0.15em] uppercase transition-all rounded-none cursor-pointer"
               >
-                Etkinlik Takvimi
+                <EditableText
+                  content={content}
+                  contentKey="events_cta_text"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
+                />
               </a>
             </div>
           </div>
@@ -518,32 +597,46 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           
           <div className="space-y-3">
             <span className="text-[10px] tracking-[0.25em] text-[#666] font-bold uppercase block">
-              DİĞER LOKASYONLARIMIZI ZİYARET EDİN
+              <EditableText
+                content={content}
+                contentKey="footer_locations_title"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+              />
             </span>
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 pt-2">
               <a 
-                href="https://www.thecoffeefox.com" 
-                target="_blank" 
-                rel="noreferrer"
+                href="#welcome" 
                 className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
               >
-                THE COFFEE FOX - BROUGHTON
+                <EditableText
+                  content={content}
+                  contentKey="footer_link_text_1"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
+                />
               </a>
               <a 
-                href="https://hennypennycafe.com" 
-                target="_blank" 
-                rel="noreferrer"
+                href="#menumuz" 
                 className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
               >
-                HENNY PENNY CAFE
+                <EditableText
+                  content={content}
+                  contentKey="footer_link_text_2"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
+                />
               </a>
               <a 
-                href="https://thecoffeefoxroastingco.com/" 
-                target="_blank" 
-                rel="noreferrer"
+                href="#iletisim" 
                 className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
               >
-                THE COFFEE FOX ROASTING CO.
+                <EditableText
+                  content={content}
+                  contentKey="footer_link_text_3"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
+                />
               </a>
             </div>
           </div>

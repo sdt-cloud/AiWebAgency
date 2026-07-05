@@ -175,7 +175,23 @@ export const templateRegistry: Record<string, TemplatePreset> = {
         { category: 'Tex-Mex Cantina Tacos', items: [{ name: 'Chorizo & Yumurtalı Taco', description: 'Baharatlı Meksika sucuğu, çırpılmış yumurta ve taze salsa', price: '₺165' }, { name: 'Ağır Ateşte Pişmiş Etli Taco', description: 'Közlenmiş biber sosu, kişniş, misket limonu ve baharatlı dana eti', price: '₺195' }, { name: 'Vegan Tex-Mex Kasesi', description: 'Kinoa, siyah fasulye, tatlı mısır ve taze avokado dilimleri', price: '₺220' }] },
         { category: 'Taze Fırın & Çörekler', items: [{ name: 'Cheddar & Jalapeño Kolache', description: 'Teksas usulü içi eritilmiş çedar ve acı jalapeño biber dolgulu çörek', price: '₺130' }, { name: 'Yaban Mersinli Gluten-Free Muffin', description: 'Mevsimlik yaban mersinleri ile kendi fırınımızda pişmiş glutensiz çörek', price: '₺115' }, { name: 'Krem Peynirli Tarçınlı Rulo', description: 'Sıcak servis edilen tereyağlı tarçınlı çörek', price: '₺140' }] },
         { category: 'Nitelikli Kahveler', items: [{ name: 'Cold Brew / Soğuk Demleme', description: '18 saat soğuk suda demlenmiş yumuşak içimli kahve', price: '₺110' }, { name: 'Mexican Mocha', description: 'Espresso, süt, organik çikolata ve hafif acı meksika biberi esintisi', price: '₺135' }] }
-      ]
+      ],
+      // Ekstra dinamik metin anahtarları
+      about_badge: 'NASILIZ?',
+      about_title: 'Merhaba!',
+      about_cta_text: 'Çevrimiçi Sipariş Ver',
+      courtyard_badge: 'ARKA BAHÇEMİZ',
+      courtyard_title: 'Ateş Çukuru Geceleri',
+      courtyard_description: 'Geniş ve konforlu arka bahçemizde, Cumartesi akşamları ateş çukurlarımızı yakıyoruz. Sevdiklerinizle şarabınızı yudumlarken, samimi ve ısıtan bir açık hava sohbetinin tadını çıkarın.',
+      menu_badge: 'FUSION MUTFAK',
+      menu_title: 'Leziz Menümüz',
+      events_title: 'Konser & Sergiler',
+      events_description: 'Mahallemizin yetenekli yerel ve bölgesel müzisyenlerini sahneye çıkarıyoruz. Akustik ve samimi gecelerimizde müzik eşliğinde şarabınızı yudumlayabilirsiniz. Güncel etkinlik takvimimizi görüntülemek için lütfen takipte kalın.',
+      events_cta_text: 'Etkinlik Takvimi',
+      footer_locations_title: 'KAFEMİZİ ZİYARET EDİN',
+      footer_link_text_1: 'Hakkımızda',
+      footer_link_text_2: 'Gizlilik Politikası',
+      footer_link_text_3: 'İletişim'
     }
   },
 
