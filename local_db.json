@@ -298,19 +298,24 @@
         "about": "Foxy Loxy Cafe, bir kahve dükkanından fazlasıdır. Eklektik ahşap dekorumuz, yerel sanatçıların duvarlarımızı süsleyen eserleri, her Salı canlı akustik müzik konserlerimiz ve Cumartesi günleri bahçede yaktığımız ateş çukurlarımızla mahallenin ortak yaşam odasıyız.",
         "services": [
           {
-            "title": "Profesyonel Hizmet",
-            "description": "İhtiyacınıza özel, yüksek standartlarda çözümler üretiyoruz.",
-            "icon": "Star"
+            "title": "Tex-Mex",
+            "description": "Teksas lezzetlerini mahallenize taşıyoruz. Taco ve çıtır tuzlu çörek (kolache) çeşitlerimizin espresso ile uyumuna inanamayacaksınız!",
+            "icon": "utensils"
           },
           {
-            "title": "Hızlı Teslimat",
-            "description": "Zamanınızın değerini biliyor, işlerimizi söz verdiğimiz sürede teslim ediyoruz.",
-            "icon": "Clock"
+            "title": "Fırın / Pastane",
+            "description": "Fırıncılarımız haftanın yedi günü taze çörekler hazırlamak için sabahın ilk ışıklarında işe koyuluyor. Tezgahımıza kayıtsız kalamayacaksınız.",
+            "icon": "cookie"
           },
           {
-            "title": "Müşteri Memnuniyeti",
-            "description": "Önceliğimiz her zaman sizin memnuniyetinizdir.",
-            "icon": "Heart"
+            "title": "Nitelikli Kahve",
+            "description": "Özenle seçilmiş yerel üreticiler tarafından kavrulan nitelikli çekirdeklerimizi taze olarak sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.",
+            "icon": "coffee"
+          },
+          {
+            "title": "Etkinlikler",
+            "description": "Sadece lezzetli bir kahve değiliz! Duvarlarımızdaki sanat galerilerimiz, canlı müzik konserlerimiz ve ateş çukuru gecelerimizle kültürel bir alanız.",
+            "icon": "flame"
           }
         ],
         "testimonials": [
@@ -334,7 +339,15 @@
         },
         "images": {
           "hero_bg": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80",
-          "about_img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80"
+          "about_img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80",
+          "services_img": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800",
+          "gallery": [
+            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400",
+            "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=400",
+            "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=400",
+            "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=400"
+          ]
         },
         "menu_items": [
           {
@@ -392,12 +405,57 @@
               }
             ]
           }
-        ]
+        ],
+        "nav_links": [
+          {
+            "name": "Ana Sayfa",
+            "url": "#welcome"
+          },
+          {
+            "name": "Merhaba",
+            "url": "#howdy"
+          },
+          {
+            "name": "Özellikler",
+            "url": "#foxy-is"
+          },
+          {
+            "name": "Arka Bahçe",
+            "url": "#courtyard"
+          },
+          {
+            "name": "Menü",
+            "url": "#menumuz"
+          },
+          {
+            "name": "Etkinlikler",
+            "url": "#live-music"
+          },
+          {
+            "name": "İletişim",
+            "url": "#iletisim"
+          }
+        ],
+        "about_badge": "NASILIZ?",
+        "about_title": "Merhaba!",
+        "about_cta_text": "Çevrimiçi Sipariş Ver",
+        "courtyard_badge": "ARKA BAHÇEMİZ",
+        "courtyard_title": "Ateş Çukuru Geceleri",
+        "courtyard_description": "Geniş ve konforlu arka bahçemizde, Cumartesi akşamları ateş çukurlarımızı yakıyoruz. Sevdiklerinizle şarabınızı yudumlarken, samimi ve ısıtan bir açık hava sohbetinin tadını çıkarın.",
+        "menu_badge": "FUSION MUTFAK",
+        "menu_title": "Leziz Menümüz",
+        "events_title": "Konser & Sergiler",
+        "events_description": "Mahallemizin yetenekli yerel ve bölgesel müzisyenlerini sahneye çıkarıyoruz. Akustik ve samimi gecelerimizde müzik eşliğinde şarabınızı yudumlayabilirsiniz. Güncel etkinlik takvimimizi görüntülemek için lütfen takipte kalın.",
+        "events_cta_text": "Etkinlik Takvimi",
+        "footer_locations_title": "KAFEMİZİ ZİYARET EDİN",
+        "footer_link_text_1": "Hakkımızda",
+        "footer_link_text_2": "Gizlilik Politikası",
+        "footer_link_text_3": "İletişim"
       },
       "id": "5b5dcfba-9cde-430a-8de6-7e5af1ff58af",
       "edit_token": "68dda19f-aec0-476d-9a25-95f2dba3bd19",
       "created_at": "2026-07-05T18:39:32.718Z",
-      "updated_at": "2026-07-05T18:53:41.201Z"
+      "updated_at": "2026-07-05T19:19:43.120Z"
     }
   ],
   "custom_presets": {

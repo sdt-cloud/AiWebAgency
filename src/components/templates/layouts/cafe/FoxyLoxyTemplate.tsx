@@ -32,7 +32,19 @@ interface Props {
 export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onUpdateContent }: Props) {
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showAddNavDropdown, setShowAddNavDropdown] = useState(false);
   const companyName = content.contact.company_name || 'Kafemiz';
+
+  const defaultNavLinks = [
+    { name: 'Ana Sayfa', url: '#welcome' },
+    { name: 'Merhaba', url: '#howdy' },
+    { name: 'Özellikler', url: '#foxy-is' },
+    { name: 'Arka Bahçe', url: '#courtyard' },
+    { name: 'Menü', url: '#menumuz' },
+    { name: 'Etkinlikler', url: '#live-music' },
+    { name: 'İletişim', url: '#iletisim' }
+  ];
+  const navLinks = content.nav_links || defaultNavLinks;
 
   // Menü kategorileri
   const menuCategories = content.menu_items?.map(cat => cat.category) || [];
@@ -81,15 +93,85 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           </div>
 
           {/* Navigasyon Linkleri */}
-          <div className="w-full flex items-center justify-between md:justify-center border-t border-black/5 pt-3">
-            <nav className="hidden md:flex items-center gap-10 text-xs font-inter font-bold uppercase tracking-[0.2em] text-[#222222]/80">
-              <a href="#welcome" className="hover:text-black transition-colors">Ana Sayfa</a>
-              <a href="#howdy" className="hover:text-black transition-colors">Merhaba</a>
-              <a href="#foxy-is" className="hover:text-black transition-colors">Özellikler</a>
-              <a href="#courtyard" className="hover:text-black transition-colors">Arka Bahçe</a>
-              <a href="#menumuz" className="hover:text-black transition-colors">Menü</a>
-              <a href="#live-music" className="hover:text-black transition-colors">Etkinlikler</a>
-              <a href="#iletisim" className="hover:text-black transition-colors">İletişim</a>
+          <div className="w-full flex items-center justify-between md:justify-center border-t border-black/5 pt-3 relative">
+            <nav className="hidden md:flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs font-inter font-bold uppercase tracking-[0.2em] text-[#222222]/80">
+              {navLinks.map((link, index) => (
+                <div key={index} className="flex items-center gap-1 group/nav relative">
+                  <a href={link.url} className="hover:text-black transition-colors shrink-0">
+                    <EditableText
+                      content={content}
+                      contentKey={`nav_links.${index}.name`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      className="focus:outline-none focus:ring-0 px-0.5 rounded"
+                    />
+                  </a>
+                  {isEditMode && navLinks.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newLinks = navLinks.filter((_, i) => i !== index);
+                        onUpdateContent({
+                          ...content,
+                          nav_links: newLinks
+                        });
+                      }}
+                      className="text-red-500 hover:text-red-700 opacity-0 group-hover/nav:opacity-100 transition-opacity cursor-pointer shrink-0 ml-0.5"
+                      title="Sil"
+                    >
+                      <Trash2 size={11} />
+                    </button>
+                  )}
+                </div>
+              ))}
+
+              {isEditMode && navLinks.length < 10 && (
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setShowAddNavDropdown(!showAddNavDropdown)}
+                    className="text-indigo-600 hover:text-indigo-800 text-[10px] font-bold tracking-widest uppercase cursor-pointer ml-4 flex items-center gap-1"
+                  >
+                    <PlusCircle size={12} />
+                    Link Ekle
+                  </button>
+                  {showAddNavDropdown && (
+                    <div className="absolute top-6 left-0 bg-white border border-slate-200 shadow-xl rounded-lg py-2 w-48 z-50 text-left normal-case tracking-normal">
+                      <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase border-b border-slate-100 mb-1">
+                        Sayfa Bölümü Seçin
+                      </div>
+                      {[
+                        { name: 'Ana Sayfa', url: '#welcome' },
+                        { name: 'Merhaba', url: '#howdy' },
+                        { name: 'Özellikler', url: '#foxy-is' },
+                        { name: 'Arka Bahçe', url: '#courtyard' },
+                        { name: 'Menü', url: '#menumuz' },
+                        { name: 'Etkinlikler', url: '#live-music' },
+                        { name: 'İletişim', url: '#iletisim' }
+                      ].map((item) => (
+                        <button
+                          key={item.url}
+                          type="button"
+                          onClick={() => {
+                            const newLinks = [
+                              ...navLinks,
+                              { name: item.name, url: item.url }
+                            ];
+                            onUpdateContent({
+                              ...content,
+                              nav_links: newLinks
+                            });
+                            setShowAddNavDropdown(false);
+                          }}
+                          className="w-full text-left px-3 py-1.5 text-xs text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                        >
+                          {item.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
             </nav>
 
 
@@ -106,20 +188,21 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
             </div>
           </div>
         </div>
-
         {/* Mobil Menü Listesi */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-black/5 px-6 py-6 space-y-4 absolute w-full left-0 shadow-lg font-inter text-xs font-bold uppercase tracking-widest text-[#222]/80">
+          <div className="md:hidden bg-white border-t border-black/5 px-6 py-6 space-y-4 absolute w-full left-0 shadow-lg font-inter text-xs font-bold uppercase tracking-widest text-[#222]/80 z-50">
             <nav className="flex flex-col gap-4">
-              <a href="#welcome" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Ana Sayfa</a>
-              <a href="#howdy" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Merhaba</a>
-              <a href="#foxy-is" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Özellikler</a>
-              <a href="#courtyard" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Arka Bahçe</a>
-              <a href="#menumuz" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Menü</a>
-              <a href="#live-music" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Etkinlikler</a>
-              <a href="#iletisim" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2">İletişim</a>
+              {navLinks.map((link, index) => (
+                <a 
+                  key={index}
+                  href={link.url} 
+                  onClick={() => setIsMobileMenuOpen(false)} 
+                  className="hover:text-black py-2 border-b border-black/5 block"
+                >
+                  {link.name}
+                </a>
+              ))}
             </nav>
-
           </div>
         )}
       </header>

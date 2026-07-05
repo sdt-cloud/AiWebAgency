@@ -177,6 +177,15 @@ export const templateRegistry: Record<string, TemplatePreset> = {
         { category: 'Nitelikli Kahveler', items: [{ name: 'Cold Brew / Soğuk Demleme', description: '18 saat soğuk suda demlenmiş yumuşak içimli kahve', price: '₺110' }, { name: 'Mexican Mocha', description: 'Espresso, süt, organik çikolata ve hafif acı meksika biberi esintisi', price: '₺135' }] }
       ],
       // Ekstra dinamik metin anahtarları
+      nav_links: [
+        { name: 'Ana Sayfa', url: '#welcome' },
+        { name: 'Merhaba', url: '#howdy' },
+        { name: 'Özellikler', url: '#foxy-is' },
+        { name: 'Arka Bahçe', url: '#courtyard' },
+        { name: 'Menü', url: '#menumuz' },
+        { name: 'Etkinlikler', url: '#live-music' },
+        { name: 'İletişim', url: '#iletisim' }
+      ],
       about_badge: 'NASILIZ?',
       about_title: 'Merhaba!',
       about_cta_text: 'Çevrimiçi Sipariş Ver',
