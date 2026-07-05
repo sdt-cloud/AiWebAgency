@@ -16,7 +16,9 @@ import {
   Flame,
   Calendar,
   UtensilsCrossed,
-  Cookie
+  Cookie,
+  PlusCircle,
+  Trash2
 } from 'lucide-react';
 
 interface Props {
@@ -238,7 +240,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
             <div className="w-12 h-[1px] bg-black/20 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             {content.services?.map((service, index) => {
               // İkon seçimi
               let IconComponent = Coffee;
@@ -248,7 +250,25 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
               else if (service.icon === 'flame') IconComponent = Flame;
 
               return (
-                <div key={index} className="text-center space-y-4 flex flex-col items-center">
+                <div key={index} className="text-center space-y-4 flex flex-col items-center relative group/item border border-dashed border-transparent hover:border-black/10 p-4 rounded-lg">
+                  {/* Sütun Silme Butonu (Düzenleme modunda ve en az 1 sütun varken) */}
+                  {isEditMode && content.services && content.services.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newServices = content.services?.filter((_, i) => i !== index) || [];
+                        onUpdateContent({
+                          ...content,
+                          services: newServices
+                        });
+                      }}
+                      className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-md z-30 transition-all cursor-pointer"
+                      title="Bu Sütunu Sil"
+                    >
+                      <Trash2 size={12} />
+                    </button>
+                  )}
+
                   <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
                     <IconComponent size={20} />
                   </div>
@@ -272,6 +292,36 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
                 </div>
               );
             })}
+
+            {/* Yeni Özellik Ekleme Kartı (Maksimum 5 öğe sınırıyla sadece düzenleme modunda) */}
+            {isEditMode && (!content.services || content.services.length < 5) && (
+              <div className="flex flex-col items-center justify-center border-2 border-dashed border-black/10 rounded-xl p-6 min-h-[160px] hover:border-black/30 transition-colors">
+                <button
+                  type="button"
+                  onClick={() => {
+                    // Ekleyeceğimiz yeni sütunun ikonu sıradaki boş ikon olsun
+                    const icons = ['utensils', 'cookie', 'coffee', 'flame'];
+                    const nextIcon = icons[(content.services?.length || 0) % icons.length];
+                    const newServices = [
+                      ...(content.services || []),
+                      {
+                        title: 'Yeni Özellik',
+                        description: 'Özellik açıklamasını düzenlemek için tıklayın.',
+                        icon: nextIcon
+                      }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      services: newServices
+                    });
+                  }}
+                  className="flex flex-col items-center gap-2 text-xs font-bold font-inter uppercase tracking-widest text-[#666] hover:text-black transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={28} className="text-indigo-600 animate-pulse" />
+                  <span>Yeni Sütun Ekle</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
