@@ -90,6 +90,26 @@ export const templateRegistry: Record<string, TemplatePreset> = {
       ]
     }
   },
+  house_cafe: {
+    template_name: 'house_cafe',
+    displayName: 'The House Cafe Esintili Kafe',
+    category: 'Kafe & Restoran',
+    categoryKeywords: ['kafe', 'cafe', 'kahve', 'bistro', 'restoran', 'yemek', 'brunch', 'şube'],
+    layoutStyle: 'neo-minimalist',
+    layoutComponent: 'HouseCafeTemplate',
+    defaultTheme: { primary: '#e93c37', secondary: '#2F1D13', fontFamily: 'Cormorant Garamond, serif', fontFamilyHeading: 'Cormorant Garamond, serif' },
+    defaultContent: {
+      hero: { title: 'Evinden uzakta bir ev.', subtitle: '2002 yılında kurulan The House Café, şehrin yoğun temposundan kaçıp nefes alabileceğiniz, çağdaş ve samimi bir buluşma noktasıdır.', cta_text: 'Menümüzü İnceleyin', badge_text: 'The House Cafe Kültürü' },
+      about: 'Dünya mutfağının güncel trendlerini, geleneksel Türk aile tarifleriyle harmanlayıp sunuyoruz. Yılda iki kez yenilenen mevsimlik menümüz, yerel üreticilerden aldığımız taze malzemeler ve Autoban Studio imzalı zamansız mimarimiz ile evinizdeki sıcaklığı sunuyoruz.',
+      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'The House Cafe' },
+      images: { hero_bg: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80' },
+      menu_items: [
+        { category: 'Kahvaltı & İmza Lezzetler', items: [{ name: 'Avokadolu Poşe Yumurta', description: 'Ekşi mayalı tost ekmeği, ezilmiş avokado, iki adet poşe yumurta ve taze yeşilliklerle', price: '₺240' }, { name: 'Ev Yapımı Granola Kasesi', description: 'Süzme yoğurt, mevsim meyveleri ve organik süzme bal ile', price: '₺180' }, { name: 'House İmza Limonata', description: 'Taze nane ve çilek dilimleriyle el yapımı günlük limonata', price: '₺95' }] },
+        { category: 'Ana Yemekler', items: [{ name: 'Taş Fırın Margherita Pizza', description: 'Taze mozzarella peyniri, fesleğen ve özel domates sosuyla', price: '₺320' }, { name: 'House Roquefort Burger', description: '180g özel dana köftesi, eritilmiş rokfor peyniri ve karamelize soğan', price: '₺410' }, { name: 'Tavuklu Fettuccine Alfredo', description: 'Krema sosu, mantar, parmesan peyniri ve ızgara tavuk dilimleriyle', price: '₺340' }] },
+        { category: 'Vegan & Hafif Seçenekler', items: [{ name: 'Kinoa & Avokado Salatası', description: 'Akdeniz yeşillikleri, nar ekşisi sosu ve fırınlanmış kök sebzelerle', price: '₺260' }, { name: 'Fırınlanmış Falafel Kasesi', description: 'Humus yatağında fırınlanmış çıtır falafel köfteleri ve tahin sosu', price: '₺280' }] }
+      ]
+    }
+  },
 
 
   /* ══════════ BERBER & KUAFÖR ══════════ */
@@ -547,17 +567,17 @@ export function getPresetForCategory(categoryStr: string): TemplatePreset {
     {
       name: "Restoran",
       keys: ["restoran", "restaurant", "lokanta", "bistro", "pub", "bar", "food", "yemek"],
-      templates: ["cafe_warm", "ginger_white"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe"]
     },
     {
       name: "Kafe",
       keys: ["kafe", "cafe", "kahve", "coffee", "tea", "çay"],
-      templates: ["cafe_warm", "ginger_white"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe"]
     },
     {
       name: "Pastane & Fırın",
       keys: ["pastane", "pastanesi", "fırın", "fırını", "bakery", "patisserie", "unlu mamul", "tatlı", "cake", "bread"],
-      templates: ["cafe_warm", "ginger_white"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe"]
     },
     {
       name: "Berber & Kuaför",

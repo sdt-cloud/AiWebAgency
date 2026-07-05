@@ -14,6 +14,111 @@
       "id": "test-custom-cafe-lead-id",
       "status": "ready",
       "created_at": "2026-07-04T18:10:26.055Z"
+    },
+    {
+      "name": "ForchettaPlus italian pasta taze makarna",
+      "category": "Restoran",
+      "address": "Osmanağa, Kıvanç Sk. no:6/B, 34714 Kadıköy/İstanbul, Türkiye",
+      "phone": "0535 312 59 53",
+      "rating": 4.8,
+      "reviews_count": 1147,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJ-a4ClGq5yhQRD1qxr_hbMgk",
+      "id": "b4386b91-1e7a-4ca4-b80f-14afd7f13f37",
+      "status": "ready",
+      "created_at": "2026-07-05T18:38:25.401Z"
+    },
+    {
+      "name": "Ala Kadıköy Meyhane",
+      "category": "Restoran",
+      "address": "Caferağa, Yasa Cd. 58/A, 34734 Kadıköy/İstanbul, Türkiye",
+      "phone": "(0216) 541 01 11",
+      "rating": 4.5,
+      "reviews_count": 1853,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJQfS802e4yhQR_noYRaE-Y94",
+      "id": "952df3ba-f8e7-4a15-a33e-29b053845c76",
+      "status": "new",
+      "created_at": "2026-07-05T18:38:25.750Z"
+    },
+    {
+      "name": "DENİZ YILDIZI RESTAURANT",
+      "category": "Restoran",
+      "address": "Osmanağa, Serasker Cd. no:6, 34714 Kadıköy/İstanbul, Türkiye",
+      "phone": "(0216) 450 25 34",
+      "rating": 4.7,
+      "reviews_count": 2210,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJg5A3xWe4yhQRPwccbTCqZeQ",
+      "id": "246efddb-5f7a-4f42-81bc-6891e2c6dfc6",
+      "status": "new",
+      "created_at": "2026-07-05T18:38:26.150Z"
+    },
+    {
+      "name": "Balıkçı Lokantası",
+      "category": "Restoran",
+      "address": "Rasimpaşa, Tayyareci Sami Sk. No:20 D:B, 34716 Kadıköy/İstanbul, Türkiye",
+      "phone": "(0216) 346 40 14",
+      "rating": 4.6,
+      "reviews_count": 2164,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJByPFCWm4yhQRZPwv-80dibk",
+      "id": "1a115fe5-6545-458f-a31e-02bf9f6b66af",
+      "status": "new",
+      "created_at": "2026-07-05T18:38:26.493Z"
+    },
+    {
+      "name": "Fahriye Cafe",
+      "category": "Kafe",
+      "address": "Caferağa Mahallesi, Moda Caddesi & Leylek Sokak 3/A, Caferağa, 34710 Kadıköy/İstanbul, Türkiye",
+      "phone": "0505 881 13 48",
+      "rating": 4.3,
+      "reviews_count": 1477,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJtaK6wWC4yhQRJo5jLgo6m0A",
+      "id": "08e9ebbd-9c21-4502-be1b-2b5bc1c3723d",
+      "status": "ready",
+      "created_at": "2026-07-05T18:39:28.889Z"
+    },
+    {
+      "name": "Les Câlins Compagnie de Café",
+      "category": "Kafe",
+      "address": "Göztepe Mahallesi, Ömerpaşa Caddesi, Göztepe, Güvenç Sk. No: 2/A, 34730 Kadıköy/İstanbul, Türkiye",
+      "phone": "0531 703 28 27",
+      "rating": 4.9,
+      "reviews_count": 311,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJKzvC1AfHyhQRu-b_zDrQif0",
+      "id": "0591f448-769a-4c12-8421-3fa6b80e0b1c",
+      "status": "new",
+      "created_at": "2026-07-05T18:39:29.193Z"
+    },
+    {
+      "name": "SoliBar Cafe&Kitchen (cafe&shop)",
+      "category": "Kafe",
+      "address": "Caferağa Mh Bahariye Cad, Caferağa, Hacı Şükrü Sk. No:11, 34710 Kadıköy/İstanbul, Türkiye",
+      "phone": "(0216) 418 60 64",
+      "rating": 4.4,
+      "reviews_count": 988,
+      "reviews_summary": "Müşteri odaklı üstün hizmet kalitesi ve bölgedeki güvenilir esnaflık.",
+      "has_website": false,
+      "website_url": "",
+      "place_id": "ChIJK6j_lWa4yhQRgAnlpi4aFh8",
+      "id": "c58ea4f9-7e74-466d-9a08-bb8f4948bc73",
+      "status": "new",
+      "created_at": "2026-07-05T18:39:29.590Z"
     }
   ],
   "generated_sites": [
@@ -48,6 +153,256 @@
       "edit_token": "b42c2739-d58b-4a37-85de-5c6fa9c1b31c",
       "created_at": "2026-07-04T18:10:26.063Z",
       "updated_at": "2026-07-04T18:10:26.063Z"
+    },
+    {
+      "lead_id": "b4386b91-1e7a-4ca4-b80f-14afd7f13f37",
+      "template_name": "ginger_white",
+      "theme_config": {
+        "primary": "#c4a265",
+        "secondary": "#212121",
+        "fontFamily": "Playfair Display, serif",
+        "fontFamilyHeading": "Playfair Display, serif"
+      },
+      "content": {
+        "hero": {
+          "title": "ForchettaPlus italian pasta taze makarna - Nitelikli Kahve & Taze Lezzetler",
+          "subtitle": "Mahallemizin kalbinde, en kaliteli yerel malzemelerle hazırlanan el yapımı lezzetler ve nitelikli artisan kahveler.",
+          "cta_text": "Menümüzü Keşfedin",
+          "badge_text": "Sıcak Mahalle Kafesi"
+        },
+        "about": "Londra sokaklarının samimi havasını ve nitelikli kahve kültürünü mahallenize taşıyoruz. Ortak masalarımız, güler yüzlü ekibimiz ve taze pişen günlük keklerimizle sıcak bir mola noktası sunuyoruz.",
+        "services": [
+          {
+            "title": "Profesyonel Hizmet",
+            "description": "İhtiyacınıza özel, yüksek standartlarda çözümler üretiyoruz.",
+            "icon": "Star"
+          },
+          {
+            "title": "Hızlı Teslimat",
+            "description": "Zamanınızın değerini biliyor, işlerimizi söz verdiğimiz sürede teslim ediyoruz.",
+            "icon": "Clock"
+          },
+          {
+            "title": "Müşteri Memnuniyeti",
+            "description": "Önceliğimiz her zaman sizin memnuniyetinizdir.",
+            "icon": "Heart"
+          }
+        ],
+        "testimonials": [
+          {
+            "name": "Ahmet Y.",
+            "text": "Hizmet kalitesi ve profesyonellik gerçekten üst düzeydi. Çok memnun kaldım.",
+            "rating": 5
+          },
+          {
+            "name": "Ayşe K.",
+            "text": "Güler yüzlü ekip ve harika bir deneyim. Herkese tavsiye ederim.",
+            "rating": 5
+          }
+        ],
+        "contact": {
+          "company_name": "ForchettaPlus italian pasta taze makarna",
+          "phone": "0535 312 59 53",
+          "email": "info@forchettaplusitalianpastatazemakarna.com",
+          "address": "Osmanağa, Kıvanç Sk. no:6/B, 34714 Kadıköy/İstanbul, Türkiye",
+          "hours": "Pzt-Cmt: 09:00 - 20:00"
+        },
+        "images": {
+          "hero_bg": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80"
+        },
+        "menu_items": [
+          {
+            "category": "Sıcak & Soğuk Kahveler",
+            "items": [
+              {
+                "name": "Flat White",
+                "description": "Tek köken çekirdeklerden, kadifemsi süt kreması ile",
+                "price": "₺120"
+              },
+              {
+                "name": "V60 / Filtre Kahve",
+                "description": "Mevsimlik hasat nitelikli çekirdekler",
+                "price": "₺110"
+              },
+              {
+                "name": "El Yapımı Sıcak Çikolata",
+                "description": "Organik kakao ve sütle",
+                "price": "₺130"
+              }
+            ]
+          },
+          {
+            "category": "Kahvaltı & Yemek",
+            "items": [
+              {
+                "name": "Rafadan Yumurta & Ekşi Mayalı Ekmek",
+                "description": "Sourdough soldiers ile meşhur dippy eggs lezzeti",
+                "price": "₺180"
+              },
+              {
+                "name": "Avokadolu Tost",
+                "description": "Ekşi mayalı ekmek üzerinde avokado ezmesi ve keçi peyniri",
+                "price": "₺220"
+              },
+              {
+                "name": "Ev Yapımı Günlük Sebze Çorbası",
+                "description": "Taze sebzeler ve kruton ekmekle",
+                "price": "₺140"
+              }
+            ]
+          },
+          {
+            "category": "Fırınımız & Kekler",
+            "items": [
+              {
+                "name": "Frostingli Havuçlu Kek",
+                "description": "Kendi mutfağımızda günlük taze pişen meşhur kekimiz",
+                "price": "₺150"
+              },
+              {
+                "name": "Yoğun Çikolatalı Brownie",
+                "description": "Glutensiz, zengin çikolatalı",
+                "price": "₺165"
+              },
+              {
+                "name": "Parçacıklı Fıstık Ezmeli Kurabiye",
+                "description": "Kendi imalatımız yer fıstığı ezmesiyle",
+                "price": "₺95"
+              }
+            ]
+          }
+        ]
+      },
+      "id": "009bf058-7d11-4f24-8004-7452d80f5cf0",
+      "edit_token": "49a7ccc9-0279-4fe8-bf11-9e532d8d8956",
+      "created_at": "2026-07-05T18:38:29.208Z",
+      "updated_at": "2026-07-05T18:39:16.522Z"
+    },
+    {
+      "lead_id": "08e9ebbd-9c21-4502-be1b-2b5bc1c3723d",
+      "template_name": "ginger_white",
+      "theme_config": {
+        "primary": "#c4a265",
+        "secondary": "#212121",
+        "fontFamily": "Playfair Display, serif",
+        "fontFamilyHeading": "Playfair Display, serif"
+      },
+      "content": {
+        "hero": {
+          "title": "Fahriye Cafe - Nitelikli Kahve & Taze Lezzetler",
+          "subtitle": "Mahallemizin kalbinde, en kaliteli yerel malzemelerle hazırlanan el yapımı lezzetler ve nitelikli artisan kahveler.",
+          "cta_text": "Menümüzü Keşfedin",
+          "badge_text": "Sıcak Mahalle Kafesi"
+        },
+        "about": "Londra sokaklarının samimi havasını ve nitelikli kahve kültürünü mahallenize taşıyoruz. Ortak masalarımız, güler yüzlü ekibimiz ve taze pişen günlük keklerimizle sıcak bir mola noktası sunuyoruz.",
+        "services": [
+          {
+            "title": "Profesyonel Hizmet",
+            "description": "İhtiyacınıza özel, yüksek standartlarda çözümler üretiyoruz.",
+            "icon": "Star"
+          },
+          {
+            "title": "Hızlı Teslimat",
+            "description": "Zamanınızın değerini biliyor, işlerimizi söz verdiğimiz sürede teslim ediyoruz.",
+            "icon": "Clock"
+          },
+          {
+            "title": "Müşteri Memnuniyeti",
+            "description": "Önceliğimiz her zaman sizin memnuniyetinizdir.",
+            "icon": "Heart"
+          }
+        ],
+        "testimonials": [
+          {
+            "name": "Ahmet Y.",
+            "text": "Hizmet kalitesi ve profesyonellik gerçekten üst düzeydi. Çok memnun kaldım.",
+            "rating": 5
+          },
+          {
+            "name": "Ayşe K.",
+            "text": "Güler yüzlü ekip ve harika bir deneyim. Herkese tavsiye ederim.",
+            "rating": 5
+          }
+        ],
+        "contact": {
+          "company_name": "Fahriye Cafe",
+          "phone": "0505 881 13 48",
+          "email": "info@fahriyecafe.com",
+          "address": "Caferağa Mahallesi, Moda Caddesi & Leylek Sokak 3/A, Caferağa, 34710 Kadıköy/İstanbul, Türkiye",
+          "hours": "Pzt-Cmt: 09:00 - 20:00"
+        },
+        "images": {
+          "hero_bg": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80"
+        },
+        "menu_items": [
+          {
+            "category": "Sıcak & Soğuk Kahveler",
+            "items": [
+              {
+                "name": "Flat White",
+                "description": "Tek köken çekirdeklerden, kadifemsi süt kreması ile",
+                "price": "₺120"
+              },
+              {
+                "name": "V60 / Filtre Kahve",
+                "description": "Mevsimlik hasat nitelikli çekirdekler",
+                "price": "₺110"
+              },
+              {
+                "name": "El Yapımı Sıcak Çikolata",
+                "description": "Organik kakao ve sütle",
+                "price": "₺130"
+              }
+            ]
+          },
+          {
+            "category": "Kahvaltı & Yemek",
+            "items": [
+              {
+                "name": "Rafadan Yumurta & Ekşi Mayalı Ekmek",
+                "description": "Sourdough soldiers ile meşhur dippy eggs lezzeti",
+                "price": "₺180"
+              },
+              {
+                "name": "Avokadolu Tost",
+                "description": "Ekşi mayalı ekmek üzerinde avokado ezmesi ve keçi peyniri",
+                "price": "₺220"
+              },
+              {
+                "name": "Ev Yapımı Günlük Sebze Çorbası",
+                "description": "Taze sebzeler ve kruton ekmekle",
+                "price": "₺140"
+              }
+            ]
+          },
+          {
+            "category": "Fırınımız & Kekler",
+            "items": [
+              {
+                "name": "Frostingli Havuçlu Kek",
+                "description": "Kendi mutfağımızda günlük taze pişen meşhur kekimiz",
+                "price": "₺150"
+              },
+              {
+                "name": "Yoğun Çikolatalı Brownie",
+                "description": "Glutensiz, zengin çikolatalı",
+                "price": "₺165"
+              },
+              {
+                "name": "Parçacıklı Fıstık Ezmeli Kurabiye",
+                "description": "Kendi imalatımız yer fıstığı ezmesiyle",
+                "price": "₺95"
+              }
+            ]
+          }
+        ]
+      },
+      "id": "5b5dcfba-9cde-430a-8de6-7e5af1ff58af",
+      "edit_token": "68dda19f-aec0-476d-9a25-95f2dba3bd19",
+      "created_at": "2026-07-05T18:39:32.718Z",
+      "updated_at": "2026-07-05T18:40:04.331Z"
     }
   ],
   "custom_presets": {
