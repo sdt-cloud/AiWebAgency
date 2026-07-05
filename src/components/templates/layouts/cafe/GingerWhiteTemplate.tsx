@@ -63,7 +63,14 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
         </div>
         <div className="mx-auto flex items-center gap-1.5 text-[10px] md:text-xs">
           <Sparkles size={12} className="text-[#c4a265] animate-pulse" />
-          <span>DOĞAL MALZEMELER, SIFIR PLASTİK VE BOLCA SEVGİYLE</span>
+          <EditableText
+            content={content}
+            contentKey="hero.announcement_text"
+            onUpdate={onUpdateContent}
+            isEditMode={isEditMode}
+            fallback="DOĞAL MALZEMELER, SIFIR PLASTİK VE BOLCA SEVGİYLE"
+            className="focus:outline-none focus:ring-0"
+          />
         </div>
         <div className="w-14 lap-hide"></div>
       </div>
@@ -380,8 +387,26 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
         {/* Sağ Metin */}
         <div className="space-y-6 md:order-2 order-1">
           <div className="space-y-2">
-            <span className="text-[#c4a265] text-xs font-quicksand font-bold tracking-[0.2em] uppercase block">BİZ KİMİZ?</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-ovo leading-tight">Yıllardır Mahallenin En Samimi Köşesindeyiz</h2>
+            <span className="text-[#c4a265] text-xs font-quicksand font-bold tracking-[0.2em] uppercase block">
+              <EditableText
+                content={content}
+                contentKey="about_badge"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                fallback="BİZ KİMİZ?"
+                className="focus:outline-none focus:ring-0"
+              />
+            </span>
+            <h2 className="text-3xl md:text-5xl font-normal font-ovo leading-tight">
+              <EditableText
+                content={content}
+                contentKey="about_title"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                fallback="Yıllardır Mahallenin En Samimi Köşesindeyiz"
+                className="focus:outline-none focus:ring-0"
+              />
+            </h2>
           </div>
           
           <EditableText
@@ -394,16 +419,28 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
 
           <div className="pt-2 border-t border-[#e6e2da] flex gap-8">
             <div>
-              <span className="text-2xl md:text-3xl font-ovo font-normal text-[#c4a265]">2009</span>
-              <p className="font-quicksand text-xs text-[#666] uppercase font-bold tracking-wide mt-1">Kuruluş Yılı</p>
+              <span className="text-2xl md:text-3xl font-ovo font-normal text-[#c4a265]">
+                <EditableText content={content} contentKey="stats.0.value" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="2009" className="focus:outline-none focus:ring-0" />
+              </span>
+              <p className="font-quicksand text-xs text-[#666] uppercase font-bold tracking-wide mt-1">
+                <EditableText content={content} contentKey="stats.0.label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Kuruluş Yılı" className="focus:outline-none focus:ring-0" />
+              </p>
             </div>
             <div>
-              <span className="text-2xl md:text-3xl font-ovo font-normal text-[#c4a265]">%100</span>
-              <p className="font-quicksand text-xs text-[#666] uppercase font-bold tracking-wide mt-1">Katkısız & El Yapımı</p>
+              <span className="text-2xl md:text-3xl font-ovo font-normal text-[#c4a265]">
+                <EditableText content={content} contentKey="stats.1.value" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="%100" className="focus:outline-none focus:ring-0" />
+              </span>
+              <p className="font-quicksand text-xs text-[#666] uppercase font-bold tracking-wide mt-1">
+                <EditableText content={content} contentKey="stats.1.label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Katkısız & El Yapımı" className="focus:outline-none focus:ring-0" />
+              </p>
             </div>
             <div>
-              <span className="text-2xl md:text-3xl font-ovo font-normal text-[#c4a265]">100K+</span>
-              <p className="font-quicksand text-xs text-[#666] uppercase font-bold tracking-wide mt-1">Mutlu Misafir</p>
+              <span className="text-2xl md:text-3xl font-ovo font-normal text-[#c4a265]">
+                <EditableText content={content} contentKey="stats.2.value" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="100K+" className="focus:outline-none focus:ring-0" />
+              </span>
+              <p className="font-quicksand text-xs text-[#666] uppercase font-bold tracking-wide mt-1">
+                <EditableText content={content} contentKey="stats.2.label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Mutlu Misafir" className="focus:outline-none focus:ring-0" />
+              </p>
             </div>
           </div>
         </div>
@@ -414,12 +451,16 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
         <div className="container mx-auto px-6 space-y-12">
           {/* Başlık Alanı */}
           <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-[#c4a265] text-xs font-quicksand font-bold tracking-[0.2em] uppercase">TAZE & DOĞAL</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-ovo text-[#212121]">El Yapımı Menümüzü Keşfedin</h2>
+            <span className="text-[#c4a265] text-xs font-quicksand font-bold tracking-[0.2em] uppercase">
+              <EditableText content={content} contentKey="menu_badge" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="TAZE & DOĞAL" className="focus:outline-none focus:ring-0" />
+            </span>
+            <h2 className="text-3xl md:text-5xl font-normal font-ovo text-[#212121]">
+              <EditableText content={content} contentKey="menu_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="El Yapımı Menümüzü Keşfedin" className="focus:outline-none focus:ring-0" />
+            </h2>
             <div className="w-12 h-0.5 bg-[#c4a265] mx-auto my-4" />
-            <p className="font-quicksand text-[#666] text-sm">
-              Mutfağımızda her sabah özenle hazırlanan taze kahvaltılıklar, ekşi mayalı tostlar ve artisan kahve çeşitlerimiz.
-            </p>
+            <div className="font-quicksand text-[#666] text-sm">
+              <EditableText content={content} contentKey="menu_description" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Mutfağımızda her sabah özenle hazırlanan taze kahvaltılıklar, ekşi mayalı tostlar ve artisan kahve çeşitlerimiz." className="focus:outline-none focus:ring-0" />
+            </div>
           </div>
 
           {/* Menü Kategorileri Tab Bar */}
@@ -600,11 +641,15 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
           {/* Sol Kolon: Bilgiler */}
           <div className="space-y-8">
             <div className="space-y-3">
-              <span className="text-[#c4a265] text-xs font-quicksand font-bold tracking-[0.2em] uppercase block">BİZE ULAŞIN</span>
-              <h2 className="text-3xl md:text-5xl font-normal font-ovo text-[#212121]">Masanız Her Zaman Hazır</h2>
-              <p className="font-quicksand text-sm text-[#666] leading-relaxed">
-                Ginger & White ruhunu yaşamak için rezervasyona gerek yok! Sizleri kapıda güler yüzle karşılıyor ve boşalan ilk masaya alıyoruz. Dilerseniz hemen gelip paket servisinizi teslim alabilirsiniz.
-              </p>
+              <span className="text-[#c4a265] text-xs font-quicksand font-bold tracking-[0.2em] uppercase block">
+                <EditableText content={content} contentKey="contact.section_badge" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="BİZE ULAŞIN" className="focus:outline-none focus:ring-0" />
+              </span>
+              <h2 className="text-3xl md:text-5xl font-normal font-ovo text-[#212121]">
+                <EditableText content={content} contentKey="contact.section_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Masanız Her Zaman Hazır" className="focus:outline-none focus:ring-0" />
+              </h2>
+              <div className="font-quicksand text-sm text-[#666] leading-relaxed">
+                <EditableText content={content} contentKey="contact.section_description" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Ginger & White ruhunu yaşamak için rezervasyona gerek yok! Sizleri kapıda güler yüzle karşılıyor ve boşalan ilk masaya alıyoruz. Dilerseniz hemen gelip paket servisinizi teslim alabilirsiniz." className="focus:outline-none focus:ring-0" />
+              </div>
             </div>
 
             <div className="space-y-4 pt-4 border-t border-[#e6e2da]">
@@ -614,7 +659,9 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
                   <MapPin size={18} />
                 </div>
                 <div className="space-y-1">
-                  <span className="font-quicksand text-xs text-[#999] uppercase font-bold tracking-wider">Adresimiz</span>
+                  <span className="font-quicksand text-xs text-[#999] uppercase font-bold tracking-wider">
+                    <EditableText content={content} contentKey="contact.address_label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Adresimiz" className="focus:outline-none focus:ring-0" />
+                  </span>
                   <EditableText
                     content={content}
                     contentKey="contact.address"
@@ -631,7 +678,9 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
                   <Phone size={18} />
                 </div>
                 <div className="space-y-1">
-                  <span className="font-quicksand text-xs text-[#999] uppercase font-bold tracking-wider">Telefon Numarası</span>
+                  <span className="font-quicksand text-xs text-[#999] uppercase font-bold tracking-wider">
+                    <EditableText content={content} contentKey="contact.phone_label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Telefon Numarası" className="focus:outline-none focus:ring-0" />
+                  </span>
                   <EditableText
                     content={content}
                     contentKey="contact.phone"
@@ -648,7 +697,9 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
                   <Mail size={18} />
                 </div>
                 <div className="space-y-1">
-                  <span className="font-quicksand text-xs text-[#999] uppercase font-bold tracking-wider">E-posta Adresi</span>
+                  <span className="font-quicksand text-xs text-[#999] uppercase font-bold tracking-wider">
+                    <EditableText content={content} contentKey="contact.email_label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="E-posta Adresi" className="focus:outline-none focus:ring-0" />
+                  </span>
                   <EditableText
                     content={content}
                     contentKey="contact.email"
@@ -665,7 +716,9 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
           <div className="bg-[#fcfbf9] border border-[#e6e2da] rounded-3xl p-8 md:p-10 space-y-6">
             <div className="flex items-center gap-3 pb-4 border-b border-[#e6e2da]">
               <Clock className="text-[#c4a265]" size={22} />
-              <h3 className="font-ovo text-xl font-semibold">Çalışma Saatlerimiz</h3>
+              <h3 className="font-ovo text-xl font-semibold">
+                <EditableText content={content} contentKey="contact.hours_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Çalışma Saatlerimiz" className="focus:outline-none focus:ring-0" />
+              </h3>
             </div>
             
             <EditableText
@@ -677,10 +730,12 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
             />
 
             <div className="p-5 bg-[#c4a265]/10 rounded-2xl border border-[#c4a265]/20 space-y-2">
-              <span className="font-quicksand text-xs text-[#c4a265] uppercase font-bold tracking-wider">Önemli Not</span>
-              <p className="font-quicksand text-xs text-[#555] leading-relaxed">
-                Tüm yiyeceklerimizi paket servis olarak Click & Collect (Tıkla Gel Al) üzerinden telefonla veya gelip sipariş vererek anında alabilirsiniz.
-              </p>
+              <span className="font-quicksand text-xs text-[#c4a265] uppercase font-bold tracking-wider">
+                <EditableText content={content} contentKey="contact.note_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Önemli Not" className="focus:outline-none focus:ring-0" />
+              </span>
+              <div className="font-quicksand text-xs text-[#555] leading-relaxed">
+                <EditableText content={content} contentKey="contact.note_description" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Tüm yiyeceklerimizi paket servis olarak Click & Collect (Tıkla Gel Al) üzerinden telefonla veya gelip sipariş vererek anında alabilirsiniz." className="focus:outline-none focus:ring-0" />
+              </div>
             </div>
           </div>
         </div>
@@ -695,9 +750,9 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
               <Coffee size={20} className="text-[#c4a265]" />
               <span className="font-ovo font-bold text-lg tracking-widest uppercase">{content.contact.company_name}</span>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Nitelikli artisan kahve kültürünü, en kaliteli yerel malzemeler ve bolca sevgi ile harmanlayarak mahallenize taşıyoruz.
-            </p>
+            <div className="text-slate-400 text-xs leading-relaxed max-w-sm">
+              <EditableText content={content} contentKey="footer_slogan" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Nitelikli artisan kahve kültürünü, en kaliteli yerel malzemeler ve bolca sevgi ile harmanlayarak mahallenize taşıyoruz." className="focus:outline-none focus:ring-0" />
+            </div>
           </div>
 
           {/* Hızlı Linkler */}
