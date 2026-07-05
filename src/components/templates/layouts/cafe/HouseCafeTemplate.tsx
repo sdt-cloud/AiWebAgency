@@ -196,8 +196,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
             {/* Promo 1 */}
             <a href="#menumuz" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
               <div className="w-full h-full relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600" 
+                <EditableImage 
+                  content={content}
+                  contentKey="images.gallery.0"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   alt="Menu"
                 />
@@ -211,8 +214,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
             {/* Promo 2 */}
             <a href="#subelerimiz" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
               <div className="w-full h-full relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=600" 
+                <EditableImage 
+                  content={content}
+                  contentKey="images.gallery.1"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   alt="Branches"
                 />
@@ -226,8 +232,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
             {/* Promo 3 */}
             <a href="#konsept" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
               <div className="w-full h-full relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600" 
+                <EditableImage 
+                  content={content}
+                  contentKey="images.gallery.2"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   alt="Concept"
                 />
@@ -241,8 +250,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
             {/* Promo 4 */}
             <a href="#iletisim" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
               <div className="w-full h-full relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" 
+                <EditableImage 
+                  content={content}
+                  contentKey="images.gallery.3"
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   alt="Catering"
                 />
@@ -302,8 +314,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
               />
             </div>
             <div className="col-span-4 border border-[#DDDAD7] p-2 bg-white self-end">
-              <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" 
+              <EditableImage 
+                content={content}
+                contentKey="images.gallery.4"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
                 className="w-full h-[180px] object-cover" 
                 alt="Teşvikiye Street"
               />
@@ -407,8 +422,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Şube 1 */}
             <div className="border border-[#DDDAD7] bg-white p-3 space-y-4">
-              <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=400" 
+              <EditableImage 
+                content={content}
+                contentKey="images.gallery.5"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
                 className="w-full h-48 object-cover" 
                 alt="Teşvikiye"
               />
@@ -429,8 +447,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
 
             {/* Şube 2 */}
             <div className="border border-[#DDDAD7] bg-white p-3 space-y-4">
-              <img 
-                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=400" 
+              <EditableImage 
+                content={content}
+                contentKey="images.gallery.6"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
                 className="w-full h-48 object-cover" 
                 alt="Ortaköy"
               />
@@ -448,8 +469,11 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
 
             {/* Şube 3 */}
             <div className="border border-[#DDDAD7] bg-white p-3 space-y-4">
-              <img 
-                src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&q=80&w=400" 
+              <EditableImage 
+                content={content}
+                contentKey="images.gallery.7"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
                 className="w-full h-48 object-cover" 
                 alt="Alaçatı"
               />

@@ -173,9 +173,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
             </div>
             {/* Küçük Sağ Resim */}
             <div className="col-span-4 border-4 border-white shadow-xl translate-y-8 rotate-[4deg] hover:rotate-0 transition-transform duration-500">
-              <img 
-                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-[220px] md:h-[280px] object-cover" 
+              <EditableImage
+                content={content}
+                contentKey="images.services_img"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-[220px] md:h-[280px] object-cover"
                 alt="Pastis Food"
               />
             </div>
@@ -413,9 +416,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
             
             {/* Foto 1 */}
             <div className="overflow-hidden border-4 border-white shadow-md relative group aspect-[4/3] bg-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=600" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.0"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt="Pastis Zinc Bar"
               />
               <div className="absolute inset-0 bg-[#0a0101]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-xs font-archivo tracking-widest uppercase">
@@ -425,9 +431,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
 
             {/* Foto 2 */}
             <div className="overflow-hidden border-4 border-white shadow-md relative group aspect-[4/3] bg-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=600" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.1"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt="French Fries"
               />
               <div className="absolute inset-0 bg-[#0a0101]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-xs font-archivo tracking-widest uppercase">
@@ -437,9 +446,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
 
             {/* Foto 3 */}
             <div className="overflow-hidden border-4 border-white shadow-md relative group aspect-[4/3] bg-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&q=80&w=600" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.2"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt="Seafood specials"
               />
               <div className="absolute inset-0 bg-[#0a0101]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-xs font-archivo tracking-widest uppercase">
@@ -449,9 +461,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
 
             {/* Foto 4 */}
             <div className="overflow-hidden border-4 border-white shadow-md relative group aspect-[4/3] bg-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=600" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.3"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt="Table Setup"
               />
               <div className="absolute inset-0 bg-[#0a0101]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-xs font-archivo tracking-widest uppercase">
@@ -461,9 +476,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
 
             {/* Foto 5 */}
             <div className="overflow-hidden border-4 border-white shadow-md relative group aspect-[4/3] bg-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.4"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt="Lounge red banquettes"
               />
               <div className="absolute inset-0 bg-[#0a0101]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-xs font-archivo tracking-widest uppercase">
@@ -473,9 +491,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
 
             {/* Foto 6 */}
             <div className="overflow-hidden border-4 border-white shadow-md relative group aspect-[4/3] bg-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              <EditableImage
+                content={content}
+                contentKey="images.gallery.5"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 alt="Espresso"
               />
               <div className="absolute inset-0 bg-[#0a0101]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-xs font-archivo tracking-widest uppercase">
