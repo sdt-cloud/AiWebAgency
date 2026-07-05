@@ -30,9 +30,10 @@ interface Props {
 }
 
 export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onUpdateContent }: Props) {
-  const [activeCategory, setActiveCategory] = useState<string>('');
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showAddNavDropdown, setShowAddNavDropdown] = useState(false);
+  const [activeFooterModal, setActiveFooterModal] = useState<'hakkimizda' | 'gizlilik' | 'iletisim' | null>(null);
   const companyName = content.contact.company_name || 'Kafemiz';
 
   const defaultNavLinks = [
@@ -48,7 +49,6 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
 
   // Menü kategorileri (Index tabanlı state yönetimi)
   const menuItems = content.menu_items || [];
-  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
   const activeMenuCategory = menuItems[activeCategoryIndex] || menuItems[0];
 
   return (
@@ -846,7 +846,8 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
             </span>
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 pt-2">
               <a 
-                href="#welcome" 
+                href="#"
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('hakkimizda'); }}
                 className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
               >
                 <EditableText
@@ -857,7 +858,8 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
                 />
               </a>
               <a 
-                href="#menumuz" 
+                href="#"
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('gizlilik'); }}
                 className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
               >
                 <EditableText
@@ -868,7 +870,8 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
                 />
               </a>
               <a 
-                href="#iletisim" 
+                href="#"
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('iletisim'); }}
                 className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
               >
                 <EditableText
@@ -888,6 +891,105 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           </div>
         </div>
       </footer>
+
+      {/* Footer Modalı (Tüm sitelerde aynı genel metinler) */}
+      {activeFooterModal && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-white text-slate-800 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl animate-in fade-in zoom-in-95 duration-200 relative">
+            <button
+              type="button"
+              onClick={() => setActiveFooterModal(null)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            {activeFooterModal === 'hakkimizda' && (
+              <div className="space-y-4 font-inter text-left">
+                <h3 className="font-lora text-2xl font-bold border-b pb-2 text-[#222]">Hakkımızda</h3>
+                <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
+                  <p>
+                    İşletmemiz, en kaliteli hammaddeler ve taze malzemelerle hazırlanan eşsiz lezzetleri, sıcak ve samimi bir kafe atmosferinde sunmak amacıyla yola çıkmıştır. Nesillerdir süregelen misafirperverlik anlayışını modern nitelikli kahve kültürü ve zengin fırın lezzetleriyle harmanlayarak, her misafirimizin kapımızdan mutlu ayrılmasını hedefliyoruz.
+                  </p>
+                  <p>
+                    Günün her saatinde taze çekirdeklerden demlenen kahvelerimiz, fırınımızdan yeni çıkmış sıcak çöreklerimiz ve güler yüzlü ekibimizle sizlere en iyi hizmeti sunmak için buradayız.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeFooterModal === 'gizlilik' && (
+              <div className="space-y-4 font-inter text-left">
+                <h3 className="font-lora text-2xl font-bold border-b pb-2 text-[#222]">Gizlilik Politikası</h3>
+                <div className="text-xs text-slate-600 leading-relaxed space-y-3 overflow-y-auto max-h-[60vh] pr-2">
+                  <p className="font-semibold">1. Veri Sorumlusu ve Amacı</p>
+                  <p>
+                    Bu web sitesi üzerinden bizimle paylaştığınız kişisel verileriniz (isim, e-posta, telefon gibi iletişim bilgileri), yalnızca rezervasyon taleplerinizi almak, hizmetlerimizle ilgili bilgilendirme yapmak ve iletişim formları üzerinden taleplerinize yanıt vermek amacıyla işlenir.
+                  </p>
+                  <p className="font-semibold">2. Verilerin Saklanması ve Paylaşımı</p>
+                  <p>
+                    Kişisel verileriniz, yasal süreler ve işleme amaçlarının gerektirdiği süre boyunca güvenli yerel sunucularda saklanır. Verileriniz, yasal zorunluluklar hariç olmak üzere, üçüncü şahıslarla asla paylaşılmaz, satılmaz veya ticari amaçla kullanılmaz.
+                  </p>
+                  <p className="font-semibold">3. Çerezler (Cookies)</p>
+                  <p>
+                    Web sitemiz, kullanıcı deneyimini iyileştirmek ve site trafiğini analiz etmek için çerezleri kullanabilir. Tarayıcı ayarlarınızdan çerezleri dilediğiniz gibi engelleyebilir veya silebilirsiniz.
+                  </p>
+                  <p className="font-semibold">4. Haklarınız</p>
+                  <p>
+                    Kişisel verilerinizin silinmesini, güncellenmesini veya işlenip işlenmediğini öğrenmeyi dilediğiniz zaman talep edebilirsiniz. Bilgi talepleri için lütfen iletişim kanallarımız üzerinden bizimle irtibata geçin.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeFooterModal === 'iletisim' && (
+              <div className="space-y-4 font-inter text-left">
+                <h3 className="font-lora text-2xl font-bold border-b pb-2 text-[#222]">İletişim Bilgileri</h3>
+                <div className="space-y-3 text-sm text-slate-600">
+                  <div className="flex items-start gap-2">
+                    <MapPin size={16} className="text-indigo-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-slate-800">Adresimiz</p>
+                      <p>{content.contact.address || 'Kafemiz Adresi'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Phone size={16} className="text-indigo-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-slate-800">Telefon</p>
+                      <p>{content.contact.phone || '0212 000 00 00'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Mail size={16} className="text-indigo-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-slate-800">E-posta</p>
+                      <p>{content.contact.email || 'info@kafemiz.com'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Clock size={16} className="text-indigo-600 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-slate-800">Çalışma Saatleri</p>
+                      <p>{content.contact.hours || 'Her Gün Açık'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-end mt-6 border-t pt-4">
+              <button
+                type="button"
+                onClick={() => setActiveFooterModal(null)}
+                className="px-5 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 text-xs font-semibold tracking-wider uppercase cursor-pointer"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
