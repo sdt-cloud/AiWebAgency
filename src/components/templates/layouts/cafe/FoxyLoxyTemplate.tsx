@@ -30,6 +30,7 @@ interface Props {
 export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onUpdateContent }: Props) {
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const companyName = content.contact.company_name || 'Kafemiz';
 
   // Menü kategorileri
   const menuCategories = content.menu_items?.map(cat => cat.category) || [];
@@ -206,7 +207,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
         <div className="container mx-auto px-6 md:px-12 max-w-6xl space-y-16">
           <div className="text-center space-y-3">
             <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">ÖZELLİKLERİMİZ</span>
-            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase tracking-wider">Foxy Nedir?</h2>
+            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase tracking-wider">{companyName} Nedir?</h2>
             <div className="w-12 h-[1px] bg-black/20 mx-auto" />
           </div>
 
@@ -240,7 +241,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
               </div>
               <h3 className="font-lora text-xl font-normal">Nitelikli Kahve</h3>
               <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
-                The Coffee Fox Roasting Co. tarafından yerel olarak özenle kavrulan çekirdeklerimizi sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.
+                Özenle seçilmiş yerel üreticiler tarafından kavrulan nitelikli çekirdeklerimizi taze olarak sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.
               </p>
             </div>
 
@@ -286,7 +287,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           
           <div className="text-center space-y-3">
             <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">FUSION MUTFAK</span>
-            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase">Foxy Menümüz</h2>
+            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase">{companyName} Menümüz</h2>
             <div className="w-12 h-[1px] bg-black/20 mx-auto" />
           </div>
 
