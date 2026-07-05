@@ -10,14 +10,13 @@ import {
   Mail, 
   Clock, 
   Globe, 
-  Music, 
-  Flame, 
-  Image as ImageIcon, 
-  ChevronRight, 
   Menu as MenuIcon, 
   X,
   Coffee,
-  Sparkles
+  Flame,
+  Calendar,
+  UtensilsCrossed,
+  Cookie
 } from 'lucide-react';
 
 interface Props {
@@ -32,135 +31,135 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Menü kategorilerini dinamik belirle
+  // Menü kategorileri
   const menuCategories = content.menu_items?.map(cat => cat.category) || [];
   const currentCategory = activeCategory || menuCategories[0] || '';
-
   const activeMenuCategory = content.menu_items?.find(
     cat => cat.category === currentCategory
   );
 
   return (
-    <div className="min-h-screen bg-[#F4F0EA] text-[#3C2F2F] selection:bg-[#D36135] selection:text-white relative">
-      {/* Yazı Tiplerini Dinamik Yükleme */}
+    <div className="min-h-screen bg-white text-[#222222] font-sans selection:bg-[#222222] selection:text-white relative font-inter">
+      {/* Google Fonts - Lora (Georgia alternatifi Serif) & Inter (Proxima Nova alternatifi Sans-Serif) */}
       <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fredoka:wght@300..700&display=swap');
-        .font-serif-display { font-family: 'DM Serif Display', serif; }
-        .font-fredoka { font-family: 'Fredoka', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        .font-lora { font-family: 'Lora', Georgia, serif; }
+        .font-inter { font-family: 'Inter', Helvetica, Arial, sans-serif; }
       ` }} />
 
-      {/* 1. Üst Duyuru Barı (Zeytin Yeşili) */}
-      <div className="bg-[#5B7053] text-[#F4F0EA] py-2 px-6 text-center text-xs tracking-wider font-fredoka font-medium z-50 relative flex justify-center items-center gap-2">
-        <Flame size={14} className="text-[#E6A15C] animate-pulse" />
-        <span>Hafta İçi 08:00 - 21:00 &bull; Pazar 08:00 - 18:00 &bull; Her Cumartesi Bahçede Ateş Başı Sohbetleri!</span>
+      {/* Squarespace Duyuru Barı */}
+      <div className="bg-[#222222] text-white py-3 px-6 text-center text-xs tracking-[0.15em] font-inter font-semibold uppercase z-50 relative">
+        Pazartesi-Cumartesi 08:00 - 21:00 &bull; Pazar 08:00 - 18:00
       </div>
 
-      {/* 2. Bohem Tasarımlı Header */}
-      <header className="sticky top-0 bg-[#F4F0EA]/95 backdrop-blur-md border-b border-[#3C2F2F]/10 z-40 transition-all duration-305">
-        <div className="container mx-auto px-6 h-24 flex items-center justify-between">
-          
-          {/* Sol: Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-[#D36135] flex items-center justify-center text-white">
-              <Coffee size={20} />
-            </div>
-            <div className="flex flex-col">
-              <EditableText
-                content={content}
-                contentKey="contact.company_name"
-                onUpdate={onUpdateContent}
-                isEditMode={isEditMode}
-                className="text-xl md:text-2xl font-normal font-serif-display tracking-wide text-[#3C2F2F] focus:outline-none focus:ring-0 px-1 rounded block"
-              />
-              <span className="text-[9px] tracking-widest font-fredoka text-[#5B7053] uppercase font-bold -mt-1">KAHVE &bull; FIRIN &bull; CANTINA</span>
-            </div>
-          </div>
-
-          {/* Orta: Nav Linkleri */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-fredoka font-bold text-[#3C2F2F]/80">
-            <a href="#hikayemiz" className="hover:text-[#D36135] transition-colors">Hikayemiz</a>
-            <a href="#etkinlikler" className="hover:text-[#D36135] transition-colors">Etkinlikler</a>
-            <a href="#menumuz" className="hover:text-[#D36135] transition-colors">Menümüz</a>
-            <a href="#sanat" className="hover:text-[#D36135] transition-colors">Sanat Galeri</a>
-            <a href="#iletisim" className="hover:text-[#D36135] transition-colors">İletişim</a>
-          </nav>
-
-          {/* Sağ: Sipariş CTA Buton */}
-          <div className="hidden md:block">
-            <a 
-              href="#iletisim" 
-              className="px-6 py-2.5 bg-[#D36135] hover:bg-[#5B7053] text-[#F4F0EA] text-xs uppercase font-fredoka font-bold rounded-xl transition-all shadow-md shadow-[#D36135]/20 cursor-pointer"
-            >
-              Hemen Sipariş Et
+      {/* Squarespace Temiz Header (Centered Logo) */}
+      <header className="bg-white border-b border-black/5 sticky top-0 z-40 transition-all duration-300">
+        <div className="container mx-auto px-6 py-4 flex flex-col items-center">
+          {/* Logo Görseli / Metni */}
+          <div className="text-center mb-3">
+            <a href="#welcome" className="inline-block">
+              <span className="text-3xl md:text-4xl font-normal font-lora tracking-[0.2em] text-[#222222] uppercase">
+                {content.contact.company_name}
+              </span>
             </a>
+            <span className="text-[10px] tracking-[0.4em] font-inter uppercase text-[#666666] font-bold block mt-1">
+              KAHVECİ &bull; FIRIN &bull; TEX-MEX KANTİNİ
+            </span>
           </div>
 
-          {/* Mobil Menü Butonu */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-            className="md:hidden p-2 text-[#3C2F2F] hover:text-[#D36135] transition-colors"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
-          </button>
+          {/* Navigasyon Linkleri */}
+          <div className="w-full flex items-center justify-between md:justify-center border-t border-black/5 pt-3">
+            <nav className="hidden md:flex items-center gap-10 text-xs font-inter font-bold uppercase tracking-[0.2em] text-[#222222]/80">
+              <a href="#welcome" className="hover:text-black transition-colors">Ana Sayfa</a>
+              <a href="#howdy" className="hover:text-black transition-colors">Merhaba</a>
+              <a href="#foxy-is" className="hover:text-black transition-colors">Özellikler</a>
+              <a href="#courtyard" className="hover:text-black transition-colors">Arka Bahçe</a>
+              <a href="#menumuz" className="hover:text-black transition-colors">Menü</a>
+              <a href="#live-music" className="hover:text-black transition-colors">Etkinlikler</a>
+              <a href="#iletisim" className="hover:text-black transition-colors">İletişim</a>
+            </nav>
+
+            <div className="hidden md:block absolute right-12">
+              <a 
+                href="https://ordering.chownow.com/order/9839/locations" 
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 bg-black hover:bg-black/80 text-white text-[11px] font-inter font-bold uppercase tracking-widest transition-all cursor-pointer"
+              >
+                Çevrimiçi Sipariş
+              </a>
+            </div>
+
+            {/* Mobil Menü Butonu */}
+            <div className="md:hidden w-full flex justify-between items-center">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#666]">Navigasyon</span>
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+                className="p-2 text-[#222] hover:text-black transition-colors"
+              >
+                {isMobileMenuOpen ? <X size={20} /> : <MenuIcon size={20} />}
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Mobil Menü */}
+        {/* Mobil Menü Listesi */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#F4F0EA] border-t border-[#3C2F2F]/10 px-6 py-6 space-y-4 absolute w-full left-0 shadow-lg font-fredoka text-sm font-bold text-[#3C2F2F]/80">
+          <div className="md:hidden bg-white border-t border-black/5 px-6 py-6 space-y-4 absolute w-full left-0 shadow-lg font-inter text-xs font-bold uppercase tracking-widest text-[#222]/80">
             <nav className="flex flex-col gap-4">
-              <a href="#hikayemiz" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#D36135] py-2 border-b border-[#3C2F2F]/5">Hikayemiz</a>
-              <a href="#etkinlikler" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#D36135] py-2 border-b border-[#3C2F2F]/5">Etkinlikler</a>
-              <a href="#menumuz" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#D36135] py-2 border-b border-[#3C2F2F]/5">Menümüz</a>
-              <a href="#sanat" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#D36135] py-2 border-b border-[#3C2F2F]/5">Sanat Galeri</a>
-              <a href="#iletisim" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#D36135] py-2">İletişim</a>
+              <a href="#welcome" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Ana Sayfa</a>
+              <a href="#howdy" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Merhaba</a>
+              <a href="#foxy-is" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Özellikler</a>
+              <a href="#courtyard" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Arka Bahçe</a>
+              <a href="#menumuz" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Menü</a>
+              <a href="#live-music" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Etkinlikler</a>
+              <a href="#iletisim" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2">İletişim</a>
             </nav>
             <a 
-              href="#iletisim" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full py-3 bg-[#D36135] text-white text-center rounded-xl"
+              href="https://ordering.chownow.com/order/9839/locations" 
+              target="_blank"
+              rel="noreferrer"
+              className="block w-full py-3 bg-black text-white text-center rounded-none font-bold uppercase tracking-wider"
             >
-              Hemen Sipariş Et
+              Çevrimiçi Sipariş
             </a>
           </div>
         )}
       </header>
 
-      {/* 3. Bohem & Sıcak Hero Section */}
-      <section className="container mx-auto px-6 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        {/* Sol Kolon: Metin */}
-        <div className="space-y-6 max-w-xl">
-          {content.hero.badge_text && (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#D36135]/10 border border-[#D36135]/20 text-[#D36135] rounded-full text-xs font-fredoka font-bold uppercase">
-              <Sparkles size={12} />
-              <EditableText
-                content={content}
-                contentKey="hero.badge_text"
-                onUpdate={onUpdateContent}
-                isEditMode={isEditMode}
-              />
-            </div>
-          )}
-          
-          <EditableText
+      {/* SIFIRDAN BİREBİR STACKED BÖLÜMLER */}
+
+      {/* Bölüm 1: Hoş Geldiniz (#welcome) - Tam Genişlik Arka Plan ve Üst Bilgi Kartı */}
+      <section id="welcome" className="relative min-h-[80vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
+        {/* Arka Plan Resmi */}
+        <div className="absolute inset-0 z-0">
+          <EditableImage
             content={content}
-            contentKey="hero.title"
+            contentKey="images.hero_bg"
             onUpdate={onUpdateContent}
             isEditMode={isEditMode}
-            className="text-4xl md:text-6xl font-normal font-serif-display text-[#3C2F2F] leading-tight focus:outline-none focus:ring-0 px-1 rounded block"
+            className="w-full h-full object-cover opacity-60"
+            alt="Foxy Loxy Welcome Hero"
           />
-          
+        </div>
+
+        {/* Squarespace Translucent Kartı (Birebir Tasarım) */}
+        <div className="relative z-10 mx-6 bg-white/95 max-w-xl p-8 md:p-14 text-center border border-black/5 shadow-2xl flex flex-col items-center space-y-6">
+          <h1 className="text-3xl md:text-4xl font-normal font-lora tracking-wide text-[#222] leading-tight uppercase">
+            {content.contact.company_name}
+          </h1>
+          <div className="w-16 h-[1px] bg-black/20" />
           <EditableText
             content={content}
             contentKey="hero.subtitle"
             onUpdate={onUpdateContent}
             isEditMode={isEditMode}
-            className="text-base md:text-lg font-fredoka text-[#666] leading-relaxed focus:outline-none focus:ring-0 px-1 rounded block"
+            className="text-sm md:text-base font-inter text-[#444] leading-relaxed tracking-wide focus:outline-none focus:ring-0 px-1 rounded block"
           />
-
-          <div className="pt-4 flex flex-col sm:flex-row gap-4">
+          <div className="pt-4 w-full">
             <a 
               href="#menumuz" 
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#D36135] hover:bg-[#5B7053] text-[#F4F0EA] rounded-2xl font-fredoka font-bold text-sm tracking-wide uppercase transition-all shadow-md shadow-[#D36135]/10 cursor-pointer"
+              className="inline-block w-full md:w-auto px-8 py-4 bg-black hover:bg-black/85 text-white font-inter font-bold text-xs tracking-[0.2em] uppercase transition-all rounded-none cursor-pointer"
             >
               <EditableText
                 content={content}
@@ -168,138 +167,146 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
                 onUpdate={onUpdateContent}
                 isEditMode={isEditMode}
               />
-              <ChevronRight size={16} />
             </a>
-            <a 
-              href="#etkinlikler" 
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-white hover:bg-[#3C2F2F]/5 text-[#3C2F2F] rounded-2xl font-fredoka font-bold text-sm border border-[#3C2F2F]/10 transition-all cursor-pointer"
-            >
-              Haftalık Takvim
-            </a>
-          </div>
-        </div>
-
-        {/* Sağ Kolon: Rustik Eskitilmiş Resim Çerçevesi */}
-        <div className="relative group">
-          <div className="absolute inset-0 bg-[#5B7053]/10 rounded-[40px] translate-x-4 translate-y-4 -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
-          <div className="border-[12px] border-white shadow-xl rounded-[40px] overflow-hidden bg-white">
-            <EditableImage
-              content={content}
-              contentKey="images.hero_bg"
-              onUpdate={onUpdateContent}
-              isEditMode={isEditMode}
-              className="w-full h-[350px] md:h-[480px] object-cover"
-              alt="Foxy Loxy Victorian House front"
-            />
           </div>
         </div>
       </section>
 
-      {/* 4. Etkinlikler Section (Ateş Çukuru & Canlı Müzik) */}
-      <section id="etkinlikler" className="bg-[#EFE9DF] border-y border-[#3C2F2F]/10 py-16 md:py-24">
-        <div className="container mx-auto px-6 space-y-12">
-          {/* Başlık */}
-          <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-[#D36135] text-xs font-fredoka font-bold tracking-widest uppercase">SOSYAL MAHALLE HAFASI</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-serif-display">Kültür, Sanat & Ateş Başı Sohbetleri</h2>
-            <p className="font-fredoka text-[#666] text-sm">
-              Sadece kahve içmeye değil, paylaşmaya geliyoruz. Foxy Loxy her hafta canlı müzik ve sanatsal sergilerle dolup taşar.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Kart 1: Canlı Müzik */}
-            <div className="bg-[#F4F0EA] p-8 border border-[#3C2F2F]/10 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-[#D36135]/10 flex items-center justify-center text-[#D36135]">
-                <Music size={24} />
-              </div>
-              <h3 className="font-serif-display text-2xl font-bold">Salı Konserleri</h3>
-              <p className="font-fredoka text-sm text-[#666] leading-relaxed">
-                Her Salı akşamı yerel ve bölgesel müzisyenlerin akustik performansları eşliğinde bahçemizde canlı müzik ziyafeti sunuyoruz.
-              </p>
-            </div>
-
-            {/* Kart 2: Ateş Çukuru */}
-            <div className="bg-[#F4F0EA] p-8 border border-[#3C2F2F]/10 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-[#5B7053]/10 flex items-center justify-center text-[#5B7053]">
-                <Flame size={24} />
-              </div>
-              <h3 className="font-serif-display text-2xl font-bold">Cumartesi Ateş Başındayız</h3>
-              <p className="font-fredoka text-sm text-[#666] leading-relaxed">
-                Her Cumartesi arka bahçemizdeki özel tasarım ateş çukurlarını (fire pits) yakarak, samimi sohbetleri ve şarap keyfini ısıtıyoruz.
-              </p>
-            </div>
-
-            {/* Kart 3: Sanat Resepsiyonu */}
-            <div className="bg-[#F4F0EA] p-8 border border-[#3C2F2F]/10 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-2xl bg-[#E6A15C]/10 flex items-center justify-center text-[#E6A15C]">
-                <ImageIcon size={24} />
-              </div>
-              <h3 className="font-serif-display text-2xl font-bold">İlk Cuma Sergileri</h3>
-              <p className="font-fredoka text-sm text-[#666] leading-relaxed">
-                Her ayın ilk Cuma akşamı yerel sanatçıların resim, seramik ve fotoğraf sergilerine kapımızı açıyor, açılış resepsiyonları düzenliyoruz.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Hikayemiz / Konsept Section */}
-      <section id="hikayemiz" className="container mx-auto px-6 py-20 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Sol: Görsel */}
-        <div className="relative group">
-          <div className="absolute inset-0 bg-[#D36135]/5 rounded-[40px] -translate-x-4 translate-y-4 -z-10 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
-          <div className="border-[12px] border-white shadow-xl rounded-[40px] overflow-hidden bg-white">
+      {/* Bölüm 2: Merhaba (#howdy) - Split Görsel & Text */}
+      <section id="howdy" className="py-20 md:py-28 bg-[#fafafa] border-b border-black/5">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
+          
+          {/* Sol: Dikey Görsel */}
+          <div className="md:col-span-5 bg-white border border-black/5 p-3 shadow-md">
             <EditableImage
               content={content}
               contentKey="images.about_img"
               onUpdate={onUpdateContent}
               isEditMode={isEditMode}
-              className="w-full h-[350px] md:h-[450px] object-cover"
-              alt="Foxy Loxy Back Courtyard"
+              className="w-full h-[400px] md:h-[480px] object-cover"
+              alt="Foxy Coffee Details"
             />
           </div>
-        </div>
 
-        {/* Sağ: Metin */}
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <span className="text-[#D36135] text-xs font-fredoka font-bold tracking-widest uppercase block">HİKAYEMİZ</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-serif-display leading-tight text-[#3C2F2F]">Mahallemizin Kültür & Lezzet Odağı</h2>
-            <div className="w-12 h-0.5 bg-[#5B7053]" />
+          {/* Sağ: Merhaba Açıklama */}
+          <div className="md:col-span-7 space-y-6 text-left">
+            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">NASILIZ?</span>
+            <h2 className="text-3xl md:text-5xl font-normal font-lora text-[#222]">Merhaba!</h2>
+            <div className="w-16 h-[2px] bg-black/80" />
+            
+            <EditableText
+              content={content}
+              contentKey="about"
+              onUpdate={onUpdateContent}
+              isEditMode={isEditMode}
+              className="text-sm md:text-base font-inter text-[#555] leading-relaxed focus:outline-none focus:ring-0 px-1 rounded block"
+            />
+
+            <div className="pt-4">
+              <a 
+                href="https://ordering.chownow.com/order/9839/locations" 
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block px-8 py-3.5 bg-transparent hover:bg-black text-[#222] hover:text-white font-inter font-bold text-xs tracking-widest uppercase border border-black transition-all rounded-none cursor-pointer"
+              >
+                Çevrimiçi Sipariş Ver
+              </a>
+            </div>
           </div>
 
-          <EditableText
-            content={content}
-            contentKey="about"
-            onUpdate={onUpdateContent}
-            isEditMode={isEditMode}
-            className="text-sm md:text-base font-fredoka text-[#555] leading-relaxed focus:outline-none focus:ring-0 px-1 rounded block"
-          />
+        </div>
+      </section>
 
-          <div className="p-6 bg-white border border-[#3C2F2F]/10 rounded-3xl space-y-2">
-            <span className="text-[#5B7053] font-fredoka font-bold text-xs uppercase tracking-wide">TEX-MEX ESİNTİLERİ</span>
-            <p className="font-fredoka text-xs text-[#666] leading-relaxed">
-              Kahve ve zengin pastane ürünlerimizin yanında, el yapımı taze Teksas-Meksika (Tex-Mex) taco çeşitlerimizle gününüze lezzetli bir heyecan katıyoruz.
-            </p>
+      {/* Bölüm 3: Foxy Nedir? (#foxy-is) - 4 Sütunlu Özellikler */}
+      <section id="foxy-is" className="py-20 md:py-28 bg-white border-b border-black/5">
+        <div className="container mx-auto px-6 md:px-12 max-w-6xl space-y-16">
+          <div className="text-center space-y-3">
+            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">ÖZELLİKLERİMİZ</span>
+            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase tracking-wider">Foxy Nedir?</h2>
+            <div className="w-12 h-[1px] bg-black/20 mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Tex-Mex */}
+            <div className="text-center space-y-4 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
+                <UtensilsCrossed size={20} />
+              </div>
+              <h3 className="font-lora text-xl font-normal">Tex-Mex</h3>
+              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
+                Teksas lezzetlerini mahallenize taşıyoruz. Taco ve çıtır tuzlu çörek (kolache) çeşitlerimizin espresso ile uyumuna inanamayacaksınız!
+              </p>
+            </div>
+
+            {/* Bakery */}
+            <div className="text-center space-y-4 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
+                <Cookie size={20} />
+              </div>
+              <h3 className="font-lora text-xl font-normal">Fırın / Pastane</h3>
+              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
+                Fırıncılarımız haftanın yedi günü taze çörekler hazırlamak için sabahın ilk ışıklarında işe koyuluyor. Tezgahımıza kayıtsız kalamayacaksınız.
+              </p>
+            </div>
+
+            {/* Coffee */}
+            <div className="text-center space-y-4 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
+                <Coffee size={20} />
+              </div>
+              <h3 className="font-lora text-xl font-normal">Nitelikli Kahve</h3>
+              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
+                The Coffee Fox Roasting Co. tarafından yerel olarak özenle kavrulan çekirdeklerimizi sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.
+              </p>
+            </div>
+
+            {/* Events */}
+            <div className="text-center space-y-4 flex flex-col items-center">
+              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
+                <Flame size={20} />
+              </div>
+              <h3 className="font-lora text-xl font-normal">Etkinlikler</h3>
+              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
+                Sadece lezzetli bir kahve değiliz! Duvarlarımızdaki sanat galerilerimiz, canlı müzik konserlerimiz ve ateş çukuru gecelerimizle kültürel bir alanız.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6. Interaktif Tex-Mex & Kahve Menüsü */}
-      <section id="menumuz" className="bg-[#EFE9DF]/50 border-t border-[#3C2F2F]/10 py-20 md:py-28">
-        <div className="container mx-auto px-6 space-y-12">
+      {/* Bölüm 4: Arka Bahçe (#courtyard) - Tam Genişlik Arka Plan ve Bilgi Paneli */}
+      <section id="courtyard" className="relative min-h-[60vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
+        {/* Arka Plan Resmi */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1505419071-BOZY18FZF38OJMNJ2PWW/courtyard_shop_section_3.jpg" 
+            className="w-full h-full object-cover opacity-60" 
+            alt="Foxy Loxy Courtyard Background"
+          />
+        </div>
+
+        {/* Squarespace Translucent Bilgi Paneli */}
+        <div className="relative z-10 mx-6 bg-white/95 max-w-xl p-8 md:p-12 text-center border border-black/5 shadow-2xl flex flex-col items-center space-y-4">
+          <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">ARKA BAHÇEMİZ</span>
+          <h2 className="text-2xl md:text-3xl font-normal font-lora text-[#222] uppercase tracking-wide">Ateş Çukuru Geceleri</h2>
+          <div className="w-12 h-[1px] bg-black/20" />
+          <p className="text-xs md:text-sm font-inter text-[#555] leading-relaxed tracking-wide">
+            Geniş ve konforlu arka bahçemizde, Cumartesi akşamları ateş çukurlarımızı yakıyoruz. Sevdiklerinizle şarabınızı yudumlarken, samimi ve ısıtan bir açık hava sohbetinin tadını çıkarın.
+          </p>
+        </div>
+      </section>
+
+      {/* Bölüm 5: Çevrimiçi Menü & Detaylar (#menumuz) */}
+      <section id="menumuz" className="py-20 md:py-28 bg-[#fafafa] border-b border-black/5">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl space-y-12">
           
-          {/* Başlık */}
-          <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-[#D36135] text-xs font-fredoka font-bold tracking-widest uppercase">DENEYİMLEYİN</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-serif-display text-[#3C2F2F]">Fusion Mutfağımız</h2>
-            <p className="font-fredoka text-[#666] text-sm">
-              Taze demlenmiş yerel çekirdek kahveler, fırından yeni çıkmış kolache çörekleri ve el yapımı özel cantina tacolarımız.
-            </p>
+          <div className="text-center space-y-3">
+            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-[#666] font-bold block">FUSION MUTFAK</span>
+            <h2 className="text-3xl md:text-4xl font-normal font-lora text-[#222] uppercase">Foxy Menümüz</h2>
+            <div className="w-12 h-[1px] bg-black/20 mx-auto" />
           </div>
 
-          {/* Kategori Tabları */}
+          {/* Kategori Seçiciler (Modern Minimalist Squarespace Stili) */}
           {menuCategories.length > 0 && (
             <div className="flex flex-wrap justify-center gap-2">
               {menuCategories.map((catName) => {
@@ -308,10 +315,10 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
                   <button
                     key={catName}
                     onClick={() => setActiveCategory(catName)}
-                    className={`px-6 py-2.5 rounded-2xl text-xs font-fredoka font-bold uppercase tracking-wider transition-all border cursor-pointer ${
+                    className={`px-5 py-2.5 text-xs font-inter font-bold uppercase tracking-widest border transition-all cursor-pointer ${
                       isActive 
-                        ? 'bg-[#5B7053] border-[#5B7053] text-[#F4F0EA] shadow-sm' 
-                        : 'bg-white border-[#3C2F2F]/10 text-[#3C2F2F] hover:border-[#D36135] hover:text-[#D36135]'
+                        ? 'bg-black border-black text-white' 
+                        : 'bg-white border-black/10 text-[#444] hover:border-black hover:text-black'
                     }`}
                   >
                     {catName}
@@ -321,28 +328,28 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
             </div>
           )}
 
-          {/* Menü Listesi */}
+          {/* Menü İçerikleri */}
           {activeMenuCategory && activeMenuCategory.items && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 max-w-4xl mx-auto pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl mx-auto pt-6">
               {activeMenuCategory.items.map((item, itemIdx) => {
                 const itemPath = `menu_items.${content.menu_items?.indexOf(activeMenuCategory)}.items.${itemIdx}`;
                 
                 return (
-                  <div key={itemIdx} className="bg-white p-6 border border-[#3C2F2F]/5 rounded-3xl space-y-2 relative group hover:shadow-md transition-shadow">
+                  <div key={itemIdx} className="bg-white p-6 border border-black/5 flex flex-col space-y-2 group hover:border-black/25 transition-all">
                     <div className="flex justify-between items-baseline gap-4">
                       <EditableText
                         content={content}
                         contentKey={`${itemPath}.name`}
                         onUpdate={onUpdateContent}
                         isEditMode={isEditMode}
-                        className="font-serif-display text-xl font-bold text-[#3C2F2F] group-hover:text-[#D36135] transition-colors focus:outline-none focus:ring-0 px-0.5 rounded block"
+                        className="font-lora text-lg font-normal text-[#222] group-hover:text-black transition-colors focus:outline-none focus:ring-0 px-0.5 rounded block"
                       />
                       <EditableText
                         content={content}
                         contentKey={`${itemPath}.price`}
                         onUpdate={onUpdateContent}
                         isEditMode={isEditMode}
-                        className="font-serif-display text-base text-[#D36135] font-bold focus:outline-none focus:ring-0 px-0.5 rounded shrink-0 ml-4"
+                        className="font-lora italic text-sm text-[#222] font-semibold focus:outline-none focus:ring-0 px-0.5 rounded shrink-0 ml-4"
                       />
                     </div>
                     {item.description !== undefined && (
@@ -351,7 +358,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
                         contentKey={`${itemPath}.description`}
                         onUpdate={onUpdateContent}
                         isEditMode={isEditMode}
-                        className="font-fredoka text-xs text-[#666] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
+                        className="font-inter text-xs text-[#666] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
                       />
                     )}
                   </div>
@@ -362,193 +369,197 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
         </div>
       </section>
 
-      {/* 7. Sergi Galerisi (Sanat Galeri) */}
-      <section id="sanat" className="py-20 bg-white border-t border-[#3C2F2F]/10">
-        <div className="container mx-auto px-6 space-y-12">
-          {/* Başlık */}
-          <div className="text-center space-y-2 max-w-xl mx-auto">
-            <span className="text-[#5B7053] text-xs font-fredoka font-bold tracking-widest uppercase">YEREL SANAT</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-serif-display text-[#3C2F2F]">Sanat Köşemiz</h2>
-            <div className="w-12 h-0.5 bg-[#D36135] mx-auto my-3" />
-            <p className="font-fredoka text-[#666] text-xs leading-relaxed">
-              Savannah sanat topluluğunu desteklemekten gurur duyuyoruz. Duvarlarımız her ay farklı bir yerel ressam veya fotoğrafçının eserlerine ev sahipliği yapar.
+      {/* Bölüm 6: Konser & Müzik Etkinlikleri (#live-music) */}
+      <section id="live-music" className="py-20 md:py-28 bg-white border-b border-black/5">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          
+          {/* Sol Kolon: Metin */}
+          <div className="md:col-span-7 space-y-6 text-left">
+            <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
+              <Calendar size={18} />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-normal font-lora text-[#222]">Konser & Sergiler</h2>
+            <div className="w-16 h-[2px] bg-black/80" />
+            <p className="font-inter text-sm md:text-base text-[#555] leading-relaxed">
+              Mahallemizin yetenekli yerel ve bölgesel müzisyenlerini sahneye çıkarıyoruz. Akustik ve samimi gecelerimizde müzik eşliğinde şarabınızı yudumlayabilirsiniz. Güncel etkinlik takvimimizi görüntülemek için lütfen takipte kalın.
             </p>
+            <div className="pt-4">
+              <a 
+                href="#iletisim"
+                className="inline-block px-8 py-3.5 bg-black hover:bg-black/85 text-white font-inter font-bold text-xs tracking-[0.15em] uppercase transition-all rounded-none cursor-pointer"
+              >
+                Etkinlik Takvimi
+              </a>
+            </div>
           </div>
 
-          {/* 3'lü Sanat Çerçeveleri Grid (Büyük Görsellik) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="border-[14px] border-double border-[#3C2F2F]/20 p-2 bg-white shadow-lg text-center space-y-4">
+          {/* Sağ Kolon: Resim */}
+          <div className="md:col-span-5 bg-white border border-black/5 p-3 shadow-md">
+            <img 
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80" 
+              className="w-full h-[320px] object-cover" 
+              alt="Live acoustic performance in courtyard"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* Bölüm 7: Galeri (#cafe-images) - Squarespace 4'lü Kare Izgara */}
+      <section id="cafe-images" className="py-12 bg-[#fafafa] border-b border-black/5">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            {/* Foto 1 */}
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-64 object-cover" 
-                alt="Art piece 1"
+                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1506451907540-PQ5HX08OJBWP1SQWPDYH/dinermug.jpg" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                alt="Foxy Diner Mug"
               />
-              <div className="pb-2">
-                <span className="font-serif-display text-lg font-bold block">Bohem Çiçekler</span>
-                <p className="font-fredoka text-[10px] text-[#666] uppercase mt-0.5">Yağlı Boya &bull; Selin Yılmaz</p>
-              </div>
             </div>
 
-            <div className="border-[14px] border-double border-[#3C2F2F]/20 p-2 bg-white shadow-lg text-center space-y-4">
+            {/* Foto 2 */}
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-64 object-cover" 
-                alt="Art piece 2"
+                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1629217552032-DH3ELTBWQILYUQAI851O/foxy_smores_kit.jpg" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                alt="Smores Kit"
               />
-              <div className="pb-2">
-                <span className="font-serif-display text-lg font-bold block">Starland Sokakları</span>
-                <p className="font-fredoka text-[10px] text-[#666] uppercase mt-0.5">Fotoğraf &bull; Can Öztürk</p>
-              </div>
             </div>
 
-            <div className="border-[14px] border-double border-[#3C2F2F]/20 p-2 bg-white shadow-lg text-center space-y-4">
+            {/* Foto 3 */}
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?auto=format&fit=crop&q=80&w=400" 
-                className="w-full h-64 object-cover" 
-                alt="Art piece 3"
+                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1506451904051-3HXIATPH0IQBHK4NWDRB/co_branded_bag_back.jpg" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                alt="Coffee Beans"
               />
-              <div className="pb-2">
-                <span className="font-serif-display text-lg font-bold block">Soyut Dokunuş</span>
-                <p className="font-fredoka text-[10px] text-[#666] uppercase mt-0.5">Akrilik &bull; Elif Karaca</p>
-              </div>
             </div>
+
+            {/* Foto 4 */}
+            <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
+              <img 
+                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1629217468493-0OO0IPCZ1ZALPB5YVXSQ/Fire%2BWine%2BTacos.jpg" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                alt="Taco Wine Fire"
+              />
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 8. İletişim & Lokasyon */}
-      <section id="iletisim" className="border-t border-[#3C2F2F]/10 py-20 md:py-28 bg-[#F4F0EA]">
-        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
-          {/* Sol Kolon: Bilgiler */}
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <span className="text-[#D36135] text-xs font-fredoka font-bold tracking-widest uppercase block">BİZİ ZİYARET EDİN</span>
-              <h2 className="text-3xl md:text-5xl font-normal font-serif-display text-[#3C2F2F]">Gelin ve Yerleşin</h2>
-              <p className="font-fredoka text-sm text-[#666] leading-relaxed">
-                Tarihi evimizde, kitap okuyabileceğiniz sakin odalarımızdan, sosyalleşebileceğiniz ateş başındaki arka bahçemize kadar her köşeyi sizin için hazırladık.
-              </p>
+      {/* Bölüm 8: İletişim, Saatler & Adres (#iletisim) */}
+      <section id="iletisim" className="py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left font-inter text-xs">
+            
+            {/* Çalışma Saatleri */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-[#222] font-bold uppercase tracking-widest border-b border-black/10 pb-3">
+                <Clock size={14} />
+                <span>ÇALIŞMA SAATLERİ</span>
+              </div>
+              <EditableText
+                content={content}
+                contentKey="contact.hours"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="text-gray-600 leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded whitespace-pre-line"
+              />
             </div>
 
-            <div className="space-y-4 pt-4 border-t border-[#3C2F2F]/10">
-              {/* Adres */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#5B7053]/10 text-[#5B7053] rounded-xl flex items-center justify-center">
-                  <MapPin size={18} />
-                </div>
-                <div className="space-y-1">
-                  <span className="font-fredoka text-[10px] text-[#999] uppercase font-bold tracking-wider">Kafenin Adresi</span>
-                  <EditableText
-                    content={content}
-                    contentKey="contact.address"
-                    onUpdate={onUpdateContent}
-                    isEditMode={isEditMode}
-                    className="font-fredoka text-sm text-[#3C2F2F] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
-                  />
-                </div>
+            {/* İletişim */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-[#222] font-bold uppercase tracking-widest border-b border-black/10 pb-3">
+                <Phone size={14} />
+                <span>İLETİŞİM BİLGİLERİ</span>
               </div>
-
-              {/* Telefon */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#5B7053]/10 text-[#5B7053] rounded-xl flex items-center justify-center">
-                  <Phone size={18} />
-                </div>
-                <div className="space-y-1">
-                  <span className="font-fredoka text-[10px] text-[#999] uppercase font-bold tracking-wider">Telefon</span>
+              <div className="space-y-2 text-gray-600 leading-relaxed">
+                <div className="flex items-center justify-center md:justify-start gap-1">
+                  <span>Tel:</span>
                   <EditableText
                     content={content}
                     contentKey="contact.phone"
                     onUpdate={onUpdateContent}
                     isEditMode={isEditMode}
-                    className="font-fredoka text-sm text-[#3C2F2F] block focus:outline-none focus:ring-0 px-0.5 rounded"
+                    className="focus:outline-none focus:ring-0 px-0.5 rounded"
                   />
                 </div>
-              </div>
-
-              {/* E-posta */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 shrink-0 bg-[#5B7053]/10 text-[#5B7053] rounded-xl flex items-center justify-center">
-                  <Mail size={18} />
-                </div>
-                <div className="space-y-1">
-                  <span className="font-fredoka text-[10px] text-[#999] uppercase font-bold tracking-wider">E-posta</span>
+                <div className="flex items-center justify-center md:justify-start gap-1">
+                  <span>E-posta:</span>
                   <EditableText
                     content={content}
                     contentKey="contact.email"
                     onUpdate={onUpdateContent}
                     isEditMode={isEditMode}
-                    className="font-fredoka text-sm text-[#3C2F2F] block focus:outline-none focus:ring-0 px-0.5 rounded"
+                    className="focus:outline-none focus:ring-0 px-0.5 rounded"
                   />
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Sağ Kolon: Saatler & Not */}
-          <div className="bg-white border border-[#3C2F2F]/10 rounded-3xl p-8 md:p-12 space-y-6">
-            <div className="flex items-center gap-3 pb-4 border-b border-[#3C2F2F]/10">
-              <Clock className="text-[#D36135]" size={20} />
-              <h3 className="font-serif-display text-2xl font-bold">Kapılarımız Ne Zaman Açık?</h3>
+            {/* Konum */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-[#222] font-bold uppercase tracking-widest border-b border-black/10 pb-3">
+                <MapPin size={14} />
+                <span>BİSTRO KONUMU</span>
+              </div>
+              <EditableText
+                content={content}
+                contentKey="contact.address"
+                onUpdate={onUpdateContent}
+                isEditMode={isEditMode}
+                className="text-gray-600 leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
+              />
             </div>
-            
-            <EditableText
-              content={content}
-              contentKey="contact.hours"
-              onUpdate={onUpdateContent}
-              isEditMode={isEditMode}
-              className="font-fredoka text-sm text-[#666] leading-relaxed block focus:outline-none focus:ring-0 px-1 rounded whitespace-pre-line"
-            />
 
-            <div className="p-6 bg-[#D36135]/5 border border-[#D36135]/15 text-xs font-fredoka text-[#666] leading-relaxed rounded-2xl">
-              <strong className="text-[#D36135] font-bold block mb-1">Köpek Dostu Bahçe</strong>
-              Arka bahçemiz tamamen evcil hayvan dostudur. Dört ayaklı dostlarınızı da yanınızda getirebilir, ateş çukurları etrafında keyif yapabilirsiniz.
-            </div>
           </div>
-
         </div>
       </section>
 
-      {/* 9. Toprak Tonlarında Bohem Footer */}
-      <footer className="bg-[#3C2F2F] text-[#F4F0EA] py-16 font-fredoka border-t border-[#3C2F2F]/10">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-xs">
+      {/* Bölüm 9: Squarespace Footer (İnce Çizgilerle Ayrılmış Alt Başlıklar) */}
+      <footer className="bg-[#fafafa] border-t border-black/5 py-16 text-center text-xs font-inter">
+        <div className="container mx-auto px-6 max-w-4xl space-y-8">
           
-          {/* Logo ve Slogan */}
-          <div className="space-y-4 md:col-span-2">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#D36135] flex items-center justify-center text-white">
-                <Coffee size={16} />
-              </div>
-              <span className="font-serif-display font-normal text-lg tracking-wide uppercase">{content.contact.company_name}</span>
-            </div>
-            <p className="text-[#F4F0EA]/70 leading-relaxed max-w-sm">
-              Kahveci, Taze Fırın ve Tex-Mex kantinini tek bir bohem mahalle oturma odasında bir araya getiren samimi lezzet ve sanat eviniz.
-            </p>
-          </div>
-
-          {/* Linkler */}
           <div className="space-y-3">
-            <h4 className="font-bold text-[#E6A15C] uppercase tracking-wider">Hızlı Navigasyon</h4>
-            <div className="flex flex-col gap-2 text-[#F4F0EA]/70">
-              <a href="#hikayemiz" className="hover:text-white transition-colors">Hikayemiz</a>
-              <a href="#etkinlikler" className="hover:text-white transition-colors">Etkinlikler</a>
-              <a href="#menumuz" className="hover:text-white transition-colors">Menümüz</a>
-              <a href="#sanat" className="hover:text-white transition-colors">Sanat Galeri</a>
-              <a href="#iletisim" className="hover:text-white transition-colors">Ziyaret & İletişim</a>
+            <span className="text-[10px] tracking-[0.25em] text-[#666] font-bold uppercase block">
+              DİĞER LOKASYONLARIMIZI ZİYARET EDİN
+            </span>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 pt-2">
+              <a 
+                href="https://www.thecoffeefox.com" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
+              >
+                THE COFFEE FOX - BROUGHTON
+              </a>
+              <a 
+                href="https://hennypennycafe.com" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
+              >
+                HENNY PENNY CAFE
+              </a>
+              <a 
+                href="https://thecoffeefoxroastingco.com/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-[#222] hover:text-[#c10230] font-bold uppercase tracking-widest border-b border-transparent hover:border-black/20 pb-0.5 transition-all"
+              >
+                THE COFFEE FOX ROASTING CO.
+              </a>
             </div>
           </div>
 
-          {/* Sosyal Medya ve Telif */}
-          <div className="space-y-4">
-            <h4 className="font-bold text-[#E6A15C] uppercase tracking-wider">Takip Edin</h4>
-            <div className="flex gap-2">
-              <a href="#" className="w-8 h-8 rounded-xl border border-white/10 flex items-center justify-center hover:bg-[#D36135] hover:border-[#D36135] hover:text-white transition-all"><Globe size={12} /></a>
-              <a href="#" className="w-8 h-8 rounded-xl border border-white/10 flex items-center justify-center hover:bg-[#D36135] hover:border-[#D36135] hover:text-white transition-all"><Globe size={12} /></a>
-            </div>
-            <p className="text-[10px] text-[#F4F0EA]/50">
-              &copy; 2026 {content.contact.company_name} &bull; Tüm Hakları Saklıdır.
-            </p>
-          </div>
+          <div className="w-16 h-[1px] bg-black/10 mx-auto pt-4" />
 
+          <div className="text-[10px] text-[#999] tracking-wider">
+            &copy; 2026 {content.contact.company_name} &bull; Squarespace Altyapısıyla Klonlanmıştır.
+          </div>
         </div>
       </footer>
     </div>

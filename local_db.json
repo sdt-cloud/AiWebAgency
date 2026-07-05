@@ -281,21 +281,21 @@
     },
     {
       "lead_id": "08e9ebbd-9c21-4502-be1b-2b5bc1c3723d",
-      "template_name": "pastis",
+      "template_name": "house_cafe",
       "theme_config": {
-        "primary": "#c10230",
-        "secondary": "#0a0101",
-        "fontFamily": "Playfair Display, serif",
-        "fontFamilyHeading": "Playfair Display, serif"
+        "primary": "#e93c37",
+        "secondary": "#2F1D13",
+        "fontFamily": "Cormorant Garamond, serif",
+        "fontFamilyHeading": "Cormorant Garamond, serif"
       },
       "content": {
         "hero": {
-          "title": "Fahriye Cafe - Meatpacking Klasik Fransız Bistrosu",
-          "subtitle": "New York Meatpacking District’in ikonik lezzet durağı Pastis, çinko barı, kırmızı deri koltukları ve sıcak atmosferiyle Paris şıklığını evinize getiriyor.",
+          "title": "Fahriye Cafe - Evinden uzakta bir ev.",
+          "subtitle": "2002 yılında kurulan The House Café, şehrin yoğun temposundan kaçıp nefes alabileceğiniz, çağdaş ve samimi bir buluşma noktasıdır.",
           "cta_text": "Menümüzü İnceleyin",
-          "badge_text": "Paris & New York Esintisi"
+          "badge_text": "The House Cafe Kültürü"
         },
-        "about": "Keith McNally ve Stephen Starr imzalı Pastis, nostaljik bir bistro deneyimi sunuyor. Altın varaklı aynalara yazılmış günlük spesiyallerimiz, geleneksel Fransız mutfağının başyapıtları ve Paris kafelerinin o sıcak, bitmeyen hareketliliği artık mahallenizde.",
+        "about": "Dünya mutfağının güncel trendlerini, geleneksel Türk aile tarifleriyle harmanlayıp sunuyoruz. Yılda iki kez yenilenen mevsimlik menümüz, yerel üreticilerden aldığımız taze malzemeler ve Autoban Studio imzalı zamansız mimarimiz ile evinizdeki sıcaklığı sunuyoruz.",
         "services": [
           {
             "title": "Profesyonel Hizmet",
@@ -333,27 +333,27 @@
           "hours": "Pzt-Cmt: 09:00 - 20:00"
         },
         "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80",
-          "about_img": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80"
+          "hero_bg": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80"
         },
         "menu_items": [
           {
-            "category": "Bistro Klasikleri",
+            "category": "Kahvaltı & İmza Lezzetler",
             "items": [
               {
-                "name": "Escargots à la Bourguignonne",
-                "description": "Sarımsaklı ve maydanozlu tereyağında pişmiş salyangoz",
-                "price": "₺310"
-              },
-              {
-                "name": "Soupe à l’Oignon Gratinée",
-                "description": "Geleneksel Fransız soğan çorbası, eritilmiş gravyer peynirli kruton ile",
+                "name": "Avokadolu Poşe Yumurta",
+                "description": "Ekşi mayalı tost ekmeği, ezilmiş avokado, iki adet poşe yumurta ve taze yeşilliklerle",
                 "price": "₺240"
               },
               {
-                "name": "Steak Tartare Klasik",
-                "description": "Satır kıyması dana eti, hardal, kapari ve taze otlar ile",
-                "price": "₺460"
+                "name": "Ev Yapımı Granola Kasesi",
+                "description": "Süzme yoğurt, mevsim meyveleri ve organik süzme bal ile",
+                "price": "₺180"
+              },
+              {
+                "name": "House İmza Limonata",
+                "description": "Taze nane ve çilek dilimleriyle el yapımı günlük limonata",
+                "price": "₺95"
               }
             ]
           },
@@ -361,33 +361,33 @@
             "category": "Ana Yemekler",
             "items": [
               {
-                "name": "Moules Frites",
-                "description": "Beyaz şarap, sarımsak ve krema soslu midyeler, çıtır patates kızartması ile",
-                "price": "₺520"
+                "name": "Taş Fırın Margherita Pizza",
+                "description": "Taze mozzarella peyniri, fesleğen ve özel domates sosuyla",
+                "price": "₺320"
               },
               {
-                "name": "Steak Frites",
-                "description": "Izgara antrikot, bearnaz sos ve ev yapımı frites ile",
-                "price": "₺890"
+                "name": "House Roquefort Burger",
+                "description": "180g özel dana köftesi, eritilmiş rokfor peyniri ve karamelize soğan",
+                "price": "₺410"
               },
               {
-                "name": "Trout Amandine",
-                "description": "Tavada pişmiş alabalık, tereyağlı badem ve taze limon sosuyla",
-                "price": "₺490"
+                "name": "Tavuklu Fettuccine Alfredo",
+                "description": "Krema sosu, mantar, parmesan peyniri ve ızgara tavuk dilimleriyle",
+                "price": "₺340"
               }
             ]
           },
           {
-            "category": "Kahvaltı & Yumurtalar",
+            "category": "Vegan & Hafif Seçenekler",
             "items": [
               {
-                "name": "Croque Monsieur / Madame",
-                "description": "Fırınlanmış jambon ve gravyer peynirli tost (Madame versiyonu göz yumurtalıdır)",
+                "name": "Kinoa & Avokado Salatası",
+                "description": "Akdeniz yeşillikleri, nar ekşisi sosu ve fırınlanmış kök sebzelerle",
                 "price": "₺260"
               },
               {
-                "name": "Avokado & Poşe Yumurta",
-                "description": "Ekşi mayalı ekmek üzerinde avokado ezmesi, poşe yumurta ve çeri domatesler",
+                "name": "Fırınlanmış Falafel Kasesi",
+                "description": "Humus yatağında fırınlanmış çıtır falafel köfteleri ve tahin sosu",
                 "price": "₺280"
               }
             ]
@@ -397,7 +397,7 @@
       "id": "5b5dcfba-9cde-430a-8de6-7e5af1ff58af",
       "edit_token": "68dda19f-aec0-476d-9a25-95f2dba3bd19",
       "created_at": "2026-07-05T18:39:32.718Z",
-      "updated_at": "2026-07-05T18:48:07.635Z"
+      "updated_at": "2026-07-05T18:50:10.315Z"
     }
   ],
   "custom_presets": {
