@@ -79,16 +79,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
               <a href="#iletisim" className="hover:text-black transition-colors">İletişim</a>
             </nav>
 
-            <div className="hidden md:block absolute right-12">
-              <a 
-                href="https://ordering.chownow.com/order/9839/locations" 
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2.5 bg-black hover:bg-black/80 text-white text-[11px] font-inter font-bold uppercase tracking-widest transition-all cursor-pointer"
-              >
-                Çevrimiçi Sipariş
-              </a>
-            </div>
+
 
             {/* Mobil Menü Butonu */}
             <div className="md:hidden w-full flex justify-between items-center">
@@ -115,14 +106,7 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
               <a href="#live-music" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2 border-b border-black/5">Etkinlikler</a>
               <a href="#iletisim" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-black py-2">İletişim</a>
             </nav>
-            <a 
-              href="https://ordering.chownow.com/order/9839/locations" 
-              target="_blank"
-              rel="noreferrer"
-              className="block w-full py-3 bg-black text-white text-center rounded-none font-bold uppercase tracking-wider"
-            >
-              Çevrimiçi Sipariş
-            </a>
+
           </div>
         )}
       </header>
@@ -279,9 +263,9 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
         {/* Arka Plan Resmi */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1505419071-BOZY18FZF38OJMNJ2PWW/courtyard_shop_section_3.jpg" 
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800" 
             className="w-full h-full object-cover opacity-60" 
-            alt="Foxy Loxy Courtyard Background"
+            alt="Courtyard Background"
           />
         </div>
 
@@ -413,36 +397,36 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
             {/* Foto 1 */}
             <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1506451907540-PQ5HX08OJBWP1SQWPDYH/dinermug.jpg" 
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-                alt="Foxy Diner Mug"
+                alt="Kahve Kupası"
               />
             </div>
 
             {/* Foto 2 */}
             <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1629217552032-DH3ELTBWQILYUQAI851O/foxy_smores_kit.jpg" 
+                src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=400" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-                alt="Smores Kit"
+                alt="Fırından Kurabiyeler"
               />
             </div>
 
             {/* Foto 3 */}
             <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1506451904051-3HXIATPH0IQBHK4NWDRB/co_branded_bag_back.jpg" 
+                src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=400" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-                alt="Coffee Beans"
+                alt="Taze Kahve Çekirdekleri"
               />
             </div>
 
             {/* Foto 4 */}
             <div className="aspect-square overflow-hidden bg-zinc-200 border border-black/5">
               <img 
-                src="https://images.squarespace-cdn.com/content/v1/59baa5c980bd5e67b01d565a/1629217468493-0OO0IPCZ1ZALPB5YVXSQ/Fire%2BWine%2BTacos.jpg" 
+                src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=400" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-                alt="Taco Wine Fire"
+                alt="Taco Tabağı"
               />
             </div>
 

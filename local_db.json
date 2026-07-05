@@ -281,21 +281,21 @@
     },
     {
       "lead_id": "08e9ebbd-9c21-4502-be1b-2b5bc1c3723d",
-      "template_name": "house_cafe",
+      "template_name": "foxy_loxy",
       "theme_config": {
-        "primary": "#e93c37",
-        "secondary": "#2F1D13",
-        "fontFamily": "Cormorant Garamond, serif",
-        "fontFamilyHeading": "Cormorant Garamond, serif"
+        "primary": "#D36135",
+        "secondary": "#5B7053",
+        "fontFamily": "Fredoka, sans-serif",
+        "fontFamilyHeading": "DM Serif Display, serif"
       },
       "content": {
         "hero": {
-          "title": "Fahriye Cafe - Evinden uzakta bir ev.",
-          "subtitle": "2002 yılında kurulan The House Café, şehrin yoğun temposundan kaçıp nefes alabileceğiniz, çağdaş ve samimi bir buluşma noktasıdır.",
-          "cta_text": "Menümüzü İnceleyin",
-          "badge_text": "The House Cafe Kültürü"
+          "title": "Fahriye Cafe - Kahveci, Fırın & Tex-Mex Kantini",
+          "subtitle": "Savannah Starland District’in sıcacık Victorian evinde yer alan Foxy Loxy, taze demlenmiş kahveleri, el yapımı taco ve fırın lezzetleriyle samimi arka bahçemizde sizi bekliyor.",
+          "cta_text": "Mutfağımızı İnceleyin",
+          "badge_text": "Bohem & Sanatçı Dostu Kafe"
         },
-        "about": "Dünya mutfağının güncel trendlerini, geleneksel Türk aile tarifleriyle harmanlayıp sunuyoruz. Yılda iki kez yenilenen mevsimlik menümüz, yerel üreticilerden aldığımız taze malzemeler ve Autoban Studio imzalı zamansız mimarimiz ile evinizdeki sıcaklığı sunuyoruz.",
+        "about": "Foxy Loxy Cafe, bir kahve dükkanından fazlasıdır. Eklektik ahşap dekorumuz, yerel sanatçıların duvarlarımızı süsleyen eserleri, her Salı canlı akustik müzik konserlerimiz ve Cumartesi günleri bahçede yaktığımız ateş çukurlarımızla mahallenin ortak yaşam odasıyız.",
         "services": [
           {
             "title": "Profesyonel Hizmet",
@@ -333,62 +333,62 @@
           "hours": "Pzt-Cmt: 09:00 - 20:00"
         },
         "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
+          "hero_bg": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80",
           "about_img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80"
         },
         "menu_items": [
           {
-            "category": "Kahvaltı & İmza Lezzetler",
+            "category": "Tex-Mex Cantina Tacos",
             "items": [
               {
-                "name": "Avokadolu Poşe Yumurta",
-                "description": "Ekşi mayalı tost ekmeği, ezilmiş avokado, iki adet poşe yumurta ve taze yeşilliklerle",
-                "price": "₺240"
+                "name": "Chorizo & Yumurtalı Taco",
+                "description": "Baharatlı Meksika sucuğu, çırpılmış yumurta ve taze salsa",
+                "price": "₺165"
               },
               {
-                "name": "Ev Yapımı Granola Kasesi",
-                "description": "Süzme yoğurt, mevsim meyveleri ve organik süzme bal ile",
-                "price": "₺180"
+                "name": "Ağır Ateşte Pişmiş Etli Taco",
+                "description": "Közlenmiş biber sosu, kişniş, misket limonu ve baharatlı dana eti",
+                "price": "₺195"
               },
               {
-                "name": "House İmza Limonata",
-                "description": "Taze nane ve çilek dilimleriyle el yapımı günlük limonata",
-                "price": "₺95"
+                "name": "Vegan Tex-Mex Kasesi",
+                "description": "Kinoa, siyah fasulye, tatlı mısır ve taze avokado dilimleri",
+                "price": "₺220"
               }
             ]
           },
           {
-            "category": "Ana Yemekler",
+            "category": "Taze Fırın & Çörekler",
             "items": [
               {
-                "name": "Taş Fırın Margherita Pizza",
-                "description": "Taze mozzarella peyniri, fesleğen ve özel domates sosuyla",
-                "price": "₺320"
+                "name": "Cheddar & Jalapeño Kolache",
+                "description": "Teksas usulü içi eritilmiş çedar ve acı jalapeño biber dolgulu çörek",
+                "price": "₺130"
               },
               {
-                "name": "House Roquefort Burger",
-                "description": "180g özel dana köftesi, eritilmiş rokfor peyniri ve karamelize soğan",
-                "price": "₺410"
+                "name": "Yaban Mersinli Gluten-Free Muffin",
+                "description": "Mevsimlik yaban mersinleri ile kendi fırınımızda pişmiş glutensiz çörek",
+                "price": "₺115"
               },
               {
-                "name": "Tavuklu Fettuccine Alfredo",
-                "description": "Krema sosu, mantar, parmesan peyniri ve ızgara tavuk dilimleriyle",
-                "price": "₺340"
+                "name": "Krem Peynirli Tarçınlı Rulo",
+                "description": "Sıcak servis edilen tereyağlı tarçınlı çörek",
+                "price": "₺140"
               }
             ]
           },
           {
-            "category": "Vegan & Hafif Seçenekler",
+            "category": "Nitelikli Kahveler",
             "items": [
               {
-                "name": "Kinoa & Avokado Salatası",
-                "description": "Akdeniz yeşillikleri, nar ekşisi sosu ve fırınlanmış kök sebzelerle",
-                "price": "₺260"
+                "name": "Cold Brew / Soğuk Demleme",
+                "description": "18 saat soğuk suda demlenmiş yumuşak içimli kahve",
+                "price": "₺110"
               },
               {
-                "name": "Fırınlanmış Falafel Kasesi",
-                "description": "Humus yatağında fırınlanmış çıtır falafel köfteleri ve tahin sosu",
-                "price": "₺280"
+                "name": "Mexican Mocha",
+                "description": "Espresso, süt, organik çikolata ve hafif acı meksika biberi esintisi",
+                "price": "₺135"
               }
             ]
           }
@@ -397,7 +397,7 @@
       "id": "5b5dcfba-9cde-430a-8de6-7e5af1ff58af",
       "edit_token": "68dda19f-aec0-476d-9a25-95f2dba3bd19",
       "created_at": "2026-07-05T18:39:32.718Z",
-      "updated_at": "2026-07-05T18:50:10.315Z"
+      "updated_at": "2026-07-05T18:53:41.201Z"
     }
   ],
   "custom_presets": {
