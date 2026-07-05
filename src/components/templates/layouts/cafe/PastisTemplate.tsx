@@ -65,7 +65,14 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
       {/* 1. Üst Duyuru Barı (Bistro Kırmızısı) */}
       <div className="bg-[#c10230] text-white py-2.5 px-6 text-center text-[10px] md:text-xs tracking-[0.25em] font-archivo font-bold uppercase z-50 relative flex justify-center items-center gap-2">
         <Sparkles size={12} className="animate-pulse" />
-        <span>KLASİK FRANSIZ BİSTROSU & MEATPACKING RUHU İSTANBUL'DA</span>
+        <EditableText
+          content={content}
+          contentKey="hero.announcement_text"
+          onUpdate={onUpdateContent}
+          isEditMode={isEditMode}
+          fallback="KLASİK FRANSIZ BİSTROSU & MEATPACKING RUHU İSTANBUL'DA"
+          className="focus:outline-none focus:ring-0"
+        />
       </div>
 
       {/* 2. Fransız Tipi İnce Çizgili Header */}
@@ -74,7 +81,9 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
           {/* Sol: Sosyal / Dil */}
           <div className="hidden lg:flex items-center gap-4 text-xs font-archivo tracking-widest text-[#0a0101]/60">
             <a href="#" className="hover:text-[#c10230] transition-colors"><Globe size={14} /></a>
-            <span>PARIS &bull; NEW YORK</span>
+            <span>
+              <EditableText content={content} contentKey="hero.location_tag" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="PARIS • NEW YORK" className="focus:outline-none focus:ring-0" />
+            </span>
           </div>
 
           {/* Orta: Logo */}
@@ -88,7 +97,9 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
                 className="text-3xl md:text-4xl font-normal font-playfair tracking-[0.05em] text-[#0a0101] uppercase focus:outline-none focus:ring-0 px-1 rounded block"
               />
             </div>
-            <span className="text-[9px] tracking-[0.3em] font-archivo uppercase text-[#c10230] font-black mt-0.5">BISTRO & BAR</span>
+            <span className="text-[9px] tracking-[0.3em] font-archivo uppercase text-[#c10230] font-black mt-0.5">
+              <EditableText content={content} contentKey="contact.company_subtitle" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="BISTRO & BAR" className="focus:outline-none focus:ring-0" />
+            </span>
           </div>
 
           {/* Sağ: Nav Linkleri */}
@@ -204,7 +215,9 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
           {/* Sol Kolon: Başlık ve Giriş */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.2em] uppercase block">NEW YORK &bull; SOHO &bull; PARIS</span>
+              <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.2em] uppercase block">
+                <EditableText content={content} contentKey="hero.badge_text" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="NEW YORK • SOHO • PARIS" className="focus:outline-none focus:ring-0" />
+              </span>
               <EditableText
                 content={content}
                 contentKey="hero.title"
@@ -239,7 +252,7 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
                 href="#iletisim" 
                 className="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-[#0a0101]/5 text-[#0a0101] font-archivo font-bold text-xs tracking-widest uppercase border border-[#0a0101] transition-all cursor-pointer"
               >
-                Rezervasyon
+                <EditableText content={content} contentKey="hero.cta_secondary" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Rezervasyon" className="focus:outline-none focus:ring-0" />
               </a>
             </div>
           </div>
@@ -276,8 +289,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
       <section id="ayna-spesiyalleri" className="py-20 bg-white border-b border-[#0a0101]/10">
         <div className="container mx-auto px-6 md:px-12 text-center max-w-4xl space-y-12">
           <div className="space-y-3">
-            <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.2em] uppercase">GÜNLÜK SPESİYALLER</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-playfair">Nostaljik Aynadaki Lezzetler</h2>
+            <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.2em] uppercase">
+              <EditableText content={content} contentKey="specials_badge" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="GÜNLÜK SPESİYALLER" className="focus:outline-none focus:ring-0" />
+            </span>
+            <h2 className="text-3xl md:text-5xl font-normal font-playfair">
+              <EditableText content={content} contentKey="specials_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Nostaljik Aynadaki Lezzetler" className="focus:outline-none focus:ring-0" />
+            </h2>
             <p className="font-archivo text-[#666] text-sm max-w-xl mx-auto">
               Bistromuzun ikonik altın varaklı aynasında, şefimizin o güne özel hazırladığı Fransız klasikleri yer alır. Görmek istediğiniz kategoriyi seçin.
             </p>
@@ -462,8 +479,12 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
           {/* Sol: Hikaye İçeriği */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.25em] uppercase block">MEATPACKING KLASİĞİ</span>
-              <h2 className="text-3xl md:text-5xl font-normal font-playfair leading-tight">Paris Şıklığı ile Manhattan Ruhu</h2>
+              <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.25em] uppercase block">
+                <EditableText content={content} contentKey="about_badge" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="MEATPACKING KLASİĞİ" className="focus:outline-none focus:ring-0" />
+              </span>
+              <h2 className="text-3xl md:text-5xl font-normal font-playfair leading-tight">
+                <EditableText content={content} contentKey="about_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Paris Şıklığı ile Manhattan Ruhu" className="focus:outline-none focus:ring-0" />
+              </h2>
               <div className="w-12 h-1 bg-[#c10230]" />
             </div>
 
@@ -477,12 +498,20 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
 
             <div className="pt-4 border-t border-[#0a0101]/10 flex gap-12 font-archivo">
               <div className="space-y-1">
-                <span className="font-playfair text-3xl font-bold text-[#c10230]">1999</span>
-                <p className="text-[10px] uppercase text-[#666] tracking-wider font-bold">İlk Açılış Yılı (NYC)</p>
+                <span className="font-playfair text-3xl font-bold text-[#c10230]">
+                  <EditableText content={content} contentKey="stats.0.value" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="1999" className="focus:outline-none focus:ring-0" />
+                </span>
+                <p className="text-[10px] uppercase text-[#666] tracking-wider font-bold">
+                  <EditableText content={content} contentKey="stats.0.label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="İlk Açılış Yılı (NYC)" className="focus:outline-none focus:ring-0" />
+                </p>
               </div>
               <div className="space-y-1">
-                <span className="font-playfair text-3xl font-bold text-[#c10230]">Zinc Bar</span>
-                <p className="text-[10px] uppercase text-[#666] tracking-wider font-bold">Özel Çinko Bar Tasarımı</p>
+                <span className="font-playfair text-3xl font-bold text-[#c10230]">
+                  <EditableText content={content} contentKey="stats.1.value" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Zinc Bar" className="focus:outline-none focus:ring-0" />
+                </span>
+                <p className="text-[10px] uppercase text-[#666] tracking-wider font-bold">
+                  <EditableText content={content} contentKey="stats.1.label" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Özel Çinko Bar Tasarımı" className="focus:outline-none focus:ring-0" />
+                </p>
               </div>
             </div>
           </div>
@@ -509,11 +538,15 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
           
           {/* Başlık */}
           <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.2em] uppercase">BISTRO LEZZETLERİ</span>
-            <h2 className="text-3xl md:text-5xl font-normal font-playfair text-[#0a0101]">Ana Menümüzü İnceleyin</h2>
-            <p className="font-archivo text-[#666] text-sm">
-              Geleneksel Fransız mutfağının en seçkin klasikleri, en taze yerel malzemeler ile hazırlanıyor.
-            </p>
+            <span className="text-[#c10230] text-xs font-archivo font-black tracking-[0.2em] uppercase">
+              <EditableText content={content} contentKey="menu_badge" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="BİSTRO LEZZETLERİ" className="focus:outline-none focus:ring-0" />
+            </span>
+            <h2 className="text-3xl md:text-5xl font-normal font-playfair text-[#0a0101]">
+              <EditableText content={content} contentKey="menu_title" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Ana Menümüzü İnceleyin" className="focus:outline-none focus:ring-0" />
+            </h2>
+            <div className="font-archivo text-[#666] text-sm">
+              <EditableText content={content} contentKey="menu_description" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Geleneksel Fransız mutfağının en seçkin klasikleri, en taze yerel malzemeler ile hazırlanıyor." className="focus:outline-none focus:ring-0" />
+            </div>
           </div>
 
           {/* Kategori Tabları */}
@@ -1057,9 +1090,9 @@ export default function PastisTemplate({ content, themeConfig, isEditMode, onUpd
               <span className="font-playfair font-normal text-2xl tracking-wide uppercase">{content.contact.company_name}</span>
               <span className="text-[#c10230] font-black text-lg">&bull;</span>
             </div>
-            <p className="text-slate-400 leading-relaxed max-w-sm">
-              Klasik Fransız bistrosu deneyimini Meatpacking District nostaljisiyle harmanlayan, Paris ve New York esintili zamansız lezzet durağınız.
-            </p>
+            <div className="text-slate-400 leading-relaxed max-w-sm">
+              <EditableText content={content} contentKey="footer_slogan" onUpdate={onUpdateContent} isEditMode={isEditMode} fallback="Klasik Fransız bistrosu deneyimini Meatpacking District nostaljisiyle harmanlayan, Paris ve New York esintili zamansız lezzet durağınız." className="focus:outline-none focus:ring-0" />
+            </div>
           </div>
 
           {/* Menü Linkleri */}
