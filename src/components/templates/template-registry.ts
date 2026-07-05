@@ -59,14 +59,24 @@ export const templateRegistry: Record<string, TemplatePreset> = {
     layoutComponent: 'CafeWarmTemplate',
     defaultTheme: { primary: '#8B4513', secondary: '#D2691E', fontFamily: 'Playfair Display, serif', fontFamilyHeading: 'Playfair Display, serif' },
     defaultContent: {
+      nav_links: [
+        { name: 'Hikayemiz', url: '#about' },
+        { name: 'Menü', url: '#menu' },
+        { name: 'Hizmetler', url: '#services' },
+        { name: 'İletişim', url: '#contact' }
+      ],
       hero: { title: 'Taze Kahve, Sıcak Ortam', subtitle: 'Güne güzel bir başlangıç için en taze kahveler ve ev yapımı atıştırmalıklar.', cta_text: 'Menüyü İncele', badge_text: 'Yeni Hasat Kahveler' },
       about: 'Şehrin kalbinde, gürültüden uzak küçük bir mola noktası. Çekirdeklerimizi özenle seçiyor, tatlılarımızı her sabah taze taze pişiriyoruz.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Kahve & Sohbet' },
+      services: [
+        { title: 'Taze Çekilmiş', description: 'Çekirdeklerimizi her gün taze çekiyor, en lezzetli kahveleri sunuyoruz.', icon: 'coffee' },
+        { title: 'Ev Yapımı', description: 'Tüm tatlılarımızı her sabah kendi mutfağımızda sevgiyle pişiriyoruz.', icon: 'heart' }
+      ],
+      testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Kahve & Sohbet' },
       images: { hero_bg: unsplashImages.cafe1, about_img: unsplashImages.cafe2 },
       menu_items: [
-        { category: 'Sıcak İçecekler', items: [{ name: 'Filtre Kahve', price: '₺85' }, { name: 'Latte', price: '₺110' }] },
-        { category: 'Soğuk İçecekler', items: [{ name: 'Iced Americano', price: '₺95' }, { name: 'Ev Yapımı Limonata', price: '₺85' }] },
-        { category: 'Tatlılar', items: [{ name: 'San Sebastian Cheesecake', price: '₺160' }, { name: 'Havuçlu Tarçınlı Kek', price: '₺120' }] }
+        { category: 'Sıcak İçecekler', items: [{ name: 'Filtre Kahve', description: 'Taze demlenmiş nitelikli filtre kahve', price: '₺85' }, { name: 'Latte', description: 'Yoğun espresso ve kremsi süt köpüğü', price: '₺110' }] },
+        { category: 'Soğuk İçecekler', items: [{ name: 'Iced Americano', description: 'Buzlu espresso ve soğuk su', price: '₺95' }, { name: 'Ev Yapımı Limonata', description: 'Taze sıkılmış limon ve nane yaprakları ile', price: '₺85' }] },
+        { category: 'Tatlılar', items: [{ name: 'San Sebastian Cheesecake', description: 'Ortası akışkan meşhur fırınlanmış cheesecake', price: '₺160' }, { name: 'Havuçlu Tarçınlı Kek', description: 'Cevizli ve taze zencefilli aromatik kek dilimi', price: '₺120' }] }
       ]
     }
   },
@@ -79,9 +89,20 @@ export const templateRegistry: Record<string, TemplatePreset> = {
     layoutComponent: 'GingerWhiteTemplate',
     defaultTheme: { primary: '#c4a265', secondary: '#212121', fontFamily: 'Playfair Display, serif', fontFamilyHeading: 'Playfair Display, serif' },
     defaultContent: {
+      nav_links: [
+        { name: 'Hikayemiz', url: '#hikayemiz' },
+        { name: 'Menümüz', url: '#menumuz' },
+        { name: 'Değerlerimiz', url: '#degerlerimiz' },
+        { name: 'İletişim', url: '#iletisim' }
+      ],
       hero: { title: 'Nitelikli Kahve & Taze Lezzetler', subtitle: 'Mahallemizin kalbinde, en kaliteli yerel malzemelerle hazırlanan el yapımı lezzetler ve nitelikli artisan kahveler.', cta_text: 'Menümüzü Keşfedin', badge_text: 'Sıcak Mahalle Kafesi' },
       about: 'Londra sokaklarının samimi havasını ve nitelikli kahve kültürünü mahallenize taşıyoruz. Ortak masalarımız, güler yüzlü ekibimiz ve taze pişen günlük keklerimizle sıcak bir mola noktası sunuyoruz.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Ginger & White' },
+      services: [
+        { title: 'Yerel Malzemeler', description: 'Tüm yumurta, un ve süt ürünlerimizi doğrudan yerel çiftliklerden taze temin ediyor, el yapımı üretiyoruz.', icon: 'heart' },
+        { title: 'Çevre Dostu Mutfak', description: 'Sıfır plastik hedefiyle çalışıyoruz; tüm ambalajlarımızı kompostlanabilir kağıtlardan seçiyoruz.', icon: 'shield-check' },
+        { title: 'Nitelikli Artisan Çekirdekler', description: 'En iyi kavurma evlerinin Red Brick harmanlarını kullanıyor, artisan kahveler demliyoruz.', icon: 'coffee' }
+      ],
+      testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Ginger & White' },
       images: { hero_bg: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80' },
       menu_items: [
         { category: 'Sıcak & Soğuk Kahveler', items: [{ name: 'Flat White', description: 'Tek köken çekirdeklerden, kadifemsi süt kreması ile', price: '₺120' }, { name: 'V60 / Filtre Kahve', description: 'Mevsimlik hasat nitelikli çekirdekler', price: '₺110' }, { name: 'El Yapımı Sıcak Çikolata', description: 'Organik kakao ve sütle', price: '₺130' }] },
@@ -99,9 +120,26 @@ export const templateRegistry: Record<string, TemplatePreset> = {
     layoutComponent: 'HouseCafeTemplate',
     defaultTheme: { primary: '#e93c37', secondary: '#2F1D13', fontFamily: 'Cormorant Garamond, serif', fontFamilyHeading: 'Cormorant Garamond, serif' },
     defaultContent: {
+      nav_links: [
+        { name: 'Konsept', url: '#konsept' },
+        { name: 'Menümüz', url: '#menumuz' },
+        { name: 'Şubelerimiz', url: '#subelerimiz' },
+        { name: 'İletişim', url: '#iletisim' }
+      ],
       hero: { title: 'Evinden uzakta bir ev.', subtitle: '2002 yılında kurulan The House Café, şehrin yoğun temposundan kaçıp nefes alabileceğiniz, çağdaş ve samimi bir buluşma noktasıdır.', cta_text: 'Menümüzü İnceleyin', badge_text: 'The House Cafe Kültürü' },
       about: 'Dünya mutfağının güncel trendlerini, geleneksel Türk aile tarifleriyle harmanlayıp sunuyoruz. Yılda iki kez yenilenen mevsimlik menümüz, yerel üreticilerden aldığımız taze malzemeler ve Autoban Studio imzalı zamansız mimarimiz ile evinizdeki sıcaklığı sunuyoruz.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'The House Cafe' },
+      services: [
+        { title: 'Mevsimsel Menü', description: 'Lezzeti Keşfet', icon: 'utensils' },
+        { title: 'Şubelerimiz', description: 'Bize Yakın Konumlar', icon: 'compass' },
+        { title: 'Tasarım Felsefesi', description: 'Hikayemizi Oku', icon: 'award' },
+        { title: 'Davet & Catering', description: 'Sizinle Birlikteyiz', icon: 'coffee' }
+      ],
+      branches: [
+        { name: 'Teşvikiye (Atiye Sokak)', address: 'Atiye Sk. No:8 Teşvikiye, Şişli / İstanbul', phone: '0212 258 84 41', badge: 'MERKEZ' },
+        { name: 'Ortaköy (Boğaz Manzarası)', address: 'Salhane Sk. No: 1 Ortaköy, Beşiktaş / İstanbul', phone: '0212 227 26 81', badge: '' },
+        { name: 'Alaçatı (Yazlık Esinti)', address: 'Kemalpaşa Cd. No:114 Alaçatı, Çeşme / İzmir', phone: '0232 716 95 35', badge: '' }
+      ],
+      testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'The House Cafe' },
       images: { hero_bg: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80' },
       menu_items: [
         { category: 'Kahvaltı & İmza Lezzetler', items: [{ name: 'Avokadolu Poşe Yumurta', description: 'Ekşi mayalı tost ekmeği, ezilmiş avokado, iki adet poşe yumurta ve taze yeşilliklerle', price: '₺240' }, { name: 'Ev Yapımı Granola Kasesi', description: 'Süzme yoğurt, mevsim meyveleri ve organik süzme bal ile', price: '₺180' }, { name: 'House İmza Limonata', description: 'Taze nane ve çilek dilimleriyle el yapımı günlük limonata', price: '₺95' }] },
@@ -119,9 +157,39 @@ export const templateRegistry: Record<string, TemplatePreset> = {
     layoutComponent: 'PastisTemplate',
     defaultTheme: { primary: '#c10230', secondary: '#0a0101', fontFamily: 'Playfair Display, serif', fontFamilyHeading: 'Playfair Display, serif' },
     defaultContent: {
+      nav_links: [
+        { name: 'Hikayemiz', url: '#hikayemiz' },
+        { name: 'Özel Ayna', url: '#ayna-spesiyalleri' },
+        { name: 'Menü', url: '#menumuz' },
+        { name: 'Galeri', url: '#galeri' },
+        { name: 'İletişim', url: '#iletisim' }
+      ],
       hero: { title: 'Meatpacking Klasik Fransız Bistrosu', subtitle: 'New York Meatpacking District’in ikonik lezzet durağı Pastis, çinko barı, kırmızı deri koltukları ve sıcak atmosferiyle Paris şıklığını evinize getiriyor.', cta_text: 'Menümüzü İnceleyin', badge_text: 'Paris & New York Esintisi' },
       about: 'Keith McNally ve Stephen Starr imzalı Pastis, nostaljik bir bistro deneyimi sunuyor. Altın varaklı aynalara yazılmış günlük spesiyallerimiz, geleneksel Fransız mutfağının başyapıtları ve Paris kafelerinin o sıcak, bitmeyen hareketliliği artık mahallenizde.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Pastis Bistro' },
+      services: [
+        {
+          title: 'Deniz Ürünleri',
+          items: [
+            { name: 'Huîtres de Saison (Taze İstridye)', description: 'Mevsimlik istiridye, mignonette sosu ile', price: '₺290' },
+            { name: 'Moules Frites', description: 'Sarımsak, beyaz şarap sosunda midye ve çıtır patates', price: '₺390' }
+          ]
+        },
+        {
+          title: 'Et Klasikleri',
+          items: [
+            { name: 'Steak Tartare Maison', description: 'Satır kıyması, özel sos ve baharatlarla', price: '₺460' },
+            { name: 'Steak Frites', description: 'Geleneksel Fransız usulü antrikot ve çıtır patates', price: '₺780' }
+          ]
+        },
+        {
+          title: 'Tatlı & Kapanış',
+          items: [
+            { name: 'Crème Brûlée', description: 'Karamelize şeker kaplı vanilyalı fırın krema', price: '₺190' },
+            { name: 'Profiteroles Pastis', description: 'Sıcak çikolata soslu çıtır profiteroller', price: '₺210' }
+          ]
+        }
+      ],
+      testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Pastis Bistro' },
       images: { 
         hero_bg: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80', 
         about_img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80',

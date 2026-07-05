@@ -281,41 +281,36 @@
     },
     {
       "lead_id": "08e9ebbd-9c21-4502-be1b-2b5bc1c3723d",
-      "template_name": "foxy_loxy",
+      "template_name": "ginger_white",
       "theme_config": {
-        "primary": "#D36135",
-        "secondary": "#5B7053",
-        "fontFamily": "Fredoka, sans-serif",
-        "fontFamilyHeading": "DM Serif Display, serif"
+        "primary": "#c4a265",
+        "secondary": "#212121",
+        "fontFamily": "Playfair Display, serif",
+        "fontFamilyHeading": "Playfair Display, serif"
       },
       "content": {
         "hero": {
-          "title": "Fahriye Cafe - Kahveci, Fırın & Tex-Mex Kantini",
-          "subtitle": "Savannah Starland District’in sıcacık Victorian evinde yer alan Foxy Loxy, taze demlenmiş kahveleri, el yapımı taco ve fırın lezzetleriyle samimi arka bahçemizde sizi bekliyor.",
-          "cta_text": "Mutfağımızı İnceleyin",
-          "badge_text": "Bohem & Sanatçı Dostu Kafe"
+          "title": "Fahriye Cafe - Nitelikli Kahve & Taze Lezzetler",
+          "subtitle": "Mahallemizin kalbinde, en kaliteli yerel malzemelerle hazırlanan el yapımı lezzetler ve nitelikli artisan kahveler.",
+          "cta_text": "Menümüzü Keşfedin",
+          "badge_text": "Sıcak Mahalle Kafesi"
         },
-        "about": "Foxy Loxy Cafe, bir kahve dükkanından fazlasıdır. Eklektik ahşap dekorumuz, yerel sanatçıların duvarlarımızı süsleyen eserleri, her Salı canlı akustik müzik konserlerimiz ve Cumartesi günleri bahçede yaktığımız ateş çukurlarımızla mahallenin ortak yaşam odasıyız.",
+        "about": "Londra sokaklarının samimi havasını ve nitelikli kahve kültürünü mahallenize taşıyoruz. Ortak masalarımız, güler yüzlü ekibimiz ve taze pişen günlük keklerimizle sıcak bir mola noktası sunuyoruz.",
         "services": [
           {
-            "title": "Tex-Mex",
-            "description": "Teksas lezzetlerini mahallenize taşıyoruz. Taco ve çıtır tuzlu çörek (kolache) çeşitlerimizin espresso ile uyumuna inanamayacaksınız!",
-            "icon": "utensils"
+            "title": "Profesyonel Hizmet",
+            "description": "İhtiyacınıza özel, yüksek standartlarda çözümler üretiyoruz.",
+            "icon": "Star"
           },
           {
-            "title": "Fırın / Pastane",
-            "description": "Fırıncılarımız haftanın yedi günü taze çörekler hazırlamak için sabahın ilk ışıklarında işe koyuluyor. Tezgahımıza kayıtsız kalamayacaksınız.",
-            "icon": "cookie"
+            "title": "Hızlı Teslimat",
+            "description": "Zamanınızın değerini biliyor, işlerimizi söz verdiğimiz sürede teslim ediyoruz.",
+            "icon": "Clock"
           },
           {
-            "title": "Nitelikli Kahve",
-            "description": "Özenle seçilmiş yerel üreticiler tarafından kavrulan nitelikli çekirdeklerimizi taze olarak sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.",
-            "icon": "coffee"
-          },
-          {
-            "title": "Etkinlikler",
-            "description": "Sadece lezzetli bir kahve değiliz! Duvarlarımızdaki sanat galerilerimiz, canlı müzik konserlerimiz ve ateş çukuru gecelerimizle kültürel bir alanız.",
-            "icon": "flame"
+            "title": "Müşteri Memnuniyeti",
+            "description": "Önceliğimiz her zaman sizin memnuniyetinizdir.",
+            "icon": "Heart"
           }
         ],
         "testimonials": [
@@ -338,124 +333,76 @@
           "hours": "Pzt-Cmt: 09:00 - 20:00"
         },
         "images": {
-          "hero_bg": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80",
-          "about_img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80",
-          "services_img": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800",
-          "gallery": [
-            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&q=80&w=400"
-          ]
+          "hero_bg": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80",
+          "about_img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80"
         },
         "menu_items": [
           {
-            "category": "Tex-Mex Cantina Tacos",
+            "category": "Sıcak & Soğuk Kahveler",
             "items": [
               {
-                "name": "Chorizo & Yumurtalı Taco",
-                "description": "Baharatlı Meksika sucuğu, çırpılmış yumurta ve taze salsa",
-                "price": "₺165"
+                "name": "Flat White",
+                "description": "Tek köken çekirdeklerden, kadifemsi süt kreması ile",
+                "price": "₺120"
               },
               {
-                "name": "Ağır Ateşte Pişmiş Etli Taco",
-                "description": "Közlenmiş biber sosu, kişniş, misket limonu ve baharatlı dana eti",
-                "price": "₺195"
+                "name": "V60 / Filtre Kahve",
+                "description": "Mevsimlik hasat nitelikli çekirdekler",
+                "price": "₺110"
               },
               {
-                "name": "Vegan Tex-Mex Kasesi",
-                "description": "Kinoa, siyah fasulye, tatlı mısır ve taze avokado dilimleri",
-                "price": "₺220"
+                "name": "El Yapımı Sıcak Çikolata",
+                "description": "Organik kakao ve sütle",
+                "price": "₺130"
               }
             ]
           },
           {
-            "category": "Taze Fırın & Çörekler",
+            "category": "Kahvaltı & Yemek",
             "items": [
               {
-                "name": "Cheddar & Jalapeño Kolache",
-                "description": "Teksas usulü içi eritilmiş çedar ve acı jalapeño biber dolgulu çörek",
-                "price": "₺130"
+                "name": "Rafadan Yumurta & Ekşi Mayalı Ekmek",
+                "description": "Sourdough soldiers ile meşhur dippy eggs lezzeti",
+                "price": "₺180"
               },
               {
-                "name": "Yaban Mersinli Gluten-Free Muffin",
-                "description": "Mevsimlik yaban mersinleri ile kendi fırınımızda pişmiş glutensiz çörek",
-                "price": "₺115"
+                "name": "Avokadolu Tost",
+                "description": "Ekşi mayalı ekmek üzerinde avokado ezmesi ve keçi peyniri",
+                "price": "₺220"
               },
               {
-                "name": "Krem Peynirli Tarçınlı Rulo",
-                "description": "Sıcak servis edilen tereyağlı tarçınlı çörek",
+                "name": "Ev Yapımı Günlük Sebze Çorbası",
+                "description": "Taze sebzeler ve kruton ekmekle",
                 "price": "₺140"
               }
             ]
           },
           {
-            "category": "Nitelikli Kahveler",
+            "category": "Fırınımız & Kekler",
             "items": [
               {
-                "name": "Cold Brew / Soğuk Demleme",
-                "description": "18 saat soğuk suda demlenmiş yumuşak içimli kahve",
-                "price": "₺110"
+                "name": "Frostingli Havuçlu Kek",
+                "description": "Kendi mutfağımızda günlük taze pişen meşhur kekimiz",
+                "price": "₺150"
               },
               {
-                "name": "Mexican Mocha",
-                "description": "Espresso, süt, organik çikolata ve hafif acı meksika biberi esintisi",
-                "price": "₺135"
+                "name": "Yoğun Çikolatalı Brownie",
+                "description": "Glutensiz, zengin çikolatalı",
+                "price": "₺165"
+              },
+              {
+                "name": "Parçacıklı Fıstık Ezmeli Kurabiye",
+                "description": "Kendi imalatımız yer fıstığı ezmesiyle",
+                "price": "₺95"
               }
             ]
           }
-        ],
-        "nav_links": [
-          {
-            "name": "Ana Sayfa",
-            "url": "#welcome"
-          },
-          {
-            "name": "Merhaba",
-            "url": "#howdy"
-          },
-          {
-            "name": "Özellikler",
-            "url": "#foxy-is"
-          },
-          {
-            "name": "Arka Bahçe",
-            "url": "#courtyard"
-          },
-          {
-            "name": "Menü",
-            "url": "#menumuz"
-          },
-          {
-            "name": "Etkinlikler",
-            "url": "#live-music"
-          },
-          {
-            "name": "İletişim",
-            "url": "#iletisim"
-          }
-        ],
-        "about_badge": "NASILIZ?",
-        "about_title": "Merhaba!",
-        "about_cta_text": "Çevrimiçi Sipariş Ver",
-        "courtyard_badge": "ARKA BAHÇEMİZ",
-        "courtyard_title": "Ateş Çukuru Geceleri",
-        "courtyard_description": "Geniş ve konforlu arka bahçemizde, Cumartesi akşamları ateş çukurlarımızı yakıyoruz. Sevdiklerinizle şarabınızı yudumlarken, samimi ve ısıtan bir açık hava sohbetinin tadını çıkarın.",
-        "menu_badge": "FUSION MUTFAK",
-        "menu_title": "Leziz Menümüz",
-        "events_title": "Konser & Sergiler",
-        "events_description": "Mahallemizin yetenekli yerel ve bölgesel müzisyenlerini sahneye çıkarıyoruz. Akustik ve samimi gecelerimizde müzik eşliğinde şarabınızı yudumlayabilirsiniz. Güncel etkinlik takvimimizi görüntülemek için lütfen takipte kalın.",
-        "events_cta_text": "Etkinlik Takvimi",
-        "footer_locations_title": "KAFEMİZİ ZİYARET EDİN",
-        "footer_link_text_1": "Hakkımızda",
-        "footer_link_text_2": "Gizlilik Politikası",
-        "footer_link_text_3": "İletişim"
+        ]
       },
       "id": "5b5dcfba-9cde-430a-8de6-7e5af1ff58af",
       "edit_token": "68dda19f-aec0-476d-9a25-95f2dba3bd19",
       "created_at": "2026-07-05T18:39:32.718Z",
-      "updated_at": "2026-07-05T19:19:43.120Z"
+      "updated_at": "2026-07-05T19:32:33.924Z"
     }
   ],
   "custom_presets": {

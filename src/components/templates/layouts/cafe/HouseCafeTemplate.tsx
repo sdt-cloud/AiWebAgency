@@ -16,7 +16,9 @@ import {
   Menu as MenuIcon, 
   X,
   Compass,
-  Award
+  Award,
+  PlusCircle,
+  Trash2
 } from 'lucide-react';
 
 interface Props {
@@ -28,16 +30,26 @@ interface Props {
 }
 
 export default function HouseCafeTemplate({ content, themeConfig, isEditMode, onUpdateContent }: Props) {
-  const [activeCategory, setActiveCategory] = useState<string>('');
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showAddNavDropdown, setShowAddNavDropdown] = useState(false);
+  const [activeFooterModal, setActiveFooterModal] = useState<'hakkimizda' | 'gizlilik' | 'iletisim' | null>(null);
 
-  // Menü kategorilerini dinamik belirle
-  const menuCategories = content.menu_items?.map(cat => cat.category) || [];
-  const currentCategory = activeCategory || menuCategories[0] || '';
+  const defaultNavLinks = [
+    { name: 'Konsept', url: '#konsept' },
+    { name: 'Menümüz', url: '#menumuz' },
+    { name: 'Şubelerimiz', url: '#subelerimiz' },
+    { name: 'İletişim', url: '#iletisim' }
+  ];
+  const navLinks = content.nav_links || defaultNavLinks;
 
-  const activeMenuCategory = content.menu_items?.find(
-    cat => cat.category === currentCategory
-  );
+  // Menü kategorileri
+  const menuItems = content.menu_items || [];
+  const activeMenuCategory = menuItems[activeCategoryIndex] || menuItems[0];
+
+  const halfLength = Math.ceil(navLinks.length / 2);
+  const leftNavLinks = navLinks.slice(0, halfLength);
+  const rightNavLinks = navLinks.slice(halfLength);
 
   return (
     <div className="min-h-screen bg-[#F6F3EF] text-[#2F1D13] selection:bg-[#e93c37] selection:text-white relative">
@@ -60,8 +72,38 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
           
           {/* Sol: Menü Linkleri (Masaüstü) */}
           <nav className="hidden md:flex items-center gap-8 text-xs font-dmsans font-black uppercase tracking-[0.2em]">
-            <a href="#konsept" className="hover:text-[#e93c37] transition-colors">Konsept</a>
-            <a href="#menumuz" className="hover:text-[#e93c37] transition-colors">Menümüz</a>
+            {leftNavLinks.map((link, index) => {
+              const globalIndex = index;
+              return (
+                <div key={globalIndex} className="flex items-center gap-1 group/nav relative">
+                  <a href={link.url} className="hover:text-[#e93c37] transition-colors shrink-0">
+                    <EditableText
+                      content={content}
+                      contentKey={`nav_links.${globalIndex}.name`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      className="focus:outline-none focus:ring-0 px-0.5 rounded"
+                    />
+                  </a>
+                  {isEditMode && navLinks.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newLinks = navLinks.filter((_, i) => i !== globalIndex);
+                        onUpdateContent({
+                          ...content,
+                          nav_links: newLinks
+                        });
+                      }}
+                      className="text-red-500 hover:text-red-700 opacity-0 group-hover/nav:opacity-100 transition-opacity cursor-pointer shrink-0"
+                      title="Sil"
+                    >
+                      <Trash2 size={11} />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </nav>
 
           {/* Orta: Logo */}
@@ -81,8 +123,83 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
 
           {/* Sağ: İletişim / Şubeler Linkleri (Masaüstü) */}
           <nav className="hidden md:flex items-center gap-8 text-xs font-dmsans font-black uppercase tracking-[0.2em]">
-            <a href="#subelerimiz" className="hover:text-[#e93c37] transition-colors">Şubelerimiz</a>
-            <a href="#iletisim" className="hover:text-[#e93c37] transition-colors">İletişim</a>
+            {rightNavLinks.map((link, index) => {
+              const globalIndex = halfLength + index;
+              return (
+                <div key={globalIndex} className="flex items-center gap-1 group/nav relative">
+                  <a href={link.url} className="hover:text-[#e93c37] transition-colors shrink-0">
+                    <EditableText
+                      content={content}
+                      contentKey={`nav_links.${globalIndex}.name`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      className="focus:outline-none focus:ring-0 px-0.5 rounded"
+                    />
+                  </a>
+                  {isEditMode && navLinks.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newLinks = navLinks.filter((_, i) => i !== globalIndex);
+                        onUpdateContent({
+                          ...content,
+                          nav_links: newLinks
+                        });
+                      }}
+                      className="text-red-500 hover:text-red-700 opacity-0 group-hover/nav:opacity-100 transition-opacity cursor-pointer shrink-0"
+                      title="Sil"
+                    >
+                      <Trash2 size={11} />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+
+            {isEditMode && navLinks.length < 10 && (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowAddNavDropdown(!showAddNavDropdown)}
+                  className="text-indigo-600 hover:text-indigo-800 text-[10px] font-bold tracking-widest uppercase cursor-pointer ml-4 flex items-center gap-1"
+                >
+                  <PlusCircle size={12} />
+                  Ekle
+                </button>
+                {showAddNavDropdown && (
+                  <div className="absolute top-6 right-0 bg-white border border-[#DDDAD7] shadow-xl rounded-lg py-2 w-48 z-50 text-left normal-case tracking-normal">
+                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase border-b border-slate-100 mb-1">
+                      Bölüm Seçin
+                    </div>
+                    {[
+                      { name: 'Konsept', url: '#konsept' },
+                      { name: 'Menümüz', url: '#menumuz' },
+                      { name: 'Şubelerimiz', url: '#subelerimiz' },
+                      { name: 'İletişim', url: '#iletisim' }
+                    ].map((item) => (
+                      <button
+                        key={item.url}
+                        type="button"
+                        onClick={() => {
+                          const newLinks = [
+                            ...navLinks,
+                            { name: item.name, url: item.url }
+                          ];
+                          onUpdateContent({
+                            ...content,
+                            nav_links: newLinks
+                          });
+                          setShowAddNavDropdown(false);
+                        }}
+                        className="w-full text-left px-3 py-1.5 text-xs text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </nav>
 
           {/* Mobil Menü Butonu */}
@@ -96,36 +213,18 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
 
         {/* Mobil Menü */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#F6F3EF] border-t border-[#DDDAD7] px-6 py-6 space-y-4 absolute w-full left-0 shadow-lg">
+          <div className="md:hidden bg-[#F6F3EF] border-t border-[#DDDAD7] px-6 py-6 space-y-4 absolute w-full left-0 shadow-lg z-50">
             <nav className="flex flex-col gap-4 font-dmsans font-bold text-xs uppercase tracking-widest text-[#2F1D13]">
-              <a 
-                href="#konsept" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#e93c37] py-2 border-b border-[#DDDAD7]"
-              >
-                Konsept
-              </a>
-              <a 
-                href="#menumuz" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#e93c37] py-2 border-b border-[#DDDAD7]"
-              >
-                Menümüz
-              </a>
-              <a 
-                href="#subelerimiz" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#e93c37] py-2 border-b border-[#DDDAD7]"
-              >
-                Şubelerimiz
-              </a>
-              <a 
-                href="#iletisim" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#e93c37] py-2"
-              >
-                İletişim
-              </a>
+              {navLinks.map((link, idx) => (
+                <a 
+                  key={idx}
+                  href={link.url} 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="hover:text-[#e93c37] py-2 border-b border-[#DDDAD7] block"
+                >
+                  {link.name}
+                </a>
+              ))}
             </nav>
           </div>
         )}
@@ -191,80 +290,90 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
       {/* 4. Autoban Stili 4'lü Promo Grid */}
       <section className="bg-white border-y border-[#DDDAD7] py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            {/* Promo 1 */}
-            <a href="#menumuz" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
-              <div className="w-full h-full relative overflow-hidden">
-                <EditableImage 
-                  content={content}
-                  contentKey="images.gallery.0"
-                  onUpdate={onUpdateContent}
-                  isEditMode={isEditMode}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  alt="Menu"
-                />
-                <div className="absolute inset-0 bg-[#2F1D13]/60 group-hover:bg-[#e93c37]/90 transition-colors duration-500 flex flex-col justify-end p-6 text-white space-y-2">
-                  <h3 className="font-cormorant text-2xl font-bold">Mevsimsel Menü</h3>
-                  <p className="font-dmsans text-[10px] tracking-widest uppercase text-white/80">Lezzeti Keşfet</p>
-                </div>
-              </div>
-            </a>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {content.services?.map((service, serviceIdx) => {
+              // Yönlendirme linkleri
+              const urls = ['#menumuz', '#subelerimiz', '#konsept', '#iletisim'];
+              const targetUrl = urls[serviceIdx % urls.length] || '#';
 
-            {/* Promo 2 */}
-            <a href="#subelerimiz" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
-              <div className="w-full h-full relative overflow-hidden">
-                <EditableImage 
-                  content={content}
-                  contentKey="images.gallery.1"
-                  onUpdate={onUpdateContent}
-                  isEditMode={isEditMode}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  alt="Branches"
-                />
-                <div className="absolute inset-0 bg-[#2F1D13]/60 group-hover:bg-[#e93c37]/90 transition-colors duration-500 flex flex-col justify-end p-6 text-white space-y-2">
-                  <h3 className="font-cormorant text-2xl font-bold">Şubelerimiz</h3>
-                  <p className="font-dmsans text-[10px] tracking-widest uppercase text-white/80">Bize Yakın Konumlar</p>
-                </div>
-              </div>
-            </a>
+              return (
+                <a 
+                  key={serviceIdx} 
+                  href={targetUrl} 
+                  className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]"
+                >
+                  <div className="w-full h-full relative overflow-hidden">
+                    <EditableImage 
+                      content={content}
+                      contentKey={`images.gallery.${serviceIdx}`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      alt={service.title}
+                    />
+                    <div className="absolute inset-0 bg-[#2F1D13]/60 group-hover:bg-[#e93c37]/90 transition-colors duration-500 flex flex-col justify-end p-6 text-white space-y-2 text-left">
+                      <h3 className="font-cormorant text-2xl font-bold">
+                        <EditableText
+                          content={content}
+                          contentKey={`services.${serviceIdx}.title`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                        />
+                      </h3>
+                      <div className="font-dmsans text-[10px] tracking-widest uppercase text-white/80">
+                        <EditableText
+                          content={content}
+                          contentKey={`services.${serviceIdx}.description`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                        />
+                      </div>
+                    </div>
+                    {isEditMode && content.services && content.services.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          const newServices = content.services?.filter((_, i) => i !== serviceIdx) || [];
+                          onUpdateContent({
+                            ...content,
+                            services: newServices
+                          });
+                        }}
+                        className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-md z-30 transition-all cursor-pointer"
+                        title="Bu Promoyu Sil"
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                    )}
+                  </div>
+                </a>
+              );
+            })}
 
-            {/* Promo 3 */}
-            <a href="#konsept" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
-              <div className="w-full h-full relative overflow-hidden">
-                <EditableImage 
-                  content={content}
-                  contentKey="images.gallery.2"
-                  onUpdate={onUpdateContent}
-                  isEditMode={isEditMode}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  alt="Concept"
-                />
-                <div className="absolute inset-0 bg-[#2F1D13]/60 group-hover:bg-[#e93c37]/90 transition-colors duration-500 flex flex-col justify-end p-6 text-white space-y-2">
-                  <h3 className="font-cormorant text-2xl font-bold">Tasarım Felsefesi</h3>
-                  <p className="font-dmsans text-[10px] tracking-widest uppercase text-white/80">Hikayemizi Oku</p>
-                </div>
+            {/* Yeni Promo Ekleme Kartı (Maks 5) */}
+            {isEditMode && (!content.services || content.services.length < 5) && (
+              <div className="flex flex-col items-center justify-center border-2 border-dashed border-[#DDDAD7] aspect-square p-6 hover:border-[#e93c37] transition-colors bg-[#F6F3EF]">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newServices = [
+                      ...(content.services || []),
+                      { title: 'Yeni Hizmet', description: 'Açıklama Yazın', icon: 'coffee' }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      services: newServices
+                    });
+                  }}
+                  className="flex flex-col items-center gap-2 text-xs font-bold font-dmsans uppercase tracking-widest text-[#2F1D13] hover:text-[#e93c37] transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={28} className="text-[#e93c37] animate-pulse" />
+                  <span>Promo Kartı Ekle</span>
+                </button>
               </div>
-            </a>
-
-            {/* Promo 4 */}
-            <a href="#iletisim" className="relative group overflow-hidden block aspect-square border border-[#DDDAD7] p-2 bg-[#F6F3EF]">
-              <div className="w-full h-full relative overflow-hidden">
-                <EditableImage 
-                  content={content}
-                  contentKey="images.gallery.3"
-                  onUpdate={onUpdateContent}
-                  isEditMode={isEditMode}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  alt="Catering"
-                />
-                <div className="absolute inset-0 bg-[#2F1D13]/60 group-hover:bg-[#e93c37]/90 transition-colors duration-500 flex flex-col justify-end p-6 text-white space-y-2">
-                  <h3 className="font-cormorant text-2xl font-bold">Davet & Catering</h3>
-                  <p className="font-dmsans text-[10px] tracking-widest uppercase text-white/80">Sizinle Birlikteyiz</p>
-                </div>
-              </div>
-            </a>
-
+            )}
           </div>
         </div>
       </section>
@@ -342,63 +451,172 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
           </div>
 
           {/* Kategori Tabları */}
-          {menuCategories.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2">
-              {menuCategories.map((catName) => {
-                const isActive = catName === currentCategory;
+          {menuItems.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-4 items-center">
+              {menuItems.map((cat, idx) => {
+                const isActive = idx === activeCategoryIndex;
                 return (
-                  <button
-                    key={catName}
-                    onClick={() => setActiveCategory(catName)}
-                    className={`px-8 py-3 rounded-none text-xs font-dmsans font-bold uppercase tracking-[0.15em] transition-all border cursor-pointer ${
-                      isActive 
-                        ? 'bg-[#e93c37] border-[#e93c37] text-white' 
-                        : 'bg-white border-[#DDDAD7] text-[#2F1D13] hover:border-[#e93c37] hover:text-[#e93c37]'
-                    }`}
-                  >
-                    {catName}
-                  </button>
+                  <div key={idx} className="flex items-center gap-1 group/cat relative">
+                    <button
+                      type="button"
+                      onClick={() => setActiveCategoryIndex(idx)}
+                      className={`px-8 py-3 rounded-none text-xs font-dmsans font-bold uppercase tracking-[0.15em] transition-all border cursor-pointer ${
+                        isActive 
+                          ? 'bg-[#e93c37] border-[#e93c37] text-white' 
+                          : 'bg-white border-[#DDDAD7] text-[#2F1D13] hover:border-[#e93c37] hover:text-[#e93c37]'
+                      }`}
+                    >
+                      <EditableText
+                        content={content}
+                        contentKey={`menu_items.${idx}.category`}
+                        onUpdate={onUpdateContent}
+                        isEditMode={isEditMode}
+                        className="focus:outline-none focus:ring-0"
+                      />
+                    </button>
+
+                    {/* Kategori Silme Butonu */}
+                    {isEditMode && menuItems.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newMenuItems = menuItems.filter((_, i) => i !== idx);
+                          onUpdateContent({
+                            ...content,
+                            menu_items: newMenuItems
+                          });
+                          setActiveCategoryIndex(0);
+                        }}
+                        className="text-red-500 hover:text-red-700 cursor-pointer p-1 shrink-0"
+                        title="Kategoriyi Sil"
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                    )}
+                  </div>
                 );
               })}
+
+              {/* Kategori Ekleme Butonu (Maks 6) */}
+              {isEditMode && menuItems.length < 6 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newMenuItems = [
+                      ...menuItems,
+                      {
+                        category: 'YENİ KATEGORİ',
+                        items: [
+                          { name: 'Yeni Ürün', description: 'Ürün açıklaması', price: '₺100' }
+                        ]
+                      }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      menu_items: newMenuItems
+                    });
+                    setActiveCategoryIndex(newMenuItems.length - 1);
+                  }}
+                  className="flex items-center gap-1 px-4 py-2 border-2 border-dashed border-[#DDDAD7] hover:border-[#e93c37] text-xs font-bold font-dmsans uppercase tracking-widest text-[#2F1D13] hover:text-[#e93c37] transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={12} />
+                  Kategori Ekle
+                </button>
+              )}
             </div>
           )}
 
           {/* Menü Listesi */}
           {activeMenuCategory && activeMenuCategory.items && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 max-w-4xl mx-auto pt-6">
-              {activeMenuCategory.items.map((item, itemIdx) => {
-                const itemPath = `menu_items.${content.menu_items?.indexOf(activeMenuCategory)}.items.${itemIdx}`;
-                
-                return (
-                  <div key={itemIdx} className="group border-b border-[#DDDAD7] pb-4 flex justify-between items-start gap-4">
-                    <div className="space-y-1">
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.name`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-cormorant text-xl font-bold group-hover:text-[#e93c37] transition-colors focus:outline-none focus:ring-0 px-0.5 rounded block"
-                      />
-                      {item.description !== undefined && (
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 max-w-4xl mx-auto pt-6">
+                {activeMenuCategory.items.map((item, itemIdx) => {
+                  const itemPath = `menu_items.${activeCategoryIndex}.items.${itemIdx}`;
+                  
+                  return (
+                    <div key={itemIdx} className="group border-b border-[#DDDAD7] pb-4 flex justify-between items-start gap-4 relative">
+                      <div className="space-y-1 pr-6 flex-1 text-left">
                         <EditableText
                           content={content}
-                          contentKey={`${itemPath}.description`}
+                          contentKey={`${itemPath}.name`}
                           onUpdate={onUpdateContent}
                           isEditMode={isEditMode}
-                          className="font-dmsans text-xs text-[#8D8C8C] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
+                          className="font-cormorant text-xl font-bold group-hover:text-[#e93c37] transition-colors focus:outline-none focus:ring-0 px-0.5 rounded block"
                         />
+                        {item.description !== undefined && (
+                          <EditableText
+                            content={content}
+                            contentKey={`${itemPath}.description`}
+                            onUpdate={onUpdateContent}
+                            isEditMode={isEditMode}
+                            className="font-dmsans text-xs text-[#8D8C8C] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
+                          />
+                        )}
+                      </div>
+                      <EditableText
+                        content={content}
+                        contentKey={`${itemPath}.price`}
+                        onUpdate={onUpdateContent}
+                        isEditMode={isEditMode}
+                        className="font-cormorant italic text-base text-[#e93c37] font-semibold focus:outline-none focus:ring-0 px-0.5 rounded shrink-0"
+                      />
+
+                      {/* Ürün Silme Butonu */}
+                      {isEditMode && activeMenuCategory.items.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedItems = activeMenuCategory.items.filter((_, i) => i !== itemIdx);
+                            const updatedMenuItems = menuItems.map((cat, i) => {
+                              if (i === activeCategoryIndex) {
+                                return { ...cat, items: updatedItems };
+                              }
+                              return cat;
+                            });
+                            onUpdateContent({
+                              ...content,
+                              menu_items: updatedMenuItems
+                            });
+                          }}
+                          className="absolute right-0 top-1 text-red-500 hover:text-red-700 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
+                          title="Bu Ürünü Sil"
+                        >
+                          <Trash2 size={12} />
+                        </button>
                       )}
                     </div>
-                    <EditableText
-                      content={content}
-                      contentKey={`${itemPath}.price`}
-                      onUpdate={onUpdateContent}
-                      isEditMode={isEditMode}
-                      className="font-cormorant italic text-base text-[#e93c37] font-semibold focus:outline-none focus:ring-0 px-0.5 rounded shrink-0"
-                    />
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+
+              {/* Ürün Ekleme Butonu */}
+              {isEditMode && (
+                <div className="flex justify-center pt-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updatedItems = [
+                        ...activeMenuCategory.items,
+                        { name: 'Yeni Ürün/İçecek', description: 'Ürün açıklaması buraya yazılır.', price: '₺150' }
+                      ];
+                      const updatedMenuItems = menuItems.map((cat, i) => {
+                        if (i === activeCategoryIndex) {
+                          return { ...cat, items: updatedItems };
+                        }
+                        return cat;
+                      });
+                      onUpdateContent({
+                        ...content,
+                        menu_items: updatedMenuItems
+                      });
+                    }}
+                    className="flex items-center gap-2 px-6 py-3 bg-[#e93c37] hover:bg-[#e93c37]/90 text-white font-dmsans font-bold text-xs tracking-widest uppercase transition-all cursor-pointer"
+                  >
+                    <PlusCircle size={14} />
+                    Bu Kategoriye Ürün Ekle
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -420,74 +638,112 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
 
           {/* Şube Kartları Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Şube 1 */}
-            <div className="border border-[#DDDAD7] bg-white p-3 space-y-4">
-              <EditableImage 
-                content={content}
-                contentKey="images.gallery.5"
-                onUpdate={onUpdateContent}
-                isEditMode={isEditMode}
-                className="w-full h-48 object-cover" 
-                alt="Teşvikiye"
-              />
-              <div className="space-y-1.5 px-2 pb-2">
-                <h3 className="font-cormorant text-xl font-bold flex justify-between">
-                  <span>Teşvikiye (Atiye Sokak)</span>
-                  <span className="text-xs px-2 py-0.5 bg-[#e93c37]/10 text-[#e93c37] font-dmsans font-bold uppercase tracking-wider self-center rounded-none">MERKEZ</span>
-                </h3>
-                <p className="font-dmsans text-xs text-[#8D8C8C] leading-relaxed">
-                  Atiye Sk. No:8 Teşvikiye, Şişli / İstanbul
-                </p>
-                <div className="pt-2 flex items-center gap-2 text-xs text-[#2F1D13] font-bold">
-                  <Phone size={12} className="text-[#e93c37]" />
-                  <span>0212 258 84 41</span>
+            {(content.branches || [
+              { name: 'Teşvikiye (Atiye Sokak)', address: 'Atiye Sk. No:8 Teşvikiye, Şişli / İstanbul', phone: '0212 258 84 41', badge: 'MERKEZ' },
+              { name: 'Ortaköy (Boğaz Manzarası)', address: 'Salhane Sk. No: 1 Ortaköy, Beşiktaş / İstanbul', phone: '0212 227 26 81', badge: '' },
+              { name: 'Alaçatı (Yazlık Esinti)', address: 'Kemalpaşa Cd. No:114 Alaçatı, Çeşme / İzmir', phone: '0232 716 95 35', badge: '' }
+            ]).map((branch, branchIdx) => (
+              <div key={branchIdx} className="border border-[#DDDAD7] bg-white p-3 space-y-4 relative group/branch">
+                <EditableImage 
+                  content={content}
+                  contentKey={`images.gallery.${5 + branchIdx}`}
+                  onUpdate={onUpdateContent}
+                  isEditMode={isEditMode}
+                  className="w-full h-48 object-cover" 
+                  alt={branch.name}
+                />
+                <div className="space-y-1.5 px-2 pb-2 text-left">
+                  <h3 className="font-cormorant text-xl font-bold flex justify-between gap-2">
+                    <EditableText
+                      content={content}
+                      contentKey={`branches.${branchIdx}.name`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      className="focus:outline-none focus:ring-0 px-0.5 rounded block"
+                    />
+                    {branch.badge && (
+                      <span className="text-[9px] px-2 py-0.5 bg-[#e93c37]/10 text-[#e93c37] font-dmsans font-bold uppercase tracking-wider self-center rounded-none shrink-0">
+                        <EditableText
+                          content={content}
+                          contentKey={`branches.${branchIdx}.badge`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                        />
+                      </span>
+                    )}
+                  </h3>
+                  <div className="font-dmsans text-xs text-[#8D8C8C] leading-relaxed">
+                    <EditableText
+                      content={content}
+                      contentKey={`branches.${branchIdx}.address`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      multiline
+                    />
+                  </div>
+                  <div className="pt-2 flex items-center gap-2 text-xs text-[#2F1D13] font-bold">
+                    <Phone size={12} className="text-[#e93c37] shrink-0" />
+                    <EditableText
+                      content={content}
+                      contentKey={`branches.${branchIdx}.phone`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      className="focus:outline-none focus:ring-0 px-0.5 rounded"
+                    />
+                  </div>
                 </div>
+                {isEditMode && (content.branches?.length || 3) > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const defaultBranches = [
+                        { name: 'Teşvikiye (Atiye Sokak)', address: 'Atiye Sk. No:8 Teşvikiye, Şişli / İstanbul', phone: '0212 258 84 41', badge: 'MERKEZ' },
+                        { name: 'Ortaköy (Boğaz Manzarası)', address: 'Salhane Sk. No: 1 Ortaköy, Beşiktaş / İstanbul', phone: '0212 227 26 81', badge: '' },
+                        { name: 'Alaçatı (Yazlık Esinti)', address: 'Kemalpaşa Cd. No:114 Alaçatı, Çeşme / İzmir', phone: '0232 716 95 35', badge: '' }
+                      ];
+                      const currentBranches = content.branches || defaultBranches;
+                      const newBranches = currentBranches.filter((_, i) => i !== branchIdx);
+                      onUpdateContent({
+                        ...content,
+                        branches: newBranches
+                      });
+                    }}
+                    className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-md z-30 transition-all cursor-pointer opacity-0 group-hover/branch:opacity-100"
+                    title="Şubeyi Sil"
+                  >
+                    <Trash2 size={10} />
+                  </button>
+                )}
               </div>
-            </div>
+            ))}
 
-            {/* Şube 2 */}
-            <div className="border border-[#DDDAD7] bg-white p-3 space-y-4">
-              <EditableImage 
-                content={content}
-                contentKey="images.gallery.6"
-                onUpdate={onUpdateContent}
-                isEditMode={isEditMode}
-                className="w-full h-48 object-cover" 
-                alt="Ortaköy"
-              />
-              <div className="space-y-1.5 px-2 pb-2">
-                <h3 className="font-cormorant text-xl font-bold">Ortaköy (Boğaz Manzarası)</h3>
-                <p className="font-dmsans text-xs text-[#8D8C8C] leading-relaxed">
-                  Salhane Sk. No: 1 Ortaköy, Beşiktaş / İstanbul
-                </p>
-                <div className="pt-2 flex items-center gap-2 text-xs text-[#2F1D13] font-bold">
-                  <Phone size={12} className="text-[#e93c37]" />
-                  <span>0212 227 26 81</span>
-                </div>
+            {isEditMode && (content.branches?.length || 3) < 4 && (
+              <div className="border-2 border-dashed border-[#DDDAD7] bg-white p-6 flex flex-col items-center justify-center min-h-[250px] hover:border-[#e93c37] transition-colors">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const defaultBranches = [
+                      { name: 'Teşvikiye (Atiye Sokak)', address: 'Atiye Sk. No:8 Teşvikiye, Şişli / İstanbul', phone: '0212 258 84 41', badge: 'MERKEZ' },
+                      { name: 'Ortaköy (Boğaz Manzarası)', address: 'Salhane Sk. No: 1 Ortaköy, Beşiktaş / İstanbul', phone: '0212 227 26 81', badge: '' },
+                      { name: 'Alaçatı (Yazlık Esinti)', address: 'Kemalpaşa Cd. No:114 Alaçatı, Çeşme / İzmir', phone: '0232 716 95 35', badge: '' }
+                    ];
+                    const currentBranches = content.branches || defaultBranches;
+                    const newBranches = [
+                      ...currentBranches,
+                      { name: 'Yeni Şube', address: 'Şube adresi yazın', phone: '0212 000 00 00', badge: 'YENİ' }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      branches: newBranches
+                    });
+                  }}
+                  className="flex flex-col items-center gap-2 text-xs font-bold font-dmsans uppercase tracking-widest text-[#2F1D13] hover:text-[#e93c37] transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={28} className="text-[#e93c37] animate-pulse" />
+                  <span>Yeni Şube Ekle</span>
+                </button>
               </div>
-            </div>
-
-            {/* Şube 3 */}
-            <div className="border border-[#DDDAD7] bg-white p-3 space-y-4">
-              <EditableImage 
-                content={content}
-                contentKey="images.gallery.7"
-                onUpdate={onUpdateContent}
-                isEditMode={isEditMode}
-                className="w-full h-48 object-cover" 
-                alt="Alaçatı"
-              />
-              <div className="space-y-1.5 px-2 pb-2">
-                <h3 className="font-cormorant text-xl font-bold">Alaçatı (Yazlık Esinti)</h3>
-                <p className="font-dmsans text-xs text-[#8D8C8C] leading-relaxed">
-                  Kemalpaşa Cd. No:114 Alaçatı, Çeşme / İzmir
-                </p>
-                <div className="pt-2 flex items-center gap-2 text-xs text-[#2F1D13] font-bold">
-                  <Phone size={12} className="text-[#e93c37]" />
-                  <span>0232 716 95 35</span>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
@@ -605,11 +861,28 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
           {/* Linkler */}
           <div className="space-y-3">
             <h4 className="font-bold text-[#e93c37] uppercase tracking-wider">Hızlı Navigasyon</h4>
-            <div className="flex flex-col gap-2 text-[#8D8C8C]">
-              <a href="#konsept" className="hover:text-white transition-colors">Konsept</a>
-              <a href="#menumuz" className="hover:text-white transition-colors">Menümüz</a>
-              <a href="#subelerimiz" className="hover:text-white transition-colors">Şubelerimiz</a>
-              <a href="#iletisim" className="hover:text-white transition-colors">İletişim & Lokasyon</a>
+            <div className="flex flex-col gap-2 text-[#8D8C8C] text-left">
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('hakkimizda'); }}
+                className="hover:text-white transition-colors"
+              >
+                Hakkımızda
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('gizlilik'); }}
+                className="hover:text-white transition-colors"
+              >
+                Gizlilik Politikası
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('iletisim'); }}
+                className="hover:text-white transition-colors"
+              >
+                İletişim & Lokasyon
+              </a>
             </div>
           </div>
 
@@ -627,6 +900,105 @@ export default function HouseCafeTemplate({ content, themeConfig, isEditMode, on
 
         </div>
       </footer>
+
+      {/* Footer Modalı (Tüm sitelerde aynı genel metinler) */}
+      {activeFooterModal && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-white text-slate-800 rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl animate-in fade-in zoom-in-95 duration-200 relative">
+            <button
+              type="button"
+              onClick={() => setActiveFooterModal(null)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            {activeFooterModal === 'hakkimizda' && (
+              <div className="space-y-4 font-dmsans text-left">
+                <h3 className="font-cormorant text-2xl font-bold border-b pb-2 text-[#2F1D13]">{content.contact.company_name} &bull; Hakkımızda</h3>
+                <div className="space-y-3 text-sm text-[#8D8C8C] leading-relaxed">
+                  <p>
+                    İşletmemiz, en kaliteli hammaddeler ve taze malzemelerle hazırlanan eşsiz lezzetleri, sıcak ve samimi bir kafe atmosferinde sunmak amacıyla yola çıkmıştır. Geleneksel misafirperverlik anlayışını çağdaş gastronomi kültürü ve zengin fırın lezzetleriyle harmanlayarak, her misafirimizin kapımızdan mutlu ayrılmasını hedefliyoruz.
+                  </p>
+                  <p>
+                    Günün her saatinde taze çekirdeklerden demlenen kahvelerimiz, fırınımızdan yeni çıkmış sıcak çöreklerimiz ve güler yüzlü ekibimizle sizlere en iyi hizmeti sunmak için buradayız.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeFooterModal === 'gizlilik' && (
+              <div className="space-y-4 font-dmsans text-left">
+                <h3 className="font-cormorant text-2xl font-bold border-b pb-2 text-[#2F1D13]">Gizlilik Politikası</h3>
+                <div className="text-xs text-[#8D8C8C] leading-relaxed space-y-3 overflow-y-auto max-h-[60vh] pr-2">
+                  <p className="font-semibold text-[#2F1D13]">1. Veri Sorumlusu ve Amacı</p>
+                  <p>
+                    Bu web sitesi üzerinden bizimle paylaştığınız kişisel verileriniz (isim, e-posta, telephone gibi iletişim bilgileri), yalnızca rezervasyon taleplerinizi almak, hizmetlerimizle ilgili bilgilendirme yapmak ve iletişim formları üzerinden taleplerinize yanıt vermek amacıyla işlenir.
+                  </p>
+                  <p className="font-semibold text-[#2F1D13]">2. Verilerin Saklanması ve Paylaşımı</p>
+                  <p>
+                    Kişisel verileriniz, yasal süreler ve işleme amaçlarının gerektirdiği süre boyunca güvenli yerel sunucularda saklanır. Verileriniz, yasal zorunluluklar hariç olmak üzere, üçüncü şahıslarla asla paylaşılmaz, satılmaz veya ticari amaçla kullanılmaz.
+                  </p>
+                  <p className="font-semibold text-[#2F1D13]">3. Çerezler (Cookies)</p>
+                  <p>
+                    Web sitemiz, kullanıcı deneyimini iyileştirmek ve site trafiğini analiz etmek için çerezleri kullanabilir. Tarayıcı ayarlarınızdan çerezleri dilediğiniz gibi engelleyebilir veya silebilirsiniz.
+                  </p>
+                  <p className="font-semibold text-[#2F1D13]">4. Haklarınız</p>
+                  <p>
+                    Kişisel verilerinizin silinmesini, güncellenmesini veya işlenip işlenmediğini öğrenmeyi dilediğiniz zaman talep edebilirsiniz. Bilgi talepleri için lütfen iletişim kanallarımız üzerinden bizimle irtibata geçin.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeFooterModal === 'iletisim' && (
+              <div className="space-y-4 font-dmsans text-left">
+                <h3 className="font-cormorant text-2xl font-bold border-b pb-2 text-[#2F1D13]">İletişim Bilgileri</h3>
+                <div className="space-y-3 text-sm text-[#8D8C8C]">
+                  <div className="flex items-start gap-2">
+                    <MapPin size={16} className="text-[#e93c37] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#2F1D13]">Adresimiz</p>
+                      <p>{content.contact.address || 'Kafemiz Adresi'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Phone size={16} className="text-[#e93c37] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#2F1D13]">Telefon</p>
+                      <p>{content.contact.phone || '0212 000 00 00'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Mail size={16} className="text-[#e93c37] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#2F1D13]">E-posta</p>
+                      <p>{content.contact.email || 'info@kafemiz.com'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Clock size={16} className="text-[#e93c37] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#2F1D13]">Çalışma Saatleri</p>
+                      <p>{content.contact.hours || 'Her Gün Açık'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-end mt-6 border-t pt-4">
+              <button
+                type="button"
+                onClick={() => setActiveFooterModal(null)}
+                className="px-5 py-2 bg-[#e93c37] text-white hover:bg-[#e93c37]/90 text-xs font-semibold tracking-wider uppercase cursor-pointer"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

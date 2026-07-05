@@ -16,7 +16,9 @@ import {
   ChevronRight, 
   Menu as MenuIcon, 
   X,
-  Sparkles
+  Sparkles,
+  PlusCircle,
+  Trash2
 } from 'lucide-react';
 
 interface Props {
@@ -28,16 +30,21 @@ interface Props {
 }
 
 export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, onUpdateContent }: Props) {
-  const [activeCategory, setActiveCategory] = useState<string>('');
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showAddNavDropdown, setShowAddNavDropdown] = useState(false);
+  const [activeFooterModal, setActiveFooterModal] = useState<'hakkimizda' | 'gizlilik' | 'iletisim' | null>(null);
 
-  // Menü kategorilerini dinamik olarak belirle
-  const menuCategories = content.menu_items?.map(cat => cat.category) || [];
-  const currentCategory = activeCategory || menuCategories[0] || '';
+  const defaultNavLinks = [
+    { name: 'Hikayemiz', url: '#hikayemiz' },
+    { name: 'Menümüz', url: '#menumuz' },
+    { name: 'Değerlerimiz', url: '#degerlerimiz' },
+    { name: 'İletişim', url: '#iletisim' }
+  ];
+  const navLinks = content.nav_links || defaultNavLinks;
 
-  const activeMenuCategory = content.menu_items?.find(
-    cat => cat.category === currentCategory
-  );
+  const menuItems = content.menu_items || [];
+  const activeMenuCategory = menuItems[activeCategoryIndex] || menuItems[0];
 
   return (
     <div className="min-h-screen bg-[#faf6f0] text-[#212121] selection:bg-[#c4a265] selection:text-white relative">
@@ -78,10 +85,80 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
 
           {/* Masaüstü Nav Linkleri */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-quicksand font-bold text-[#212121]/80">
-            <a href="#hikayemiz" className="hover:text-[#c4a265] transition-colors">Hikayemiz</a>
-            <a href="#menumuz" className="hover:text-[#c4a265] transition-colors">Menümüz</a>
-            <a href="#degerlerimiz" className="hover:text-[#c4a265] transition-colors">Değerlerimiz</a>
-            <a href="#iletisim" className="hover:text-[#c4a265] transition-colors">İletişim</a>
+            {navLinks.map((link, index) => (
+              <div key={index} className="flex items-center gap-1 group/nav relative">
+                <a href={link.url} className="hover:text-[#c4a265] transition-colors shrink-0">
+                  <EditableText
+                    content={content}
+                    contentKey={`nav_links.${index}.name`}
+                    onUpdate={onUpdateContent}
+                    isEditMode={isEditMode}
+                    className="focus:outline-none focus:ring-0 px-0.5 rounded"
+                  />
+                </a>
+                {isEditMode && navLinks.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const newLinks = navLinks.filter((_, i) => i !== index);
+                      onUpdateContent({
+                        ...content,
+                        nav_links: newLinks
+                      });
+                    }}
+                    className="text-red-500 hover:text-red-700 opacity-0 group-hover/nav:opacity-100 transition-opacity cursor-pointer shrink-0 ml-0.5"
+                    title="Sil"
+                  >
+                    <Trash2 size={11} />
+                  </button>
+                )}
+              </div>
+            ))}
+
+            {isEditMode && navLinks.length < 10 && (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowAddNavDropdown(!showAddNavDropdown)}
+                  className="text-indigo-600 hover:text-indigo-800 text-xs font-bold tracking-wider uppercase cursor-pointer ml-4 flex items-center gap-1"
+                >
+                  <PlusCircle size={12} />
+                  Ekle
+                </button>
+                {showAddNavDropdown && (
+                  <div className="absolute top-6 right-0 bg-white border border-[#e6e2da] shadow-xl rounded-lg py-2 w-48 z-50 text-left normal-case tracking-normal">
+                    <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase border-b border-slate-100 mb-1">
+                      Bölüm Seçin
+                    </div>
+                    {[
+                      { name: 'Hikayemiz', url: '#hikayemiz' },
+                      { name: 'Menümüz', url: '#menumuz' },
+                      { name: 'Değerlerimiz', url: '#degerlerimiz' },
+                      { name: 'İletişim', url: '#iletisim' }
+                    ].map((item) => (
+                      <button
+                        key={item.url}
+                        type="button"
+                        onClick={() => {
+                          const newLinks = [
+                            ...navLinks,
+                            { name: item.name, url: item.url }
+                          ];
+                          onUpdateContent({
+                            ...content,
+                            nav_links: newLinks
+                          });
+                          setShowAddNavDropdown(false);
+                        }}
+                        className="w-full text-left px-3 py-1.5 text-xs text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </nav>
 
           {/* CTA Buton */}
@@ -105,36 +182,18 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
 
         {/* Mobil Menü */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#faf6f0] border-t border-[#e6e2da] px-6 py-6 space-y-4 animate-fade-in absolute w-full left-0 shadow-lg">
+          <div className="md:hidden bg-[#faf6f0] border-t border-[#e6e2da] px-6 py-6 space-y-4 animate-fade-in absolute w-full left-0 shadow-lg z-50">
             <nav className="flex flex-col gap-4 font-quicksand font-bold text-[#212121]/80">
-              <a 
-                href="#hikayemiz" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#c4a265] py-1 border-b border-[#e6e2da]/50"
-              >
-                Hikayemiz
-              </a>
-              <a 
-                href="#menumuz" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#c4a265] py-1 border-b border-[#e6e2da]/50"
-              >
-                Menümüz
-              </a>
-              <a 
-                href="#degerlerimiz" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#c4a265] py-1 border-b border-[#e6e2da]/50"
-              >
-                Değerlerimiz
-              </a>
-              <a 
-                href="#iletisim" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-[#c4a265] py-1"
-              >
-                İletişim
-              </a>
+              {navLinks.map((link, idx) => (
+                <a 
+                  key={idx}
+                  href={link.url} 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="hover:text-[#c4a265] py-1 border-b border-[#e6e2da]/50 block"
+                >
+                  {link.name}
+                </a>
+              ))}
             </nav>
             <a 
               href="#iletisim" 
@@ -217,44 +276,88 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
 
       {/* 4. Değerlerimiz Section */}
       <section id="degerlerimiz" className="bg-[#fcfbf9] border-y border-[#e6e2da] py-16">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Değer 1 */}
-          <div className="flex gap-4 items-start">
-            <div className="w-12 h-12 shrink-0 rounded-2xl bg-[#c4a265]/10 border border-[#c4a265]/20 flex items-center justify-center text-[#c4a265]">
-              <Heart size={22} />
-            </div>
-            <div className="space-y-1.5">
-              <h3 className="font-ovo text-lg font-semibold">Yerel Malzemeler</h3>
-              <p className="font-quicksand text-sm text-[#666] leading-relaxed">
-                Tüm yumurta, un ve süt ürünlerimizi doğrudan yerel çiftliklerden taze temin ediyor, el yapımı üretiyoruz.
-              </p>
-            </div>
-          </div>
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {content.services?.map((service, serviceIdx) => {
+              // İkon eşleştirmesi
+              const renderIcon = (iconName: string) => {
+                switch (iconName) {
+                  case 'heart': return <Heart size={22} />;
+                  case 'shield':
+                  case 'shield-check': return <ShieldCheck size={22} />;
+                  case 'coffee': return <Coffee size={22} />;
+                  default: return <Coffee size={22} />;
+                }
+              };
 
-          {/* Değer 2 */}
-          <div className="flex gap-4 items-start">
-            <div className="w-12 h-12 shrink-0 rounded-2xl bg-[#c4a265]/10 border border-[#c4a265]/20 flex items-center justify-center text-[#c4a265]">
-              <ShieldCheck size={22} />
-            </div>
-            <div className="space-y-1.5">
-              <h3 className="font-ovo text-lg font-semibold">Çevre Dostu Mutfak</h3>
-              <p className="font-quicksand text-sm text-[#666] leading-relaxed">
-                Sıfır plastik hedefiyle çalışıyoruz; tüm ambalajlarımızı kompostlanabilir ve geri dönüştürülebilir kağıt malzemelerden seçiyoruz.
-              </p>
-            </div>
-          </div>
+              return (
+                <div key={serviceIdx} className="flex gap-4 items-start relative group/service p-2">
+                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-[#c4a265]/10 border border-[#c4a265]/20 flex items-center justify-center text-[#c4a265]">
+                    {renderIcon(service.icon)}
+                  </div>
+                  <div className="space-y-1.5 text-left flex-1">
+                    <h3 className="font-ovo text-lg font-semibold">
+                      <EditableText
+                        content={content}
+                        contentKey={`services.${serviceIdx}.title`}
+                        onUpdate={onUpdateContent}
+                        isEditMode={isEditMode}
+                      />
+                    </h3>
+                    <div className="font-quicksand text-sm text-[#666] leading-relaxed">
+                      <EditableText
+                        content={content}
+                        contentKey={`services.${serviceIdx}.description`}
+                        onUpdate={onUpdateContent}
+                        isEditMode={isEditMode}
+                        multiline
+                      />
+                    </div>
+                  </div>
+                  {isEditMode && content.services && content.services.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newServices = content.services?.filter((_, i) => i !== serviceIdx) || [];
+                        onUpdateContent({
+                          ...content,
+                          services: newServices
+                        });
+                      }}
+                      className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-md z-30 transition-all cursor-pointer opacity-0 group-hover/service:opacity-100"
+                      title="Bu Değeri Sil"
+                    >
+                      <Trash2 size={10} />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
 
-          {/* Değer 3 */}
-          <div className="flex gap-4 items-start">
-            <div className="w-12 h-12 shrink-0 rounded-2xl bg-[#c4a265]/10 border border-[#c4a265]/20 flex items-center justify-center text-[#c4a265]">
-              <Coffee size={22} />
-            </div>
-            <div className="space-y-1.5">
-              <h3 className="font-ovo text-lg font-semibold">Nitelikli Artisan Çekirdekler</h3>
-              <p className="font-quicksand text-sm text-[#666] leading-relaxed">
-                En iyi kavurma evlerinin Red Brick harmanlarını kullanıyor, her fincanda eşsiz aromalı artisan kahveler demliyoruz.
-              </p>
-            </div>
+            {/* Yeni Değer Ekleme Kartı (Maks 5) */}
+            {isEditMode && (!content.services || content.services.length < 5) && (
+              <div className="flex items-center justify-center border-2 border-dashed border-[#e6e2da] rounded-2xl p-6 hover:border-[#c4a265] transition-colors min-h-[100px]">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const defaultIcons = ['heart', 'shield-check', 'coffee'];
+                    const nextIcon = defaultIcons[(content.services?.length || 0) % defaultIcons.length];
+                    const newServices = [
+                      ...(content.services || []),
+                      { title: 'Yeni Özellik', description: 'Özellik açıklamasını yazınız.', icon: nextIcon }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      services: newServices
+                    });
+                  }}
+                  className="flex items-center gap-2 text-xs font-bold font-quicksand uppercase tracking-wider text-[#212121] hover:text-[#c4a265] transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={20} className="text-[#c4a265] animate-pulse" />
+                  <span>Yeni Özellik Ekle</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -320,63 +423,172 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
           </div>
 
           {/* Menü Kategorileri Tab Bar */}
-          {menuCategories.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-              {menuCategories.map((catName) => {
-                const isActive = catName === currentCategory;
+          {menuItems.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-4 items-center">
+              {menuItems.map((cat, idx) => {
+                const isActive = idx === activeCategoryIndex;
                 return (
-                  <button
-                    key={catName}
-                    onClick={() => setActiveCategory(catName)}
-                    className={`px-6 py-2.5 rounded-full text-xs font-quicksand font-bold uppercase tracking-wider transition-all border cursor-pointer ${
-                      isActive 
-                        ? 'bg-[#212121] border-[#212121] text-white shadow-md' 
-                        : 'bg-white/60 border-[#e6e2da] text-[#212121] hover:border-[#c4a265] hover:text-[#c4a265]'
-                    }`}
-                  >
-                    {catName}
-                  </button>
+                  <div key={idx} className="flex items-center gap-1 group/cat relative">
+                    <button
+                      type="button"
+                      onClick={() => setActiveCategoryIndex(idx)}
+                      className={`px-6 py-2.5 rounded-full text-xs font-quicksand font-bold uppercase tracking-wider transition-all border cursor-pointer ${
+                        isActive 
+                          ? 'bg-[#212121] border-[#212121] text-white shadow-md' 
+                          : 'bg-white/60 border-[#e6e2da] text-[#212121] hover:border-[#c4a265] hover:text-[#c4a265]'
+                      }`}
+                    >
+                      <EditableText
+                        content={content}
+                        contentKey={`menu_items.${idx}.category`}
+                        onUpdate={onUpdateContent}
+                        isEditMode={isEditMode}
+                        className="focus:outline-none focus:ring-0"
+                      />
+                    </button>
+
+                    {/* Kategori Silme Butonu */}
+                    {isEditMode && menuItems.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newMenuItems = menuItems.filter((_, i) => i !== idx);
+                          onUpdateContent({
+                            ...content,
+                            menu_items: newMenuItems
+                          });
+                          setActiveCategoryIndex(0);
+                        }}
+                        className="text-red-500 hover:text-red-700 cursor-pointer p-1 shrink-0"
+                        title="Kategoriyi Sil"
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                    )}
+                  </div>
                 );
               })}
+
+              {/* Kategori Ekleme Butonu (Maks 6) */}
+              {isEditMode && menuItems.length < 6 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newMenuItems = [
+                      ...menuItems,
+                      {
+                        category: 'YENİ KATEGORİ',
+                        items: [
+                          { name: 'Yeni Ürün', description: 'Ürün açıklaması', price: '₺100' }
+                        ]
+                      }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      menu_items: newMenuItems
+                    });
+                    setActiveCategoryIndex(newMenuItems.length - 1);
+                  }}
+                  className="flex items-center gap-1 px-4 py-2 border-2 border-dashed border-[#e6e2da] rounded-full text-xs font-bold font-quicksand uppercase tracking-wider text-[#212121] hover:text-[#c4a265] transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={12} />
+                  Kategori Ekle
+                </button>
+              )}
             </div>
           )}
 
           {/* Menü Ürünleri Listesi */}
           {activeMenuCategory && activeMenuCategory.items && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 max-w-4xl mx-auto pt-6">
-              {activeMenuCategory.items.map((item, itemIdx) => {
-                const itemPath = `menu_items.${content.menu_items?.indexOf(activeMenuCategory)}.items.${itemIdx}`;
-                
-                return (
-                  <div key={itemIdx} className="group border-b border-[#e6e2da]/70 pb-5 space-y-1">
-                    <div className="flex justify-between items-baseline">
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.name`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-ovo text-base font-semibold group-hover:text-[#c4a265] transition-colors focus:outline-none focus:ring-1 focus:ring-[#c4a265] px-0.5 rounded"
-                      />
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.price`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-ovo italic text-sm text-[#c4a265] font-semibold focus:outline-none focus:ring-1 focus:ring-[#c4a265] px-0.5 rounded ml-4 shrink-0"
-                      />
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 max-w-4xl mx-auto pt-6">
+                {activeMenuCategory.items.map((item, itemIdx) => {
+                  const itemPath = `menu_items.${activeCategoryIndex}.items.${itemIdx}`;
+                  
+                  return (
+                    <div key={itemIdx} className="group border-b border-[#e6e2da]/70 pb-5 space-y-1 relative pr-6 text-left">
+                      {/* Ürün Silme Butonu */}
+                      {isEditMode && activeMenuCategory.items.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedItems = activeMenuCategory.items.filter((_, i) => i !== itemIdx);
+                            const updatedMenuItems = menuItems.map((cat, i) => {
+                              if (i === activeCategoryIndex) {
+                                return { ...cat, items: updatedItems };
+                              }
+                              return cat;
+                            });
+                            onUpdateContent({
+                              ...content,
+                              menu_items: updatedMenuItems
+                            });
+                          }}
+                          className="absolute right-0 top-1 text-red-500 hover:text-red-700 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
+                          title="Bu Ürünü Sil"
+                        >
+                          <Trash2 size={12} />
+                        </button>
+                      )}
+
+                      <div className="flex justify-between items-baseline">
+                        <EditableText
+                          content={content}
+                          contentKey={`${itemPath}.name`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                          className="font-ovo text-base font-semibold group-hover:text-[#c4a265] transition-colors focus:outline-none focus:ring-1 focus:ring-[#c4a265] px-0.5 rounded"
+                        />
+                        <EditableText
+                          content={content}
+                          contentKey={`${itemPath}.price`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                          className="font-ovo italic text-sm text-[#c4a265] font-semibold focus:outline-none focus:ring-1 focus:ring-[#c4a265] px-0.5 rounded ml-4 shrink-0"
+                        />
+                      </div>
+                      {item.description !== undefined && (
+                        <EditableText
+                          content={content}
+                          contentKey={`${itemPath}.description`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                          className="font-quicksand text-xs text-[#666] leading-relaxed block focus:outline-none focus:ring-1 focus:ring-[#c4a265] px-0.5 rounded"
+                        />
+                      )}
                     </div>
-                    {item.description !== undefined && (
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.description`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-quicksand text-xs text-[#666] leading-relaxed block focus:outline-none focus:ring-1 focus:ring-[#c4a265] px-0.5 rounded"
-                      />
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+
+              {/* Ürün Ekleme Butonu */}
+              {isEditMode && (
+                <div className="flex justify-center pt-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updatedItems = [
+                        ...activeMenuCategory.items,
+                        { name: 'Yeni Ürün/İçecek', description: 'Ürün açıklaması buraya yazılır.', price: '₺120' }
+                      ];
+                      const updatedMenuItems = menuItems.map((cat, i) => {
+                        if (i === activeCategoryIndex) {
+                          return { ...cat, items: updatedItems };
+                        }
+                        return cat;
+                      });
+                      onUpdateContent({
+                        ...content,
+                        menu_items: updatedMenuItems
+                      });
+                    }}
+                    className="flex items-center gap-2 px-6 py-2.5 bg-[#212121] hover:bg-[#c4a265] text-white font-quicksand font-bold text-xs tracking-wider uppercase rounded-full transition-all cursor-pointer shadow-md"
+                  >
+                    <PlusCircle size={14} />
+                    Bu Kategoriye Ürün Ekle
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -491,11 +703,28 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
           {/* Hızlı Linkler */}
           <div className="space-y-3">
             <h4 className="font-bold text-[#c4a265] tracking-wide text-xs uppercase">Navigasyon</h4>
-            <div className="flex flex-col gap-2 text-xs text-slate-400">
-              <a href="#hikayemiz" className="hover:text-white transition-colors">Hikayemiz</a>
-              <a href="#menumuz" className="hover:text-white transition-colors">Menümüz</a>
-              <a href="#degerlerimiz" className="hover:text-white transition-colors">Değerlerimiz</a>
-              <a href="#iletisim" className="hover:text-white transition-colors">İletişim & Konum</a>
+            <div className="flex flex-col gap-2 text-xs text-slate-400 text-left">
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('hakkimizda'); }}
+                className="hover:text-white transition-colors"
+              >
+                Hakkımızda
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('gizlilik'); }}
+                className="hover:text-white transition-colors"
+              >
+                Gizlilik Politikası
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => { e.preventDefault(); setActiveFooterModal('iletisim'); }}
+                className="hover:text-white transition-colors"
+              >
+                İletişim & Konum
+              </a>
             </div>
           </div>
 
@@ -512,6 +741,105 @@ export default function GingerWhiteTemplate({ content, themeConfig, isEditMode, 
           </div>
         </div>
       </footer>
+
+      {/* Footer Modalı (Tüm sitelerde aynı genel metinler) */}
+      {activeFooterModal && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-[#faf6f0] text-slate-800 rounded-3xl max-w-lg w-full p-6 md:p-8 border border-[#e6e2da] shadow-2xl animate-in fade-in zoom-in-95 duration-200 relative font-quicksand">
+            <button
+              type="button"
+              onClick={() => setActiveFooterModal(null)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
+
+            {activeFooterModal === 'hakkimizda' && (
+              <div className="space-y-4 text-left">
+                <h3 className="font-ovo text-2xl font-bold border-b pb-2 text-[#212121] uppercase tracking-wide">{content.contact.company_name} &bull; Hakkımızda</h3>
+                <div className="space-y-3 text-sm text-[#555] leading-relaxed">
+                  <p>
+                    Kafemiz, nitelikli artisan kahve kültürünü, en taze yerel malzemelerle el yapımı olarak hazırlanan fırın lezzetleriyle buluşturarak mahallenin en sıcak köşesi olma amacıyla yola çıkmıştır. Londra sokaklarının samimi havası ve zengin kahve menümüzle her misafirimize huzurlu bir dinlenme noktası sunuyoruz.
+                  </p>
+                  <p>
+                    Güne başlarken kokusuyla sizi saran taze kruvasanlarımız, fırından yeni çıkmış frostingli havuçlu kekimiz ve şeflerimizin özenle hazırladığı ekşi mayalı özel tostlarımızla günün her anında sizinleyiz.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeFooterModal === 'gizlilik' && (
+              <div className="space-y-4 text-left">
+                <h3 className="font-ovo text-2xl font-bold border-b pb-2 text-[#212121] uppercase tracking-wide">Gizlilik Politikası</h3>
+                <div className="text-xs text-[#666] leading-relaxed space-y-3 overflow-y-auto max-h-[60vh] pr-2">
+                  <p className="font-semibold text-[#212121]">1. Veri Sorumlusu ve Amacı</p>
+                  <p>
+                    Bu web sitesi üzerinden bizimle paylaştığınız kişisel verileriniz (isim, e-posta, telefon gibi iletişim bilgileri), yalnızca rezervasyon taleplerinizi almak, hizmetlerimizle ilgili bilgilendirme yapmak ve iletişim formları üzerinden taleplerinize yanıt vermek amacıyla işlenir.
+                  </p>
+                  <p className="font-semibold text-[#212121]">2. Verilerin Saklanması ve Paylaşımı</p>
+                  <p>
+                    Kişisel verileriniz, yasal süreler ve işleme amaçlarının gerektirdiği süre boyunca güvenli yerel sunucularda saklanır. Verileriniz, yasal zorunluluklar hariç olmak üzere, üçüncü şahıslarla asla paylaşılmaz, satılmaz veya ticari amaçla kullanılmaz.
+                  </p>
+                  <p className="font-semibold text-[#212121]">3. Çerezler (Cookies)</p>
+                  <p>
+                    Web sitemiz, kullanıcı deneyimini iyileştirmek ve site trafiğini analiz etmek için çerezleri kullanabilir. Tarayıcı ayarlarınızdan çerezleri dilediğiniz gibi engelleyebilir veya silebilirsiniz.
+                  </p>
+                  <p className="font-semibold text-[#212121]">4. Haklarınız</p>
+                  <p>
+                    Kişisel verilerinizin silinmesini, güncellenmesini veya işlenip işlenmediğini öğrenmeyi dilediğiniz zaman talep edebilirsiniz. Bilgi talepleri için lütfen iletişim kanallarımız üzerinden bizimle irtibata geçin.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activeFooterModal === 'iletisim' && (
+              <div className="space-y-4 text-left">
+                <h3 className="font-ovo text-2xl font-bold border-b pb-2 text-[#212121] uppercase tracking-wide">İletişim Bilgileri</h3>
+                <div className="space-y-3 text-sm text-[#555]">
+                  <div className="flex items-start gap-2">
+                    <MapPin size={16} className="text-[#c4a265] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#212121]">Adresimiz</p>
+                      <p>{content.contact.address || 'Kafemiz Adresi'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Phone size={16} className="text-[#c4a265] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#212121]">Telefon</p>
+                      <p>{content.contact.phone || '0212 000 00 00'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Mail size={16} className="text-[#c4a265] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#212121]">E-posta</p>
+                      <p>{content.contact.email || 'info@kafemiz.com'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Clock size={16} className="text-[#c4a265] shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-[#212121]">Çalışma Saatleri</p>
+                      <p>{content.contact.hours || 'Her Gün Açık'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-end mt-6 border-t pt-4">
+              <button
+                type="button"
+                onClick={() => setActiveFooterModal(null)}
+                className="px-5 py-2 bg-[#212121] text-white hover:bg-[#212121]/90 text-xs font-semibold tracking-wider uppercase rounded-full cursor-pointer"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
