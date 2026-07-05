@@ -70,6 +70,26 @@ export const templateRegistry: Record<string, TemplatePreset> = {
       ]
     }
   },
+  ginger_white: {
+    template_name: 'ginger_white',
+    displayName: 'Ginger & White Esintili Kafe',
+    category: 'Kafe & Restoran',
+    categoryKeywords: ['kafe', 'cafe', 'kahve', 'nitelikli', 'kahvaltı', 'pastane', 'fırın'],
+    layoutStyle: 'editorial-retro',
+    layoutComponent: 'GingerWhiteTemplate',
+    defaultTheme: { primary: '#c4a265', secondary: '#212121', fontFamily: 'Playfair Display, serif', fontFamilyHeading: 'Playfair Display, serif' },
+    defaultContent: {
+      hero: { title: 'Nitelikli Kahve & Taze Lezzetler', subtitle: 'Mahallemizin kalbinde, en kaliteli yerel malzemelerle hazırlanan el yapımı lezzetler ve nitelikli artisan kahveler.', cta_text: 'Menümüzü Keşfedin', badge_text: 'Sıcak Mahalle Kafesi' },
+      about: 'Londra sokaklarının samimi havasını ve nitelikli kahve kültürünü mahallenize taşıyoruz. Ortak masalarımız, güler yüzlü ekibimiz ve taze pişen günlük keklerimizle sıcak bir mola noktası sunuyoruz.',
+      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Ginger & White' },
+      images: { hero_bg: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80' },
+      menu_items: [
+        { category: 'Sıcak & Soğuk Kahveler', items: [{ name: 'Flat White', description: 'Tek köken çekirdeklerden, kadifemsi süt kreması ile', price: '₺120' }, { name: 'V60 / Filtre Kahve', description: 'Mevsimlik hasat nitelikli çekirdekler', price: '₺110' }, { name: 'El Yapımı Sıcak Çikolata', description: 'Organik kakao ve sütle', price: '₺130' }] },
+        { category: 'Kahvaltı & Yemek', items: [{ name: 'Rafadan Yumurta & Ekşi Mayalı Ekmek', description: 'Sourdough soldiers ile meşhur dippy eggs lezzeti', price: '₺180' }, { name: 'Avokadolu Tost', description: 'Ekşi mayalı ekmek üzerinde avokado ezmesi ve keçi peyniri', price: '₺220' }, { name: 'Ev Yapımı Günlük Sebze Çorbası', description: 'Taze sebzeler ve kruton ekmekle', price: '₺140' }] },
+        { category: 'Fırınımız & Kekler', items: [{ name: 'Frostingli Havuçlu Kek', description: 'Kendi mutfağımızda günlük taze pişen meşhur kekimiz', price: '₺150' }, { name: 'Yoğun Çikolatalı Brownie', description: 'Glutensiz, zengin çikolatalı', price: '₺165' }, { name: 'Parçacıklı Fıstık Ezmeli Kurabiye', description: 'Kendi imalatımız yer fıstığı ezmesiyle', price: '₺95' }] }
+      ]
+    }
+  },
 
 
   /* ══════════ BERBER & KUAFÖR ══════════ */
@@ -527,17 +547,17 @@ export function getPresetForCategory(categoryStr: string): TemplatePreset {
     {
       name: "Restoran",
       keys: ["restoran", "restaurant", "lokanta", "bistro", "pub", "bar", "food", "yemek"],
-      templates: ["cafe_warm"]
+      templates: ["cafe_warm", "ginger_white"]
     },
     {
       name: "Kafe",
       keys: ["kafe", "cafe", "kahve", "coffee", "tea", "çay"],
-      templates: ["cafe_warm"]
+      templates: ["cafe_warm", "ginger_white"]
     },
     {
       name: "Pastane & Fırın",
       keys: ["pastane", "pastanesi", "fırın", "fırını", "bakery", "patisserie", "unlu mamul", "tatlı", "cake", "bread"],
-      templates: ["cafe_warm"]
+      templates: ["cafe_warm", "ginger_white"]
     },
     {
       name: "Berber & Kuaför",

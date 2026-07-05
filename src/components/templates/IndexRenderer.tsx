@@ -19,6 +19,7 @@ interface IndexRendererProps {
 const LAYOUT_COMPONENTS: Record<string, React.ComponentType<any>> = {
   // Kafe & Restoran
   CafeWarmTemplate: dynamic(() => import('./layouts/cafe/CafeWarmTemplate')),
+  GingerWhiteTemplate: dynamic(() => import('./layouts/cafe/GingerWhiteTemplate')),
   
   // Berber & Kuaför
   BarberDarkTemplate: dynamic(() => import('./layouts/barber/BarberDarkTemplate')),
