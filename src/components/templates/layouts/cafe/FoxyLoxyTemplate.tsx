@@ -46,12 +46,10 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
   ];
   const navLinks = content.nav_links || defaultNavLinks;
 
-  // Menü kategorileri
-  const menuCategories = content.menu_items?.map(cat => cat.category) || [];
-  const currentCategory = activeCategory || menuCategories[0] || '';
-  const activeMenuCategory = content.menu_items?.find(
-    cat => cat.category === currentCategory
-  );
+  // Menü kategorileri (Index tabanlı state yönetimi)
+  const menuItems = content.menu_items || [];
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
+  const activeMenuCategory = menuItems[activeCategoryIndex] || menuItems[0];
 
   return (
     <div className="min-h-screen bg-white text-[#222222] font-sans selection:bg-[#222222] selection:text-white relative font-inter">
@@ -479,63 +477,172 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           </div>
 
           {/* Kategori Seçiciler (Modern Minimalist Squarespace Stili) */}
-          {menuCategories.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2">
-              {menuCategories.map((catName) => {
-                const isActive = catName === currentCategory;
+          {menuItems.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-4 items-center">
+              {menuItems.map((cat, idx) => {
+                const isActive = idx === activeCategoryIndex;
                 return (
-                  <button
-                    key={catName}
-                    onClick={() => setActiveCategory(catName)}
-                    className={`px-5 py-2.5 text-xs font-inter font-bold uppercase tracking-widest border transition-all cursor-pointer ${
-                      isActive 
-                        ? 'bg-black border-black text-white' 
-                        : 'bg-white border-black/10 text-[#444] hover:border-black hover:text-black'
-                    }`}
-                  >
-                    {catName}
-                  </button>
+                  <div key={idx} className="flex items-center gap-1 group/cat relative">
+                    <button
+                      type="button"
+                      onClick={() => setActiveCategoryIndex(idx)}
+                      className={`px-5 py-2.5 text-xs font-inter font-bold uppercase tracking-widest border transition-all cursor-pointer ${
+                        isActive 
+                          ? 'bg-black border-black text-white' 
+                          : 'bg-white border-black/10 text-[#444] hover:border-black hover:text-black'
+                      }`}
+                    >
+                      <EditableText
+                        content={content}
+                        contentKey={`menu_items.${idx}.category`}
+                        onUpdate={onUpdateContent}
+                        isEditMode={isEditMode}
+                        className="focus:outline-none focus:ring-0"
+                      />
+                    </button>
+
+                    {/* Kategori Silme Butonu */}
+                    {isEditMode && menuItems.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newMenuItems = menuItems.filter((_, i) => i !== idx);
+                          onUpdateContent({
+                            ...content,
+                            menu_items: newMenuItems
+                          });
+                          setActiveCategoryIndex(0);
+                        }}
+                        className="text-red-500 hover:text-red-700 cursor-pointer p-1 shrink-0"
+                        title="Kategoriyi Sil"
+                      >
+                        <Trash2 size={12} />
+                      </button>
+                    )}
+                  </div>
                 );
               })}
+
+              {/* Kategori Ekleme Butonu (Maks 6) */}
+              {isEditMode && menuItems.length < 6 && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const newMenuItems = [
+                      ...menuItems,
+                      {
+                        category: 'YENİ KATEGORİ',
+                        items: [
+                          { name: 'Yeni Ürün', description: 'Ürün açıklaması', price: '₺100' }
+                        ]
+                      }
+                    ];
+                    onUpdateContent({
+                      ...content,
+                      menu_items: newMenuItems
+                    });
+                    setActiveCategoryIndex(newMenuItems.length - 1);
+                  }}
+                  className="flex items-center gap-1 px-4 py-2 border-2 border-dashed border-black/10 hover:border-black/30 text-xs font-bold font-inter uppercase tracking-widest text-[#666] hover:text-black transition-colors cursor-pointer"
+                >
+                  <PlusCircle size={12} />
+                  Kategori Ekle
+                </button>
+              )}
             </div>
           )}
 
           {/* Menü İçerikleri */}
           {activeMenuCategory && activeMenuCategory.items && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl mx-auto pt-6">
-              {activeMenuCategory.items.map((item, itemIdx) => {
-                const itemPath = `menu_items.${content.menu_items?.indexOf(activeMenuCategory)}.items.${itemIdx}`;
-                
-                return (
-                  <div key={itemIdx} className="bg-white p-6 border border-black/5 flex flex-col space-y-2 group hover:border-black/25 transition-all">
-                    <div className="flex justify-between items-baseline gap-4">
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.name`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-lora text-lg font-normal text-[#222] group-hover:text-black transition-colors focus:outline-none focus:ring-0 px-0.5 rounded block"
-                      />
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.price`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-lora italic text-sm text-[#222] font-semibold focus:outline-none focus:ring-0 px-0.5 rounded shrink-0 ml-4"
-                      />
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl mx-auto pt-6">
+                {activeMenuCategory.items.map((item, itemIdx) => {
+                  const itemPath = `menu_items.${activeCategoryIndex}.items.${itemIdx}`;
+                  
+                  return (
+                    <div key={itemIdx} className="bg-white p-6 border border-black/5 flex flex-col space-y-2 group hover:border-black/25 transition-all relative">
+                      {/* Ürün Silme Butonu */}
+                      {isEditMode && activeMenuCategory.items.length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const updatedItems = activeMenuCategory.items.filter((_, i) => i !== itemIdx);
+                            const updatedMenuItems = menuItems.map((cat, i) => {
+                              if (i === activeCategoryIndex) {
+                                return { ...cat, items: updatedItems };
+                              }
+                              return cat;
+                            });
+                            onUpdateContent({
+                              ...content,
+                              menu_items: updatedMenuItems
+                            });
+                          }}
+                          className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-md z-30 transition-all cursor-pointer opacity-0 group-hover:opacity-100"
+                          title="Bu Ürünü Sil"
+                        >
+                          <Trash2 size={10} />
+                        </button>
+                      )}
+
+                      <div className="flex justify-between items-baseline gap-4">
+                        <EditableText
+                          content={content}
+                          contentKey={`${itemPath}.name`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                          className="font-lora text-lg font-normal text-[#222] group-hover:text-black transition-colors focus:outline-none focus:ring-0 px-0.5 rounded block"
+                        />
+                        <EditableText
+                          content={content}
+                          contentKey={`${itemPath}.price`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                          className="font-lora italic text-sm text-[#222] font-semibold focus:outline-none focus:ring-0 px-0.5 rounded shrink-0 ml-4"
+                        />
+                      </div>
+                      {item.description !== undefined && (
+                        <EditableText
+                          content={content}
+                          contentKey={`${itemPath}.description`}
+                          onUpdate={onUpdateContent}
+                          isEditMode={isEditMode}
+                          className="font-inter text-xs text-[#666] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
+                        />
+                      )}
                     </div>
-                    {item.description !== undefined && (
-                      <EditableText
-                        content={content}
-                        contentKey={`${itemPath}.description`}
-                        onUpdate={onUpdateContent}
-                        isEditMode={isEditMode}
-                        className="font-inter text-xs text-[#666] leading-relaxed block focus:outline-none focus:ring-0 px-0.5 rounded"
-                      />
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+
+              {/* Ürün Ekleme Butonu */}
+              {isEditMode && (
+                <div className="flex justify-center pt-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const updatedItems = [
+                        ...activeMenuCategory.items,
+                        { name: 'Yeni Ürün/İçecek', description: 'Ürün açıklaması buraya yazılır.', price: '₺150' }
+                      ];
+                      const updatedMenuItems = menuItems.map((cat, i) => {
+                        if (i === activeCategoryIndex) {
+                          return { ...cat, items: updatedItems };
+                        }
+                        return cat;
+                      });
+                      onUpdateContent({
+                        ...content,
+                        menu_items: updatedMenuItems
+                      });
+                    }}
+                    className="flex items-center gap-2 px-6 py-3 bg-black hover:bg-black/85 text-white font-inter font-bold text-xs tracking-widest uppercase transition-all cursor-pointer"
+                  >
+                    <PlusCircle size={14} />
+                    Bu Kategoriye Ürün Ekle
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
