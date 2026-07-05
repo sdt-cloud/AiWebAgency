@@ -130,6 +130,26 @@ export const templateRegistry: Record<string, TemplatePreset> = {
       ]
     }
   },
+  foxy_loxy: {
+    template_name: 'foxy_loxy',
+    displayName: 'Foxy Loxy Cafe Esintili Kafe',
+    category: 'Kafe & Restoran',
+    categoryKeywords: ['kafe', 'cafe', 'kahve', 'meksika', 'cantina', 'taco', 'kolache', 'muffin', 'canlı müzik'],
+    layoutStyle: 'editorial-retro',
+    layoutComponent: 'FoxyLoxyTemplate',
+    defaultTheme: { primary: '#D36135', secondary: '#5B7053', fontFamily: 'Fredoka, sans-serif', fontFamilyHeading: 'DM Serif Display, serif' },
+    defaultContent: {
+      hero: { title: 'Kahveci, Fırın & Tex-Mex Kantini', subtitle: 'Savannah Starland District’in sıcacık Victorian evinde yer alan Foxy Loxy, taze demlenmiş kahveleri, el yapımı taco ve fırın lezzetleriyle samimi arka bahçemizde sizi bekliyor.', cta_text: 'Mutfağımızı İnceleyin', badge_text: 'Bohem & Sanatçı Dostu Kafe' },
+      about: 'Foxy Loxy Cafe, bir kahve dükkanından fazlasıdır. Eklektik ahşap dekorumuz, yerel sanatçıların duvarlarımızı süsleyen eserleri, her Salı canlı akustik müzik konserlerimiz ve Cumartesi günleri bahçede yaktığımız ateş çukurlarımızla mahallenin ortak yaşam odasıyız.',
+      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Foxy Loxy' },
+      images: { hero_bg: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80', about_img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80' },
+      menu_items: [
+        { category: 'Tex-Mex Cantina Tacos', items: [{ name: 'Chorizo & Yumurtalı Taco', description: 'Baharatlı Meksika sucuğu, çırpılmış yumurta ve taze salsa', price: '₺165' }, { name: 'Ağır Ateşte Pişmiş Etli Taco', description: 'Közlenmiş biber sosu, kişniş, misket limonu ve baharatlı dana eti', price: '₺195' }, { name: 'Vegan Tex-Mex Kasesi', description: 'Kinoa, siyah fasulye, tatlı mısır ve taze avokado dilimleri', price: '₺220' }] },
+        { category: 'Taze Fırın & Çörekler', items: [{ name: 'Cheddar & Jalapeño Kolache', description: 'Teksas usulü içi eritilmiş çedar ve acı jalapeño biber dolgulu çörek', price: '₺130' }, { name: 'Yaban Mersinli Gluten-Free Muffin', description: 'Mevsimlik yaban mersinleri ile kendi fırınımızda pişmiş glutensiz çörek', price: '₺115' }, { name: 'Krem Peynirli Tarçınlı Rulo', description: 'Sıcak servis edilen tereyağlı tarçınlı çörek', price: '₺140' }] },
+        { category: 'Nitelikli Kahveler', items: [{ name: 'Cold Brew / Soğuk Demleme', description: '18 saat soğuk suda demlenmiş yumuşak içimli kahve', price: '₺110' }, { name: 'Mexican Mocha', description: 'Espresso, süt, organik çikolata ve hafif acı meksika biberi esintisi', price: '₺135' }] }
+      ]
+    }
+  },
 
 
   /* ══════════ BERBER & KUAFÖR ══════════ */
@@ -587,17 +607,17 @@ export function getPresetForCategory(categoryStr: string): TemplatePreset {
     {
       name: "Restoran",
       keys: ["restoran", "restaurant", "lokanta", "bistro", "pub", "bar", "food", "yemek"],
-      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis", "foxy_loxy"]
     },
     {
       name: "Kafe",
       keys: ["kafe", "cafe", "kahve", "coffee", "tea", "çay"],
-      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis", "foxy_loxy"]
     },
     {
       name: "Pastane & Fırın",
       keys: ["pastane", "pastanesi", "fırın", "fırını", "bakery", "pastisserie", "unlu mamul", "tatlı", "cake", "bread"],
-      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis"]
+      templates: ["cafe_warm", "ginger_white", "house_cafe", "pastis", "foxy_loxy"]
     },
     {
       name: "Berber & Kuaför",

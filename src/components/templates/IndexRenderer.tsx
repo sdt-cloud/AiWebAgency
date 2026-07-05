@@ -22,6 +22,7 @@ const LAYOUT_COMPONENTS: Record<string, React.ComponentType<any>> = {
   GingerWhiteTemplate: dynamic(() => import('./layouts/cafe/GingerWhiteTemplate')),
   HouseCafeTemplate: dynamic(() => import('./layouts/cafe/HouseCafeTemplate')),
   PastisTemplate: dynamic(() => import('./layouts/cafe/PastisTemplate')),
+  FoxyLoxyTemplate: dynamic(() => import('./layouts/cafe/FoxyLoxyTemplate')),
   
   // Berber & Kuaför
   BarberDarkTemplate: dynamic(() => import('./layouts/barber/BarberDarkTemplate')),
