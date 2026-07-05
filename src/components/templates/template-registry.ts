@@ -153,7 +153,12 @@ export const templateRegistry: Record<string, TemplatePreset> = {
     defaultContent: {
       hero: { title: 'Kahveci, Fırın & Tex-Mex Kantini', subtitle: 'Savannah Starland District’in sıcacık Victorian evinde yer alan Foxy Loxy, taze demlenmiş kahveleri, el yapımı taco ve fırın lezzetleriyle samimi arka bahçemizde sizi bekliyor.', cta_text: 'Mutfağımızı İnceleyin', badge_text: 'Bohem & Sanatçı Dostu Kafe' },
       about: 'Foxy Loxy Cafe, bir kahve dükkanından fazlasıdır. Eklektik ahşap dekorumuz, yerel sanatçıların duvarlarımızı süsleyen eserleri, her Salı canlı akustik müzik konserlerimiz ve Cumartesi günleri bahçede yaktığımız ateş çukurlarımızla mahallenin ortak yaşam odasıyız.',
-      services: mockServices, testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Foxy Loxy' },
+      services: [
+        { title: 'Tex-Mex', description: 'Teksas lezzetlerini mahallenize taşıyoruz. Taco ve çıtır tuzlu çörek (kolache) çeşitlerimizin espresso ile uyumuna inanamayacaksınız!', icon: 'utensils' },
+        { title: 'Fırın / Pastane', description: 'Fırıncılarımız haftanın yedi günü taze çörekler hazırlamak için sabahın ilk ışıklarında işe koyuluyor. Tezgahımıza kayıtsız kalamayacaksınız.', icon: 'cookie' },
+        { title: 'Nitelikli Kahve', description: 'Özenle seçilmiş yerel üreticiler tarafından kavrulan nitelikli çekirdeklerimizi taze olarak sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.', icon: 'coffee' },
+        { title: 'Etkinlikler', description: 'Sadece lezzetli bir kahve değiliz! Duvarlarımızdaki sanat galerilerimiz, canlı müzik konserlerimiz ve ateş çukuru gecelerimizle kültürel bir alanız.', icon: 'flame' }
+      ], testimonials: mockTestimonials, contact: { ...mockContact, company_name: 'Foxy Loxy' },
       images: { 
         hero_bg: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80', 
         about_img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80',

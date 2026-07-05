@@ -212,49 +212,39 @@ export default function FoxyLoxyTemplate({ content, themeConfig, isEditMode, onU
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-            {/* Tex-Mex */}
-            <div className="text-center space-y-4 flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
-                <UtensilsCrossed size={20} />
-              </div>
-              <h3 className="font-lora text-xl font-normal">Tex-Mex</h3>
-              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
-                Teksas lezzetlerini mahallenize taşıyoruz. Taco ve çıtır tuzlu çörek (kolache) çeşitlerimizin espresso ile uyumuna inanamayacaksınız!
-              </p>
-            </div>
+            {content.services?.map((service, index) => {
+              // İkon seçimi
+              let IconComponent = Coffee;
+              if (service.icon === 'utensils') IconComponent = UtensilsCrossed;
+              else if (service.icon === 'cookie') IconComponent = Cookie;
+              else if (service.icon === 'coffee') IconComponent = Coffee;
+              else if (service.icon === 'flame') IconComponent = Flame;
 
-            {/* Bakery */}
-            <div className="text-center space-y-4 flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
-                <Cookie size={20} />
-              </div>
-              <h3 className="font-lora text-xl font-normal">Fırın / Pastane</h3>
-              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
-                Fırıncılarımız haftanın yedi günü taze çörekler hazırlamak için sabahın ilk ışıklarında işe koyuluyor. Tezgahımıza kayıtsız kalamayacaksınız.
-              </p>
-            </div>
-
-            {/* Coffee */}
-            <div className="text-center space-y-4 flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
-                <Coffee size={20} />
-              </div>
-              <h3 className="font-lora text-xl font-normal">Nitelikli Kahve</h3>
-              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
-                Özenle seçilmiş yerel üreticiler tarafından kavrulan nitelikli çekirdeklerimizi taze olarak sunuyoruz. Her bardağın harika bir deneyim olması için çalışıyoruz.
-              </p>
-            </div>
-
-            {/* Events */}
-            <div className="text-center space-y-4 flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
-                <Flame size={20} />
-              </div>
-              <h3 className="font-lora text-xl font-normal">Etkinlikler</h3>
-              <p className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
-                Sadece lezzetli bir kahve değiliz! Duvarlarımızdaki sanat galerilerimiz, canlı müzik konserlerimiz ve ateş çukuru gecelerimizle kültürel bir alanız.
-              </p>
-            </div>
+              return (
+                <div key={index} className="text-center space-y-4 flex flex-col items-center">
+                  <div className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center text-[#222] bg-[#fafafa]">
+                    <IconComponent size={20} />
+                  </div>
+                  <h3 className="font-lora text-xl font-normal text-zinc-800">
+                    <EditableText
+                      content={content}
+                      contentKey={`services.${index}.title`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                    />
+                  </h3>
+                  <div className="font-inter text-xs text-[#666] leading-relaxed max-w-xs">
+                    <EditableText
+                      content={content}
+                      contentKey={`services.${index}.description`}
+                      onUpdate={onUpdateContent}
+                      isEditMode={isEditMode}
+                      multiline
+                    />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
